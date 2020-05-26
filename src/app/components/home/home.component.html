@@ -1,4 +1,13 @@
-  <div class="form-group">
-    <button  class="btn btn-primary" routerLink="/register">Registrar Usuario</button>
+<!-- Hay que agregar boton  de Usuarios con su route e informacion -->
+<h1>Hola {{currentUser.firstName}}!</h1>
+<p>Bienvenido a SICREYD</p>
+<h3>Todos los usuarios registrados:</h3>
+<ul>
+    <li *ngFor="let user of users">
+        {{user.username}} ({{user.firstName}} {{user.lastName}})
+        - <a (click)="deleteUser(user.dni)" class="text-danger">Borrar</a>
+    </li>
+</ul>
+<div class="form-group">
+  <button  class="btn btn-primary" routerLink="/register">Registrar Usuario</button>
 </div>
-

@@ -11,6 +11,7 @@ import { HomeComponent } from './components';
 import { LoginComponent } from './components';
 import { RegisterComponent } from './components';
 import { ErrorInterceptor, JwtInterceptor, fakeBackendProvider } from './_helpers';
+import { AlertComponent } from './components/_alert/alert.component';
 ;
 
 @NgModule({
@@ -18,7 +19,8 @@ import { ErrorInterceptor, JwtInterceptor, fakeBackendProvider } from './_helper
     AppComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
