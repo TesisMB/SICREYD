@@ -1,11 +1,15 @@
 export class User {
+  id: number;
   dni: number;
-  username: string;
-  // role: string;
-  // email: string;
-   // date: Date;
+  phonenumber: string;
+  gender: string;
+  // avalible: boolean;
+  idRole: string;
+  email: string;
   password: string;
+  birthdate: Date;
   firstName: string;
   lastName: string;
   token: string;
+  // creationDate: Date;
 }

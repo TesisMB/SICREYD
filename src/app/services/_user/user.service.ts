@@ -13,8 +13,7 @@ export class UserService {
   register(user: User) {
       return this.http.post(`/users/register`, user);
   }
-
-  delete(dni: number) {
-      return this.http.delete(`/users/${dni}`);
+  delete(id: number) {
+      return this.http.delete(`/users/${id}`);
   }
 }

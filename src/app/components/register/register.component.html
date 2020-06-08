@@ -1,40 +1,35 @@
 <h2>Registro</h2>
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+  <!-- Nombre -->
     <div class="form-group">
         <label for="firstName">Nombre</label>
-        <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"/>
+        <input type="text" formControlName="firstName" placeholder="Nombres" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"/>
         <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
             <div *ngIf="f.firstName.errors.required">*Campo requerido</div>
         </div>
     </div>
+    <!-- Apellido -->
     <div class="form-group">
         <label for="lastName">Apellido</label>
-        <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+        <input type="text" formControlName="lastName" placeholder="Apellidos" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
         <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
             <div *ngIf="f.lastName.errors.required">*Campo requerido</div>
         </div>
     </div>
+    <!-- DNI -->
     <div class="form-group">
-      <label for="username">Usuario</label>
-      <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
-      <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-          <div *ngIf="f.username.errors.required">*Campo requerido</div>
+      <label for="dni">DNI</label>
+      <input type="text"  placeholder="Documento" formControlName="dni" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dni.errors }" />
+      <div *ngIf="submitted && f.dni.errors" class="invalid-feedback">
+          <div *ngIf="f.dni.errors.required">*Campo requerido</div>
       </div>
   </div>
-    <!-- <div class="form-group">
-        <label for="role">Puesto</label>
-        <select type="role" formControlName="role" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.role.errors }" >
-             <option value="coordinadorGeneral">Coordinador General</option>
-            <option value="logistica">Logistica</option>
-            <option value="gerente">Gerente</option>
-            <option value="voluntario">Voluntario</option>
-        <div *ngIf="submitted && f.role.errors" class="invalid-feedback">
-            <div *ngIf="f.role.errors.required">Puesto es requerido</div>
-        </div>
-    </div> -->
+
+  <!-- CONTRASEÑA -->
     <div class="form-group">
         <label for="password">Contraseña</label>
-        <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
+        <input type="password"  placeholder="Contraseña" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
         <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
             <div *ngIf="f.password.errors.required">Contraseña requerida</div>
             <div *ngIf="f.password.errors.minlength">Debe tener minimo 8 caracteres</div>
@@ -42,6 +37,63 @@
 
         </div>
     </div>
+    <!-- **************---------************* -->
+    <!-- **************TELEFONO************* -->
+    <!-- pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" -->
+  <div class="form-group">
+    <label for="phone">Telefono de Contacto</label>
+     <input type="tel" placeholder="(11)(594-4878)" formControlName="phonenumber" class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.phonenumber.errors }" />
+    <div *ngIf="submitted && f.phonenumber.errors" class="invalid-feedback">
+        <div *ngIf="f.phonenumber.errors.required">*Campo requerido</div>
+    </div>
+</div>
+    <!-- **************Genero************* -->
+    <div class="form-group">
+      <label for="gender" >Genero</label><br>
+            <input type="radio" id="male" name="gender" value="masculino" formControlName="gender"/>
+<label for="male">Masculino</label><br>
+<input type="radio" id="female" name="gender" value="femenino" formControlName="gender"/>
+<label for="female">Femenino</label><br>
+<input type="radio" id="other" name="gender" value="otro"formControlName="gender" />
+<label for="other">Otro</label>
+      <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
+          <div *ngIf="f.gender.errors.required">*Campo requerido</div>
+      </div>
+  </div>
+   <!-- **************Email************* -->
+   <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" placeholder="Correo electronico" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+        <div *ngIf="f.email.errors.required">*Campo requerido</div>
+    </div>
+</div>
+   <!-- **************FECHA NACIMIENTO************* -->
+   <div class="form-group">
+    <label for="birthdate">Fecha de Nacimiento</label>
+    <input type="date" formControlName="birthdate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.birthdate.errors }" />
+    <div *ngIf="submitted && f.birthdate.errors" class="invalid-feedback">
+        <div *ngIf="f.birthdate.errors.required">*Campo requerido</div>
+    </div>
+</div>
+  <!-- **************DISPONIBILIDAD************* -->
+  <div class="form-group">
+    <label for="idRole">Puesto / Oficina</label>
+        <select name="idRole" formControlName="idRole" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.idRole.errors }">
+        <option value="">Seleccione el puesto</option>
+        <option value="0">Administrador</option>
+        <option value="1">Secretaria General</option>
+        <option value="2">Secretaria de Emergencias y Desastres</option>
+        <option value="3" >Logistica</option>
+        <option value="4">Voluntario</option>
+      </select>
+      <div *ngIf="submitted && f.idRole.errors" class="invalid-feedback">
+        <div *ngIf="f.idRole.errors.required">*Campo requerido</div>
+  </div>
+</div>
+
+    <!-- BOTONES REGISTRAR Y CANCELAR -->
+
     <div class="form-group">
         <button [disabled]="loading" class="btn btn-primary">
             <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
@@ -49,4 +101,5 @@
         </button>
         <a routerLink="/login" class="btn btn-link">Cancelar</a>
     </div>
+    <!-- **************---------************* -->
 </form>

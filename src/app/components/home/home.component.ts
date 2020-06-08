@@ -23,10 +23,12 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     //Carga todos los usuarios registrados.
       this.loadAllUsers();
+      console.log(this.currentUser);
+
   }
 // Metodo que borra el usuario.
-  deleteUser(dni: number) {
-      this.userService.delete(dni)
+  deleteUser(id: number) {
+      this.userService.delete(id)
           .pipe(first())
           .subscribe(() => this.loadAllUsers());
   }

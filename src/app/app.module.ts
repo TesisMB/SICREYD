@@ -12,7 +12,7 @@ import { LoginComponent } from './components';
 import { RegisterComponent } from './components';
 import { ErrorInterceptor, JwtInterceptor, fakeBackendProvider } from './_helpers';
 import { AlertComponent } from './components/_alert/alert.component';
-;
+import { Register2Component } from './components/register2/register2.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,8 @@ import { AlertComponent } from './components/_alert/alert.component';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    AlertComponent
+    AlertComponent,
+    Register2Component
   ],
   imports: [
     BrowserModule,

@@ -37,26 +37,34 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         // route functions
 
         function authenticate() {
-            const { username, password } = body;
-            const user = users.find(x => x.username === username && x.password === password);
-            if (!user) return error('Contraseña incorrecta');
+            const { dni, password } = body;
+            const user = users.find(x => x.dni === dni && x.password === password);
+             if (!user.password) return error('Contraseña incorrecta');
+          //    if  (!user.dni) return error('DNI incorrecto');
+          //  else
             return ok({
+                id: user.id,
                 dni: user.dni,
-                username: user.username,
                 firstName: user.firstName,
                 lastName: user.lastName,
-                token: 'fake-jwt-token'
+                token: 'fake-jwt-token',
+                phonenumber: user.phonenumber,
+                gender: user.gender,
+                idRole: user.idRole,
+                email: user.email,
+                birthdate: user.birthdate,
+
             })
         }
 
         function register() {
             const user = body
 
-            if (users.find(x => x.username === user.username)) {
-                return error('El usuario "' + user.username + '" ya existe')
+            if (users.find(x => x.dni === user.dni)) {
+                return error('El usuario "' + user.firstName +" "+ user.lastName + '" ya existe')
             }
-
-            user.dni = users.length ? Math.max(...users.map(x => x.dni)) + 1 : 1;
+            /*Crea el ID del usuario*/
+            user.id = users.length ? Math.max(...users.map(x => x.id)) + 1 : 1;
             users.push(user);
             localStorage.setItem('users', JSON.stringify(users));
 
@@ -71,7 +79,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
       function deleteUser() {
           if (!isLoggedIn()) return unauthorized();
 
-          users = users.filter(x => x.dni !== idFromUrl());
+          users = users.filter(x => x.id !== idFromUrl());
           localStorage.setItem('users', JSON.stringify(users));
           return ok();
       }

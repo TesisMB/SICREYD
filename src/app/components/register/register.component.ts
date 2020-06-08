@@ -27,10 +27,16 @@ export class RegisterComponent implements OnInit {
         this.registerForm = this.formBuilder.group({
             firstName: ['', Validators.required],
             lastName: ['', Validators.required],
-            username: ['', Validators.required],
-            // dni:      ['', Validators.required, Validators.maxLength(8)],
-            // email:    ['', Validators.required, Validators.email],
-            password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(16)]]
+            dni:      ['', Validators.required],
+            phonenumber:    ['', Validators.required],
+            gender:    ['', Validators.required],
+            // avalible:    ['', Validators.required],
+            email:    ['', Validators.required],
+            password: ['', Validators.required],
+            birthdate: ['', Validators.required],
+            idRole:    ['', Validators.required]
+
+
         });
     }
 
@@ -43,7 +49,9 @@ export class RegisterComponent implements OnInit {
         //Resetea las alertas
         this.alertService.clear();
         // STOP si el formulario es invalido.
+        //*Falta Mensaje de alerta avisando que no se registro exitosamente. */
         if (this.registerForm.invalid) {
+          console.log("No registró");
             return;
         }
 
