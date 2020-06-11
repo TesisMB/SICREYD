@@ -10,6 +10,7 @@ export class User {
   birthdate: Date;
   firstName: string;
   lastName: string;
+  address: string;
   token: string;
-  // creationDate: Date;
+//  creationDate: Date;
 }

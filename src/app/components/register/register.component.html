@@ -50,11 +50,11 @@
     <!-- **************Genero************* -->
     <div class="form-group">
       <label for="gender" >Genero</label><br>
-            <input type="radio" id="male" name="gender" value="masculino" formControlName="gender"/>
+            <input type="radio" id="M" name="gender" value="masculino" formControlName="gender"/>
 <label for="male">Masculino</label><br>
-<input type="radio" id="female" name="gender" value="femenino" formControlName="gender"/>
+<input type="radio" id="F" name="gender" value="femenino" formControlName="gender"/>
 <label for="female">Femenino</label><br>
-<input type="radio" id="other" name="gender" value="otro"formControlName="gender" />
+<input type="radio" id="O" name="gender" value="otro"formControlName="gender" />
 <label for="other">Otro</label>
       <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
           <div *ngIf="f.gender.errors.required">*Campo requerido</div>
@@ -76,16 +76,16 @@
         <div *ngIf="f.birthdate.errors.required">*Campo requerido</div>
     </div>
 </div>
-  <!-- **************DISPONIBILIDAD************* -->
+  <!-- **************ROLE************* -->
   <div class="form-group">
     <label for="idRole">Puesto / Oficina</label>
         <select name="idRole" formControlName="idRole" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.idRole.errors }">
         <option value="">Seleccione el puesto</option>
         <option value="0">Administrador</option>
-        <option value="1">Secretaria General</option>
-        <option value="2">Secretaria de Emergencias y Desastres</option>
+        <option value="1">Coordinador General</option>
+        <option value="2">Coordinador de Emergencias y Desastres</option>
         <option value="3" >Logistica</option>
-        <option value="4">Voluntario</option>
+        <!-- <option value="4">Voluntario</option> -->
       </select>
       <div *ngIf="submitted && f.idRole.errors" class="invalid-feedback">
         <div *ngIf="f.idRole.errors.required">*Campo requerido</div>
