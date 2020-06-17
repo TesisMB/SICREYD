@@ -1,11 +1,16 @@
 <!-- Hay que agregar boton  de Usuarios con su route e informacion -->
-<h1>Hola {{currentUser.lastName}}!</h1>
+<h1>Hola {{currentUser.userFistname}} {{currentUser.userLastname}}!</h1>
 <p>Bienvenido a SICREYD</p>
 <h3>Todos los usuarios registrados:</h3>
 <ul>
     <li *ngFor="let user of users">
-      {{user.id}} {{user.dni}} ({{user.firstName}} {{user.lastName}})
-        - <a (click)="deleteUser(user.id)" class="text-danger">Borrar</a>
+    <div>  <strong> {{user.fullName}} </strong> - <a (click)="deleteUser(user.userID)" class="text-danger">Borrar</a>
+      <br>
+      <p>UserID: {{user.userID}} </p>
+      <p>DNI: {{user.userDni}} </p>
+     <p>Role: {{user.roleName}}</p>
+
+      </div>
     </li>
 </ul>
 <div class="form-group">

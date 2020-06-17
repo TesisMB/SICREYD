@@ -1,17 +1,21 @@
+import { environment } from './../../../environments/environment';
+import { DataService } from './../data.service';
 import { User } from '../../models/user';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+
 @Injectable({
   providedIn: 'root'
 })
-export class AuthenticationService {
+export class AuthenticationService  {
   private currentUserSubject: BehaviorSubject<any>;
   public currentUser: Observable<any>;
 
   constructor(private http: HttpClient) {
+
       this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
       this.currentUser = this.currentUserSubject.asObservable();
   }
@@ -20,8 +24,8 @@ export class AuthenticationService {
       return this.currentUserSubject.value;
   }
 
-  login(dni:string, password:string) {
-      return this.http.post<any>(`/users/authenticate`, { dni, password })
+  login(UserDni:string, UserPassword:string) {
+      return this.http.post<any>(environment.URL+'/login', { UserDni, UserPassword })
           .pipe(map(user => {
             // login successful if there's a jwt token in the response
             if (user && user.token) {

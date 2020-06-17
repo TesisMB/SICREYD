@@ -1,18 +1,18 @@
 <h2>Ingreso</h2>
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-        <label for="dni">Documento</label>
-        <input type="text" formControlName="dni" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dni.errors }">
-        <div *ngIf="submitted && f.dni.errors" class="invalid-feedback">
-            <div *ngIf="f.dni.errors.required">*Campo obligatorio</div>
+        <label for="UserDni">Documento</label>
+        <input type="text" formControlName="UserDni" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.UserDni.errors }">
+        <div *ngIf="submitted && f.UserDni.errors" class="invalid-feedback">
+            <div *ngIf="f.UserDni.errors.required">*Campo obligatorio</div>
 
         </div>
     </div>
     <div class="form-group">
-        <label for="password">Contraseña</label>
-        <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-            <div *ngIf="f.password.errors.required">*Campo obligatorio</div>
+        <label for="UserPassword">Contraseña</label>
+        <input type="password" formControlName="UserPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.UserPassword.errors }" />
+        <div *ngIf="submitted && f.UserPassword.errors" class="invalid-feedback">
+            <div *ngIf="f.UserPassword.errors.required">*Campo obligatorio</div>
         </div>
     </div>
     <div class="form-group">
@@ -20,6 +20,6 @@
             <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
             Ingresar
         </button>
-        <!-- <a routerLink="/register" class="btn btn-link">Register</a> -->
+        <a routerLink="/register" class="btn btn-link">Register</a>
     </div>
 </form>

@@ -31,8 +31,8 @@ export class LoginComponent implements OnInit {
 
     ngOnInit() {
         this.loginForm = this.formBuilder.group({
-            dni: ['', Validators.required],
-            password: ['', Validators.required]
+            UserDni: ['', Validators.required],
+            UserPassword: ['', Validators.required]
         });
 
         // get return url from route parameters or default to '/'
@@ -53,13 +53,14 @@ export class LoginComponent implements OnInit {
         }
 
         this.loading = true;
-        this.authenticationService.login(this.f.dni.value, this.f.password.value)
+        this.authenticationService.login(this.f.UserDni.value, this.f.UserPassword.value)
             .pipe(first())
             .subscribe(
                 data => {
                     this.router.navigate([this.returnUrl]);
                 },
                 error => {
+                  console.log(error);
                   this.alertService.error(error);
                   this.loading = false;
                 });
