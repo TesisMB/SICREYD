@@ -1,16 +1,18 @@
+
 export class User {
-  id: number;
-  dni: number;
-  phonenumber: string;
-  gender: string;
+  UserID: number;
+  UserDni: number;
+  UserPhone: string;
+  UserGender: string;
   // avalible: boolean;
-  idRole: string;
-  email: string;
-  password: string;
-  birthdate: Date;
-  firstName: string;
-  lastName: string;
-  address: string;
+  UserEmail: string;
+  UserPassword: string;
+  UserFirstname: string;
+  UserLastname: string;
+  UserAddress: string;
   token: string;
-//  creationDate: Date;
+  UserCreationDate: Date;
+  UserAvatar: any;
+  UserBirthdate: Date;
+
 }

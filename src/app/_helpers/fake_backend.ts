@@ -5,6 +5,8 @@ import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
 
 // array in local storage for registered users
 let users = JSON.parse(localStorage.getItem('users')) || [];
+let date = new Date();
+
 
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
@@ -39,9 +41,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         function authenticate() {
             const { dni, password } = body;
             const user = users.find(x => x.dni === dni && x.password === password);
-             if (!user.password) return error('Contraseña incorrecta');
-          //    if  (!user.dni) return error('DNI incorrecto');
-          //  else
+             if (!user) return error('Datos incorrectos');
+            user.creationdate = date.toLocaleDateString();
             return ok({
                 id: user.id,
                 dni: user.dni,
@@ -50,9 +51,12 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 token: 'fake-jwt-token',
                 phonenumber: user.phonenumber,
                 gender: user.gender,
+                address: user.address,
                 idRole: user.idRole,
                 email: user.email,
                 birthdate: user.birthdate,
+                creationdate: user.creationdate,
+                avatar: user.avatar
 
             })
         }

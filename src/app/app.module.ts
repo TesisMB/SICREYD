@@ -34,7 +34,7 @@ import { Register2Component } from './components/register2/register2.component';
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
                         // provider usado para el falso backend
-    fakeBackendProvider,
+
 ],
   bootstrap: [AppComponent]
 })

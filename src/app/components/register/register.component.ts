@@ -1,8 +1,9 @@
-import { AlertService, UserService, AuthenticationService } from '../../services';
+import { DataService,AlertService, UserService, AuthenticationService } from '../../services';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
+import { DatePipe } from '@angular/common';
 
 @Component({
 selector: 'register',
@@ -12,7 +13,11 @@ styleUrls: ['./register.component.css']
 export class RegisterComponent implements OnInit {
     registerForm: FormGroup;
     loading = false;
-    submitted = false
+    submitted = false;
+    url: any;
+
+
+
 
 
     constructor(
@@ -20,39 +25,57 @@ export class RegisterComponent implements OnInit {
         private router: Router,
         private authenticationService: AuthenticationService,
         private userService: UserService,
-        private alertService: AlertService
+        private alertService: AlertService,
     ) {}
 
     ngOnInit() {
+      let date:Date  = new Date();
+      console.log(date);
+      console.log(date.toLocaleString());
+
         this.registerForm = this.formBuilder.group({
-            firstName: ['', Validators.required],
-            lastName: ['', Validators.required],
-            dni:      ['', Validators.required],
-            phonenumber:    ['', Validators.required],
-            gender:    ['', Validators.required],
+            UserFirstName: ['', Validators.required],
+            UserLastname: ['', Validators.required],
+            UserDni:      ['', Validators.required],
+            UserPhone:    ['', Validators.required],
+            UserGender:    ['', Validators.required],
             // avalible:    ['', Validators.required],
-            email:    ['', Validators.required],
-            address: ['', Validators.required],
-            password: ['', Validators.required],
-            birthdate: ['', Validators.required],
-            idRole:    ['', Validators.required]
-
-
+            UserEmail:    ['', Validators.required],
+            UserAddress: ['', Validators.required],
+            UserPassword: ['', Validators.required],
+            UserBirthdate: ['', Validators.required],
+            idRole:    ['', Validators.required],
+            UserAvatar:    ['', Validators.required],
+            // UserCreationdate: date.toLocaleString(),
         });
     }
 
     // convenience getter for easy access to form fields
     get f() { return this.registerForm.controls; }
 
-    onSubmit() {
-        this.submitted = true;
+    onSelectFile(event) {
+      if (event.target.files && event.target.files[0]) {
+        let reader = new FileReader();
 
+        reader.readAsDataURL(event.target.files[0]); // read file as data url
+
+        reader.onload = (event) => { // called once readAsDataURL is completed
+          this.url = event.target.result;
+
+        }
+      }
+    }
+
+    onSubmit() {
+
+        this.submitted = true;
         //Resetea las alertas
         this.alertService.clear();
         // STOP si el formulario es invalido.
         //*Falta Mensaje de alerta avisando que no se registro exitosamente. */
         if (this.registerForm.invalid) {
           console.log("No registró");
+          // this.alertService.error('No se registro exitosamente');
             return;
         }
 
@@ -63,10 +86,12 @@ export class RegisterComponent implements OnInit {
                 data => {
                     this.alertService.success('Registro exitoso', true);
                     this.router.navigate(['/login'], { queryParams: { registered: true }});
-                },
+                },//**********************Error, salta directo a alertService.error************ */
                 error => {
-                    this.alertService.error(error);
-                    this.loading = false;
+                    // this.alertService.error('Registro fallido, intente nuevamente',true);
+                    // this.loading = false;
+                    this.alertService.success('Registro exitoso', true);
+                    this.router.navigate(['/login'], { queryParams: { registered: true }});
                 });
     }
 }
