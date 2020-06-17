@@ -34,18 +34,18 @@ export class RegisterComponent implements OnInit {
       console.log(date.toLocaleString());
 
         this.registerForm = this.formBuilder.group({
-            UserFirstName: ['', Validators.required],
-            UserLastname: ['', Validators.required],
-            UserDni:      ['', Validators.required],
-            UserPhone:    ['', Validators.required],
-            UserGender:    ['', Validators.required],
+            userFirstName: ['', Validators.required],
+            userLastname: ['', Validators.required],
+            userDni:      ['', Validators.required],
+            userPhone:    ['', Validators.required],
+            userGender:    ['', Validators.required],
             // avalible:    ['', Validators.required],
-            UserEmail:    ['', Validators.required],
-            UserAddress: ['', Validators.required],
-            UserPassword: ['', Validators.required],
-            UserBirthdate: ['', Validators.required],
-            idRole:    ['', Validators.required],
-            UserAvatar:    ['', Validators.required],
+            userEmail:    ['', Validators.required],
+            userAddress: ['', Validators.required],
+            userPassword: ['', Validators.required],
+            userBirthdate: ['', Validators.required],
+            roleID:    ['', Validators.required],
+            userAvatar:    ['', Validators.required],
             // UserCreationdate: date.toLocaleString(),
         });
     }
@@ -88,10 +88,10 @@ export class RegisterComponent implements OnInit {
                     this.router.navigate(['/login'], { queryParams: { registered: true }});
                 },//**********************Error, salta directo a alertService.error************ */
                 error => {
-                    // this.alertService.error('Registro fallido, intente nuevamente',true);
-                    // this.loading = false;
-                    this.alertService.success('Registro exitoso', true);
-                    this.router.navigate(['/login'], { queryParams: { registered: true }});
+                    this.alertService.error('Registro fallido, intente nuevamente',true);
+                    this.loading = false;
+                    // this.alertService.success('Registro exitoso', true);
+                    // this.router.navigate(['/login'], { queryParams: { registered: true }});
                 });
     }
 }
