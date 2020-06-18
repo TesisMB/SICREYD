@@ -98,8 +98,8 @@
 </div>
   <!-- **************ROLE************* -->
   <div class="form-group">
-    <label for="RoleID">Puesto / Oficina</label>
-        <select name="RoleID" formControlName="RoleID" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.RoleID.errors }">
+    <label for="roleID">Puesto / Oficina</label>
+        <select name="roleID" formControlName="roleID" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.roleID.errors }">
         <option value="">Seleccione el puesto</option>
         <option value="1">Administrador</option>
         <option value="2">Coordinador General</option>
@@ -107,8 +107,8 @@
         <option value="4" >Logistica</option>
         <!-- <option value="4">Voluntario</option> -->
       </select>
-      <div *ngIf="submitted && f.RoleID.errors" class="invalid-feedback">
-        <div *ngIf="f.RoleID.errors.required">*Campo requerido</div>
+      <div *ngIf="submitted && f.roleID.errors" class="invalid-feedback">
+        <div *ngIf="f.roleID.errors.required">*Campo requerido</div>
   </div>
 </div>
 
