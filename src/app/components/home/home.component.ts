@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
 
-import { DataService, UserService ,AuthenticationService } from './../../services';
+import { User } from './../../models/user';
+import { UserService ,AuthenticationService } from './../../services';
 
 @Component({
   selector: 'home',
@@ -12,12 +13,16 @@ export class HomeComponent implements OnInit {
   currentUser: any = [];
   users: any = [];
 
+  // a modo de prueba...
+  user: User;
+
   constructor(
       private authenticationService: AuthenticationService,
       private userService: UserService
   ) {
     //Autentifica que el usuario este conectado y registrado, para acceder a la pantalla Home
       this.currentUser = this.authenticationService.currentUserValue;
+      this.user = this.currentUser;
   }
 
   ngOnInit() {

@@ -8,20 +8,36 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components';
-import { LoginComponent } from './components';
-import { RegisterComponent } from './components';
+// import { LoginComponent } from './account';
+// import { RegisterComponent } from './account';
 import { ErrorInterceptor, JwtInterceptor} from './_helpers';
 import { AlertComponent } from './components/_alert/alert.component';
-import { Register2Component } from './components/register2/register2.component';
+// import { Register2Component } from './components/register2/register2.component';
+import { NavbarComponent } from './components';
+import { FooterComponent } from './components';
+import { CarouselComponent } from './components';
+import { ClientHomeComponent } from './components/client/client-home/client-home.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+// import { AddEditComponent } from './users/add-edit/add-edit.component';
+// import { LayoutComponent } from './users/layout/layout.component';
+// import { ListComponent } from './users/list/list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent,
-    RegisterComponent,
+    // LoginComponent,
+    // RegisterComponent,
     AlertComponent,
-    Register2Component
+    // Register2Component,
+    NavbarComponent,
+    FooterComponent,
+    CarouselComponent,
+    ClientHomeComponent,
+    NotFoundComponent,
+    // AddEditComponent,
+    // LayoutComponent,
+    // ListComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +49,6 @@ import { Register2Component } from './components/register2/register2.component';
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-                        // provider usado para el falso backend
 
 ],
   bootstrap: [AppComponent]

@@ -9,18 +9,11 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class LoginService extends DataService {
-  private currentUserSubject: BehaviorSubject<any>;
-  public currentUser: Observable<any>;
 
   constructor(http: HttpClient) {
     super(http, '/login');
 
-    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
-    this.currentUser = this.currentUserSubject.asObservable();
   }
-  public get currentUserValue(): User {
-    return this.currentUserSubject.value;
 
-}
 
 }

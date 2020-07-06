@@ -1,0 +1,47 @@
+<h1 *ngIf="isAddMode">Agregar Usuario</h1>
+<h1 *ngIf="!isAddMode">Editar Usuario</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-row">
+        <div class="form-group col">
+            <label for="firstName">Nombre</label>
+            <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                <div *ngIf="f.firstName.errors.required">El nombre es requerido</div>
+            </div>
+        </div>
+        <div class="form-group col">
+            <label for="lastName">Apellido</label>
+            <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+            <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                <div *ngIf="f.lastName.errors.required">El apellido es requerido</div>
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col">
+            <label for="dni">dni</label>
+            <input type="text" formControlName="dni" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dni.errors }" />
+            <div *ngIf="submitted && f.dni.errors" class="invalid-feedback">
+                <div *ngIf="f.dni.errors.required">dni es requerido</div>
+            </div>
+        </div>
+        <div class="form-group col">
+            <label for="password">
+                Contraseña
+                <em *ngIf="!isAddMode">(Dejar en blanco para no cambiar contraseña)</em>
+            </label>
+            <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">Contraseña requerida</div>
+                <div *ngIf="f.password.errors.minlength">Debe tener minimo 6 caracteres</div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Guardar
+        </button>
+        <a routerLink="/users" class="btn btn-link">Cancelar</a>
+    </div>
+</form>

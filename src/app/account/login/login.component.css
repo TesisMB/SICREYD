@@ -1,0 +1,20 @@
+.form-control.ng-touched.ng-invalid{
+  border: 2px solid red;
+}
+
+button{
+  float: right;
+  right: 0px;
+  margin: 10px;
+  margin-right: 0px;
+}
+
+
+.center{
+  margin-top: 20px;
+  left: 0px;
+}
+label{
+  margin-bottom: 0px;
+  font-size: 14px;
+}

@@ -1,0 +1,29 @@
+.footer{
+  margin-top:1%;
+  padding-top:1.5%;
+  padding-bottom: 1%;
+  padding-left:5%;
+  padding-right: 5%;
+  width: 100%;
+  background-color: #bd2d2d;
+  color: white;
+  text-align: center;
+  margin-bottom: 0;
+
+  }
+  a{
+    color:white;
+  }
+  .fab, .fas {
+      float:left;
+      font-weight: 400;
+      font-size: 1.5rem;
+      text-align: left;
+      display: inline-block;
+      padding-right: 6%;
+      font-style: normal;
+
+  }
+  .phone,.copyright{
+    margin-bottom: 0px;
+  }

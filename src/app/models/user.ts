@@ -15,5 +15,5 @@ export class User {
   userAvatar: any;
   userBirthdate: Date;
   roleID: number;
-  roleName: Role;
+  roleName?: Role;
 }

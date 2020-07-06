@@ -1,4 +1,8 @@
-<!-- Hay que agregar boton  de Usuarios con su route e informacion -->
+<!-- <div class="jumbotron">
+  <div class="main-container">
+    <div class="row">
+     <div class="col-sm-8 offset-sm-2">
+*********Hay que agregar boton  de Usuarios con su route e informacion*********
 <h1>Hola {{currentUser.userFistname}} {{currentUser.userLastname}}!</h1>
 <p>Bienvenido a SICREYD</p>
 <h3>Todos los usuarios registrados:</h3>
@@ -15,4 +19,16 @@
 </ul>
 <div class="form-group">
   <button  class="btn btn-primary" routerLink="/register">Registrar Usuario</button>
+</div>
+     </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="p-4">
+  <div class="container">
+      <h1>Hola {{currentUser.userFistname}} {{currentUser.userLastname}}!</h1>
+      <p>Bienvenido a SICREYD</p>
+      <p><a routerLink="/users">Administracion de usuarios</a></p>
+  </div>
 </div>

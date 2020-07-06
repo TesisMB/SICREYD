@@ -1,0 +1,22 @@
+
+.not-found{
+  background-color:#e3ecf1;
+
+}
+
+.title-not-found{
+  font-size: 5rem;
+  color: #2E2F57;
+  /*font-weight: 600;*/
+}
+
+
+
+.row{
+  width: 100%;
+  height: auto;
+  padding-top:10%;
+  padding-bottom: 10%;
+  padding-left:5%;
+  padding-right: 5%;
+}

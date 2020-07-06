@@ -3,35 +3,12 @@
 <svg id="rocket-smoke" alt="Rocket Ship Smoke" xmlns="http://www.w3.org/2000/svg" width="516.119" height="1083.632" viewBox="0 0 516.119 1083.632">
   <path id="Path_40" data-name="Path 40" d="M644.6,141S143.02,215.537,147.049,870.207s342.774,201.755,342.774,201.755S404.659,847.213,388.815,762.2c-27.116-145.51-11.551-384.124,271.9-609.1C671.15,139.365,644.6,141,644.6,141Z" transform="translate(-147.025 -140.939)" fill="#f5f5f5"/>
 </svg> -->
-<div>
+<!-- <div> -->
 <!-- nav -->
-<nav class= "navbar navbar-light"  style = "background-color: #B22222" >
-  <a class="navbar-brand" routerLink="/">
-    <img id="logo" src="https://i.pinimg.com/originals/e9/06/55/e906554d168be2c22fde6118f28af101.png" class="d-inline-block align-top" >
-    Cruz Roja Cordoba</a>
-  <a class="navbar-brand" id= "title" >Sistema de Gestion y Control de Emergencias y Desastres</a>
-  <button class="navbar-toggler" *ngIf="currentUser"  style="background-color:white" type="button"  data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon "></span>
-  </button>
-  <div class="collapse navbar-collapse"  id="navbarText">
-    <span class="navbar-text">Bienvenido a SICREYD</span>
-    <ul class="navbar-nav mr-auto" >
-      <li class="nav-item active">
-        <a class="nav-link" routerLink="/">Home </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/register">Register</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/login">Login</a>
-      </li>
-        <a class="nav-link" (click)="logout()">Cerrar Sesion</a>
-    </ul>
-  </div>
-</nav>
+<!-- <navbar></navbar> -->
 
 <!-- main content container -->
-<div class="jumbotron">
+<!-- <div class="jumbotron">
   <div class="container" >
       <div class="row">
           <div class="col-sm-8 offset-sm-2">
@@ -41,4 +18,12 @@
       </div>
   </div>
 </div>
+</div> -->
+
+<navbar></navbar>
+<div class="pages">
+  <alert></alert>
+  <router-outlet></router-outlet>
 </div>
+
+<app-footer></app-footer>
