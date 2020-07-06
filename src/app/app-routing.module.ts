@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 //  --- Componentes importados a routear ---
 import { RegisterComponent } from './components';
@@ -6,6 +6,7 @@ import { LoginComponent } from './components/login';
 import { HomeComponent } from './components/home';
 import { AuthGuard } from './_helpers';
 import { Register2Component } from './components/register2/register2.component';
+import { ListComponent } from './components/list/list.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
   {path: 'register2', component: Register2Component},
+  {path: 'list', component: ListComponent},
+
+
   // Si se ingresa a una direccion inexistente, redirecciona a Home
   {path:'**', redirectTo: ''}
 ];

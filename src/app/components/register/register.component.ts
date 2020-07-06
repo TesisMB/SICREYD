@@ -17,9 +17,6 @@ export class RegisterComponent implements OnInit {
     url: any;
 
 
-
-
-
     constructor(
         private formBuilder: FormBuilder,
         private router: Router,

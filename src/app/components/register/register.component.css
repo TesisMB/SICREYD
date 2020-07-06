@@ -1,42 +1,209 @@
-p {
-  font-family: Lato;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.image-container {
+.imagen img{
+  position: static;
+  left:10px;
+margin-top: 3px;
+margin-left: 2px;
+}
+
+header  {
+  width: 100%;
+  height: 57px;
+  position: absolute;
+  top:1px;
+  left:0px;
+  background-color: white ;
+  box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.51);
+}
+
+/*Cuerpo de la pagina */
+body{
   position: relative;
-  display: inline-block;
-  text-align: center;
+  height: 800px;
+  width: 100%;
+  font-family: 'Questrial', sans-serif;
+  background-color:  #e9ecef;;
+  display:flex;
+  flex-direction: column;
+  padding: 90px 340px ;
 }
 
-img {
-  height: 200px;
-  width: 200px;
-  border: 5px solid #000;
+/*titulo Detalles del Usuario */
+.Details-User{
+  font-family: 'Questrial', sans-serif;
+  position: absolute;
+  top: 100px;
+  color: black;
+  margin-bottom: 5px;
+  right: 897px;
+}
+
+
+/*titulo Detalles de la Cuenta */
+.Details-Account{
+ font-family: 'Questrial', sans-serif;
+  position: absolute;
+  top: 100px;
+  left: 839px;
+  color: black;
+  margin-bottom: 5px;
+}
+
+/*fomuularIO */
+form{
+  width: 300px;
+  position: relative;
+  top:80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/*Div del Documento */
+.User-Dni{
+position: relative;
+top: -506px;
+left: 500px ;
+width: 300px;
+}
+
+.User-Gender{
+  margin-bottom: 15px;
+  position: relative;
+  left:10px;
+}
+
+.User-LastName, .User-Phone, .User-FirstName, .User-Address, .User-Email, .User-Birthdate{
+  position: relative;
+  top: -10px;
+  padding: 16px 0px;
+  left: 10px;
+}
+
+.Role-Name{
+  position: relative;
+  top: -10px;
+  padding: 16px 0px;
+  left: 10px;
+}
+
+
+input[type="text"] ,input[type="date"]{
+  width: 300px;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #435160;
+  outline: none;
+  color: #6D7781;
+  font-size: 16px;
+}
+
+input[type="password"]{
+  width: 300px;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #435160;
+  outline: none;
+  color: #6D7781;
+  font-size: 16px;
+  position: absolute;
+  top: 88px;
+  left: 500px;
+}
+
+
+/* */
+.submit{
+ position:absolute;
+ top:580px;
+ left:10px;
+}
+
+input[type="submit"] { /* boton */
+  background: #9ea0a3;
+  border: 0px solid transparent;
+  width: 350px;
+  height: 40px;
+  border-radius: 3px;
+  color: white;
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  position:absolute;
+  top:530px;
+  left:10px;
+box-shadow: 0px 1px 9px 0px rgba(0, 0, 0, 0.50);
+
+}
+
+
+
+
+/* boton */
+input[type="submit"]:hover {
+  background: #b71c1c;
+
+}
+
+/*letras del registro*/
+
+::-webkit-input-placeholder {
+  color: #435160;
+  font-size: 16px;
+}
+
+
+.hoverable  img{
+  border-radius: 50%;
+  height: 140px;
+  width: 140px;
+  position: absolute;
+  top:0px;
+  left:0px;
+}
+
+.hoverable{
+  position: absolute;
+  top:-60px;
+  left:-250px;
+  display: block;
+  cursor: pointer;
+  height: 140px;
+  width: 140px;
+  border: transparent;
   border-radius: 50%;
 }
-
-.select-profile-picture {
+.hoverable .hover-text{
   position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 999;
-  opacity: 0;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-}
-
-.message {
-  position: absolute;
-  width: 90%;
+  display: none;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, 100%);
-  transition: all 1s;
-  opacity: 0;
+  left:  50%;
+  transform: translate(-50%,-50%);
+  z-index: 2;
+}
+.hoverable .background{
+  position: absolute;
+  display: none;
+  top: 0;
+  left:  0;
+  bottom: 0;
+  right: 0;
+  background-color:rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+  border-radius: 50%;
+  z-index: 1;
 }
 
-.image-container:hover .message {
-  transform: translate(-50%, -50%);
-  opacity: 1;
+.hoverable:hover .background{
+  display: block;
 }
+
+#fileInput{
+  display: none;
+}
+

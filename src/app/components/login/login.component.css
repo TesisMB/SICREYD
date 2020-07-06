@@ -1,0 +1,124 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  padding-top: 3px;
+  padding-left: 2px;
+}
+
+nav {
+  background: white;
+  width: 100vw;
+  height: 57px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.51);
+}
+
+h1,
+h2 {
+  align-self: center;
+  color: white;
+  margin-bottom: 30px;
+}
+
+body {
+  height: 100vh;
+  font-family: sans-serif;
+  background-color: #e9ecef;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  /*todo lo que se encuentra dentro del login */
+  width: 300px;
+  height: 400px;
+  position: relative;
+  background-color: #b71c1c;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 15px;
+  padding: 0px 15px 0px 15px;
+  box-shadow: 0px 25px 36px 12px rgba(0, 0, 0, 0.51); /*sombra del login */
+}
+
+.material-icons {
+  /* Icono usado para poder visualizar la contraseña */
+  position: absolute;
+  top: 250px;
+  right: 14px;
+  color: white;
+}
+
+form input {
+  /*contraseña y el Dni */
+  width: 100%;
+  height: 50px;
+  padding-top: 20px;
+  color: white;
+  border: none;
+  background-color: #b71c1c;
+  border-bottom: 2px solid white;
+  outline: none;
+}
+
+form label {
+  transform: translateY(-50px);
+  pointer-events: none;
+}
+
+.contentDni,
+.contentPassword {
+  position: absolute;
+  top: 25px;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+form input:focus + .labelDni .contentDni,
+form input:valid + .labelDni .contentDni {
+  transform: translateY(-100%);
+  font-size: 14px;
+  color: rgb(20, 20, 20);
+}
+
+form input:focus + .labelPassword .contentPassword,
+form input:valid + .labelPassword .contentPassword {
+  transform: translateY(-100%);
+  font-size: 14px;
+  color: rgb(20, 20, 20);
+}
+
+button {
+  background-color: white;
+  color: rgb(20, 20, 20);
+  width: 130px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  align-self: center;
+  margin-top: 30px;
+  justify-content: center;
+  font-size: 16px;
+  text-align: center;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding-top: 10px;
+}
+
+button:hover {
+  transform: translateY(10px);
+}

@@ -1,25 +1,55 @@
-<h2>Ingreso</h2>
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-        <label for="userDni">Documento</label>
-        <input type="text" formControlName="userDni" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.userDni.errors }">
-        <div *ngIf="submitted && f.userDni.errors" class="invalid-feedback">
-            <div *ngIf="f.userDni.errors.required">*Campo obligatorio</div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.component.css">
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+  </head>
 
+  <body>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+      <h1 class= "Title-1">Acceder</h1>
+      <h2 class="Subtitle-1">Ir a SICREYD</h2>
+
+     <!------------------------------------DNI------------------------------------>
+
+      <input type="text" formControlName="userDni" autocomplete="off" required [ngClass]="{ 'is-invalid': submitted && f.userDni.errors }">
+      <label for="userDni" class="labelDni">
+       <span class="contentDni">Documento</span></label>
+
+
+        <div *ngIf="submitted && f.userDni.errors" class="invalid-feedback">
+          <div *ngIf="f.userDni.errors.required">*Campo obligatorio</div>
         </div>
-    </div>
-    <div class="form-group">
-        <label for="userPassword">Contraseña</label>
-        <input type="password" formControlName="userPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.userPassword.errors }" />
-        <div *ngIf="submitted && f.userPassword.errors" class="invalid-feedback">
-            <div *ngIf="f.userPassword.errors.required">*Campo obligatorio</div>
+
+        <!------------------------------------Password------------------------------------>
+
+        <!-- Añadir un icono de un ojo que permita poder visualizar la contraseña-->
+        <input   type="password" [type]="hide ? 'password':'text'" formControlName="userPassword" required  [ngClass]="{ 'is-invalid': submitted && f.userPassword.errors }">
+
+        <label for="userPassword" class="labelPassword">
+          <span class="contentPassword">Contraseña</span></label>
+
+        <!-- Añadir un icono de un ojo que permita poder visualizar la contraseña-->
+          <span class="material-icons"matsuffix (click)="hide = !hide" >
+            {{hide ? 'visibility':'visibility_off'}}</span>
+
+
+
+          <div *ngIf="submitted && f.userPassword.errors" class="invalid-feedback">
+          <div *ngIf="f.userPassword.errors.required">*Campo obligatorio</div>
         </div>
-    </div>
-    <div class="form-group">
-        <button [disabled]="loading" class="btn btn-primary">
-            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-            Ingresar
-        </button>
-        <a routerLink="/register" class="btn btn-link">Register</a>
-    </div>
-</form>
+
+
+          <button [disabled]="loading" class="btn">
+            <span *ngIf="loading" ></span> Ingresar
+          </button>
+ </form>
+
+
+  </body>
+
+</html>
