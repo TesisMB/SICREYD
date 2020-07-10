@@ -29,6 +29,7 @@ export class HomeComponent implements OnInit {
     //Carga todos los usuarios registrados.
       this.loadAllUsers();
       console.log(this.currentUser);
+      console.log(this.user);
 
   }
 // Metodo que borra el usuario.

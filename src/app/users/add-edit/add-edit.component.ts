@@ -28,7 +28,7 @@ export class AddEditComponent implements OnInit {
       this.id = this.route.snapshot.params['id'];
       this.isAddMode = !this.id;
 
-      // password not required in edit mode
+      // La contraseña no es requerida en el modo Editar
       const passwordValidators = [Validators.minLength(6)];
       if (this.isAddMode) {
           passwordValidators.push(Validators.required);

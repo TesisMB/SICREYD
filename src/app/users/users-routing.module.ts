@@ -1,3 +1,4 @@
+import { RegisterComponent } from './../account/register/register.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -10,11 +11,13 @@ const routes: Routes = [
         path: '', component: LayoutComponent,
         children: [
             { path: '', component: ListComponent },
-            { path: 'add', component: AddEditComponent },
-            { path: 'edit/:id', component: AddEditComponent }
-        ]
-    }
-];
+            // {path: 'add', component: AddResourceComponent },
+            {path: 'register', component: RegisterComponent},
+
+            { path: 'edit/:id', component: AddEditComponent },
+          ]
+        }
+    ];
 
 @NgModule({
     imports: [RouterModule.forChild(routes)],

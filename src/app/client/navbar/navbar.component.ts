@@ -1,5 +1,5 @@
-import { User } from './../../../models/user';
-import { AuthenticationService } from './../../../services/_authentication/authentication.service';
+import { User } from '../../models/user';
+import { AuthenticationService } from './../../services/_authentication/authentication.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { nextTick } from 'process';
@@ -41,8 +41,7 @@ export class NavbarComponent implements OnInit {
 
     if(this.userSelected.selected=='LOGOUT'){
       this.router.navigate(['login']);
-
-   if (this.currentUser){
+   if (this.currentUser != null){
       this.pages=[{page:'home',name:'Inicio'},{page:'users',name:'Usuarios'}];
       this.userSelected={selected:'SICREYD', notSelected:'LOGOUT'};
       this.client=false;

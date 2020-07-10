@@ -22,6 +22,7 @@
         <input type="text" formControlName="userFirstName" placeholder="Nombres" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.userFirstName.errors }"/>
         <div *ngIf="submitted && f.userFirstName.errors" class="invalid-feedback">
             <div *ngIf="f.userFirstName.errors.required">*Campo requerido</div>
+            <div *ngIf="f.userFirstName.errors.name">*Ingrese su primer nombre</div>
         </div>
     </div>
     <!-- Apellido -->
@@ -30,6 +31,7 @@
         <input type="text" formControlName="userLastname" placeholder="Apellidos" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.userLastname.errors }" />
         <div *ngIf="submitted && f.userLastname.errors" class="invalid-feedback">
             <div *ngIf="f.userLastname.errors.required">*Campo requerido</div>
+            <div *ngIf="f.userFirstName.errors.name">*Ingrese su apellido</div>
         </div>
     </div>
     <!-- userDni -->
@@ -38,6 +40,7 @@
       <input type="text"  placeholder="Documento" formControlName="userDni" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.userDni.errors }" />
       <div *ngIf="submitted && f.userDni.errors" class="invalid-feedback">
           <div *ngIf="f.userDni.errors.required">*Campo requerido</div>
+          <div *ngIf="f.userFirstName.errors.maxlength">Debe tener minimo 8 caracteres</div>
       </div>
   </div>
 
@@ -60,6 +63,7 @@
      <input type="tel" placeholder="(11)(594-4878)" formControlName="userPhone" class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.userPhone.errors }" />
     <div *ngIf="submitted && f.userPhone.errors" class="invalid-feedback">
         <div *ngIf="f.userPhone.errors.required">*Campo requerido</div>
+        <div *ngIf="f.userFirstName.errors.required">Debe tener 9 caracteres minimo</div>
     </div>
 </div>
     <!-- **************Genero************* -->
@@ -90,6 +94,7 @@
     <input type="email" placeholder="Correo electronico" formControlName="userEmail" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.userEmail.errors }" />
     <div *ngIf="submitted && f.userEmail.errors" class="invalid-feedback">
         <div *ngIf="f.userEmail.errors.required">*Campo requerido</div>
+        <div *ngIf="f.userFirstName.errors.email">Email invalido</div>
     </div>
 </div>
    <!-- **************FECHA NACIMIENTO************* -->

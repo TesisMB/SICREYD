@@ -15,8 +15,8 @@ export class DataService {
   private options = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
   private currentUserSubject: BehaviorSubject<any>;
   public currentUser: Observable<any>;
-
-  constructor(private http: HttpClient,private url:string, private router?: Router) {
+  private router: Router;
+  constructor(private http: HttpClient,private url:string) {
 
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
       this.currentUser = this.currentUserSubject.asObservable();
@@ -47,7 +47,7 @@ logout() {
     // remove user from local storage and set current user to null
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
-    this.router.navigate(['']);
+    // this.router.navigate(['']);
 }
 
 

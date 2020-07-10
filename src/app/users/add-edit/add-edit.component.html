@@ -19,10 +19,10 @@
     </div>
     <div class="form-row">
         <div class="form-group col">
-            <label for="dni">dni</label>
+            <label for="dni">Documento</label>
             <input type="text" formControlName="dni" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dni.errors }" />
             <div *ngIf="submitted && f.dni.errors" class="invalid-feedback">
-                <div *ngIf="f.dni.errors.required">dni es requerido</div>
+                <div *ngIf="f.dni.errors.required">Documento es requerido</div>
             </div>
         </div>
         <div class="form-group col">
