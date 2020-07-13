@@ -1,3 +1,4 @@
+import { RegisterComponent } from './../account/register/register.component';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -16,7 +17,8 @@ import { AddEditComponent } from './add-edit/add-edit.component';
     declarations: [
         LayoutComponent,
         ListComponent,
-        AddEditComponent
+        AddEditComponent,
+        RegisterComponent
     ]
 })
 export class UsersModule { }

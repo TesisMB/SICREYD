@@ -6,7 +6,7 @@ import { LoginComponent } from './account';
 import { HomeComponent } from './components/home';
 import { AuthGuard } from './_helpers';
 // import { Register2Component } from './components/register2/register2.component';
-import { ClientHomeComponent } from './components/client/client-home/client-home.component';
+import { ClientHomeComponent } from './client/client-home/client-home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const accountModule = () => import('./account/account.module').then(x => x.AccountModule);

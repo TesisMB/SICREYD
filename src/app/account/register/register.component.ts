@@ -35,18 +35,17 @@ export class RegisterComponent implements OnInit {
       console.log(date.toLocaleString());
 
         this.registerForm = this.formBuilder.group({
-            userFirstName: ['', Validators.required],
-            userLastname: ['', Validators.required],
-            userDni:      ['', Validators.required],
-            userPhone:    ['', Validators.required],
+            userFirstName: ['', Validators.required, Validators.name],
+            userLastname: ['', Validators.required, Validators.name],
+            userDni:      ['', Validators.required, Validators.maxLength(7)],
+            userPhone:    ['', Validators.required, Validators.maxLength(8)],
             userGender:    ['', Validators.required],
-            // avalible:    ['', Validators.required],
-            userEmail:    ['', Validators.required],
+            userEmail:    ['', Validators.required, Validators.email],
             userAddress: ['', Validators.required],
-            userPassword: ['', [Validators.required, Validators.minLength(6)]],
+            userPassword: ['', [Validators.required, Validators.minLength(7), Validators.maxLength(17)]],
             userBirthdate: ['', Validators.required],
             roleID:    ['', Validators.required],
-            userAvatar:    ['', Validators.required],
+            userAvatar:    [''],
             // UserCreationdate: date.toLocaleString(),
         });
     }

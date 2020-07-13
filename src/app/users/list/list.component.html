@@ -1,12 +1,13 @@
 <h1>Usuarios</h1>
-<a routerLink="add" class="btn btn-sm btn-success mb-2">Agregar usuario</a>
+<a routerLink="register" class="btn btn-sm btn-success mb-2">Agregar usuario</a>
+<a routerLink="add" class="btn btn-sm btn-danger">Agregar recurso</a>
+
 <table class="table table-striped">
     <thead>
         <tr>
             <th style="width: 30%">ID</th>
             <th style="width: 30%">Role</th>
-            <th style="width: 30%">Nombre</th>
-            <th style="width: 30%">Apellido</th>
+            <th style="width: 30%">Usuario</th>
             <th style="width: 30%">DNI</th>
             <th style="width: 10%"></th>
         </tr>
@@ -15,12 +16,11 @@
         <tr *ngFor="let user of users">
             <td>{{user.userID}}</td>
             <td>{{user.roleName}}</td>
-            <td>{{user.userFirstname}}</td>
-            <td>{{user.userLastname}}</td>
+            <td>{{user.fullName}}</td>
             <td>{{user.userDni}}</td>
             <td style="white-space: nowrap">
-                <a routerLink="edit/{{user.id}}" class="btn btn-sm btn-primary mr-1">Actualizar</a>
-                <button (click)="deleteUser(user.id)" class="btn btn-sm btn-danger btn-delete-user" [disabled]="user.isDeleting">
+                <a routerLink="edit/{{user.userID}}" class="btn btn-sm btn-primary mr-1">Actualizar</a>
+                <button (click)="deleteUser(user.userID)" class="btn btn-sm btn-danger btn-delete-user" [disabled]="user.isDeleting">
                     <span *ngIf="user.isDeleting" class="spinner-border spinner-border-sm"></span>
                     <span *ngIf="!user.isDeleting">Eliminar</span>
                 </button>

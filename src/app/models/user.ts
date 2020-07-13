@@ -1,7 +1,7 @@
 import {Role} from './role';
 export class User {
   userID: number;
-  userDni: number;
+  userDni: string;
   userPhone: string;
   userGender: string;
   // avalible: boolean;
