@@ -3,13 +3,16 @@
   padding: 0;
   box-sizing: border-box;
 }
+.img{
+  height: 50px;
+  width: 50px;
+  margin: 0 auto;
+  position: relative;
+  top:-70px;
+}
 
-img {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  padding-top: 3px;
-  padding-left: 2px;
+.invalid-feedback{
+  color: #fff;
 }
 
 nav {
@@ -22,11 +25,12 @@ nav {
   box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.51);
 }
 
-h1,
-h2 {
+h1 {
   align-self: center;
   color: white;
-  margin-bottom: 30px;
+  position: relative;
+  top:30px;
+  margin-bottom: 10px;
 }
 
 body {
@@ -56,7 +60,7 @@ form {
 .material-icons {
   /* Icono usado para poder visualizar la contraseña */
   position: absolute;
-  top: 250px;
+  top: 235px;
   right: 14px;
   color: white;
 }
@@ -99,6 +103,8 @@ form input:valid + .labelPassword .contentPassword {
   font-size: 14px;
   color: rgb(20, 20, 20);
 }
+
+
 
 button {
   background-color: white;

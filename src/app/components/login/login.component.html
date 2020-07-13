@@ -12,9 +12,10 @@
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
       <h1 class= "Title-1">Acceder</h1>
-      <h2 class="Subtitle-1">Ir a SICREYD</h2>
-
+      <img class="img" src="https://1.bp.blogspot.com/-XnYaCR8Oah4/XwzTOABWn3I/AAAAAAAABaY/-EyDoHPCIIQ6EAloBqlxoLnmyXWUu2DmwCLcBGAsYHQ/s320/cruzar.png">
      <!------------------------------------DNI------------------------------------>
+
+
 
       <input type="text" formControlName="userDni" autocomplete="off" required [ngClass]="{ 'is-invalid': submitted && f.userDni.errors }">
       <label for="userDni" class="labelDni">

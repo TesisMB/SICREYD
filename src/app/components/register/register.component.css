@@ -1,202 +1,84 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.imagen img{
-  position: static;
-  left:10px;
-margin-top: 3px;
-margin-left: 2px;
-}
-
-header  {
-  width: 100%;
-  height: 57px;
-  position: absolute;
-  top:1px;
-  left:0px;
-  background-color: white ;
-  box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.51);
-}
-
-/*Cuerpo de la pagina */
 body{
-  position: relative;
-  height: 800px;
-  width: 100%;
-  font-family: 'Questrial', sans-serif;
-  background-color:  #e9ecef;;
-  display:flex;
-  flex-direction: column;
-  padding: 90px 340px ;
+  background: #e9ecef;
+  height: 100vh;
+  width: 100vw;
+
 }
 
-/*titulo Detalles del Usuario */
-.Details-User{
-  font-family: 'Questrial', sans-serif;
-  position: absolute;
-  top: 100px;
-  color: black;
-  margin-bottom: 5px;
-  right: 897px;
-}
-
-
-/*titulo Detalles de la Cuenta */
-.Details-Account{
- font-family: 'Questrial', sans-serif;
-  position: absolute;
-  top: 100px;
-  left: 839px;
-  color: black;
-  margin-bottom: 5px;
-}
-
-/*fomuularIO */
-form{
-  width: 300px;
-  position: relative;
-  top:80px;
+.container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+  flex-flow: column nowrap;
 
-/*Div del Documento */
-.User-Dni{
-position: relative;
-top: -506px;
-left: 500px ;
-width: 300px;
-}
-
-.User-Gender{
-  margin-bottom: 15px;
-  position: relative;
-  left:10px;
-}
-
-.User-LastName, .User-Phone, .User-FirstName, .User-Address, .User-Email, .User-Birthdate{
-  position: relative;
-  top: -10px;
-  padding: 16px 0px;
-  left: 10px;
-}
-
-.Role-Name{
-  position: relative;
-  top: -10px;
-  padding: 16px 0px;
-  left: 10px;
 }
 
 
-input[type="text"] ,input[type="date"]{
-  width: 300px;
-  background: transparent;
-  border: 0;
-  border-bottom: 1px solid #435160;
-  outline: none;
-  color: #6D7781;
-  font-size: 16px;
-}
-
-input[type="password"]{
-  width: 300px;
-  background: transparent;
-  border: 0;
-  border-bottom: 1px solid #435160;
-  outline: none;
-  color: #6D7781;
-  font-size: 16px;
+#form {
+  display: flex;
   position: absolute;
-  top: 88px;
-  left: 500px;
-}
+ justify-content: center;
+ top:50%;
+ left: 50%;
+ transform: translate(-50%,-50%);
+ box-shadow: 0px 25px 36px 12px rgba(0, 0, 0, 0.51); /*sombra del login */
 
-
-/* */
-.submit{
- position:absolute;
- top:580px;
- left:10px;
-}
-
-input[type="submit"] { /* boton */
-  background: #9ea0a3;
-  border: 0px solid transparent;
-  width: 350px;
-  height: 40px;
-  border-radius: 3px;
-  color: white;
-  font-size: 12px;
-  cursor: pointer;
-  transition: 0.3s ease-in-out;
-  position:absolute;
-  top:530px;
-  left:10px;
-box-shadow: 0px 1px 9px 0px rgba(0, 0, 0, 0.50);
 
 }
 
-
-
-
-/* boton */
-input[type="submit"]:hover {
+.form-left {
   background: #b71c1c;
-
+  margin: 0 20px 0 0;
+  padding: 0;
+  height: 520px;
 }
 
-/*letras del registro*/
-
-::-webkit-input-placeholder {
-  color: #435160;
-  font-size: 16px;
+.form-left .invalid-feedback{
+  color:#fff;
 }
 
-
-.hoverable  img{
+.avatar {
+  height: 70%;
+  width: 70%;
   border-radius: 50%;
-  height: 140px;
-  width: 140px;
-  position: absolute;
-  top:0px;
-  left:0px;
 }
 
 .hoverable{
-  position: absolute;
-  top:-60px;
-  left:-250px;
+  position: relative;
   display: block;
   cursor: pointer;
-  height: 140px;
-  width: 140px;
-  border: transparent;
+  height: 200px;
+  width: 200px;
   border-radius: 50%;
+  top:0px;
+  left: 30px;
+
 }
-.hoverable .hover-text{
-  position: absolute;
-  display: none;
-  top: 50%;
-  left:  50%;
-  transform: translate(-50%,-50%);
-  z-index: 2;
+form input{
+  color:black;
+  height: 30px;
 }
+
+
+
 .hoverable .background{
   position: absolute;
   display: none;
-  top: 0;
-  left:  0;
+  top: 0px;
+  left:  0px;
   bottom: 0;
-  right: 0;
+  right: 0px;
   background-color:rgba(255, 255, 255, 0.5);
   pointer-events: none;
   border-radius: 50%;
   z-index: 1;
+  height: 140px;
+  width: 140px;
+
 }
 
 .hoverable:hover .background{
@@ -207,3 +89,187 @@ input[type="submit"]:hover {
   display: none;
 }
 
+.form-left .dniInput {
+  color: #fff;
+  width:90%;
+  padding-left :5px;
+    background: #b71c1c;
+     border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+
+}
+
+.dni{
+  position:relative;
+  top:-30px;
+  padding-left:15px;
+}
+
+.password{
+  position:relative;
+  top:-20px;
+  padding-left:15px;
+}
+
+.role{
+  width:100%;
+}
+
+.form-center .select{
+  width:100%;
+  height:85%;
+}
+
+
+
+
+.form-left .passwordInput {
+  color: #fff;
+    width:100%;
+  padding-left :5px;
+  margin-left:15px;
+    background: #b71c1c;
+     border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+
+  }
+
+
+
+
+.form-left h2 {
+  margin: 0px 0;
+  text-align:center;
+  position: relative;
+  top:0px;
+  width: 100%;
+}
+
+.form-center {
+  background: #e9ecef;
+  flex: 1 1 auto;
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0 20px 0 0;
+  padding: 0;
+
+}
+
+.nombreInput,
+.apellidoInput,
+.telefonoInput,
+.direccionInput,
+.correoInput,
+.fechaInput,
+.correoInput {
+  background: #e9ecef;
+  flex: 1 1 100%;
+   border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+}
+
+.enviar{
+  flex: 1 1 100%;
+    background: #9ea0a3;
+    margin-top: 20px;
+      transition: 0.3s ease-in-out;
+      border:none;
+      outline:none;
+  box-shadow: 0px 0px 30px -7px rgba(0, 0, 0, 0.75);
+
+
+
+}
+
+a{
+  outline:none;
+  border:none;
+}
+
+.enviar:hover{
+  background: #b71c1c;
+    transform: translateY(5px);
+}
+
+
+
+.form-center .radio {
+  margin: 0px;
+}
+
+.form-center h2 {
+  flex: 1 1 100%;
+  margin: 0px 0;
+  text-align:center;
+}
+
+
+.Gender {
+display: flex;
+margin-bottom: 0px;
+padding-left: 10px;
+display: flex;
+}
+
+.Gender input{
+   position: relative;
+  top:-3px;
+  left: 10px;
+}
+
+.Gender-Gender-text {
+  padding-right: 10px;
+  padding-top:0px ;
+  margin-left: 15px;
+}
+
+/*de 0 a 900 */
+@media all and (max-width: 900px) {
+  #form {
+    flex-direction: column;
+  }
+
+  #menu {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .form-left .fileInput {
+    width: 70px;
+  }
+
+  .Gender {
+    margin-top: 0px;
+    padding: 0px;
+  }
+
+  .Gender-Gender-text {
+    padding: 0px;
+    margin: 6px;
+  }
+
+  .enviar {
+    width: 100%;
+  }
+
+  .hoverable {
+    margin: 0 auto;
+    position: relative;
+    top:100px;
+  }
+
+
+
+  body{
+    background: #e9ecef;
+    height: 700px;
+
+  }
+
+
+
+
+}
