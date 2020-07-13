@@ -1,127 +1,148 @@
-<h2>Registro</h2>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="register.component.css">
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+
+
+  </head>
+
+  <body>
+
+    <!-- Menu con Logo de Cruz Roja-->
+  <header>
+      <div id="Menu">
+          <div class="imagen">
+            <img  src="https://1.bp.blogspot.com/-BXNpxg99i3A/XvJ6dt66e1I/AAAAAAAABUo/s8CeXvXS9tsH3F3MTXBb5QLvE7G4fCKLACK4BGAsYHg/Logo_ISCRAFC.png">
+         </div>
+     </div>
+  </header>
+
+<div class="Details-User">
+<h2>Detalles del Usuario</h2>
+</div>
+
+<div class="Details-Account">
+  <h2>Detalles de la Cuenta</h2>
+  </div>
+
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
-   <!-- **************AVATAR************* -->
-   <div class="form-group">
-    <div class="image-container">
-    <img [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'" class=""> <br/>
-    <input type='file' (change)="onSelectFile($event)" formControlName="UserAvatar" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.UserAvatar.errors }" />
-    <div *ngIf="submitted && f.UserAvatar.errors" class="invalid-feedback">
-        <div *ngIf="f.UserAvatar.errors.required">*Campo requerido</div>
-    </div>
-  </div>
-    <span class="message">Click aqui para seleccionar tu avatar!</span>
-   </div>
+  <label class="hoverable" for="fileInput">
+    <img [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'">
+    <div class="hover-text">Choose file</div>
+    <div class="background"></div>
+  </label>
+  <br/>
+  <input id="fileInput" type='file' (change)="onSelectFile($event)">
+
+
   <!-- Nombre -->
-    <div class="form-group">
-        <label for="UserFirstName">Nombre</label>
-        <input type="text" formControlName="UserFirstName" placeholder="Nombres" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.UserFirstName.errors }"/>
-        <div *ngIf="submitted && f.UserFirstName.errors" class="invalid-feedback">
-            <div *ngIf="f.UserFirstName.errors.required">*Campo requerido</div>
+  <div class="User-FirstName">
+        <input type="text" formControlName="userFirstName" placeholder="Nombres" [ngClass]="{ 'is-invalid': submitted && f.userFirstName.errors }"/>
+        <div *ngIf="submitted && f.userFirstName.errors" class="invalid-feedback">
+            <div *ngIf="f.userFirstName.errors.required">*Campo requerido</div>
         </div>
-    </div>
-    <!-- Apellido -->
-    <div class="form-group">
-        <label for="UserLastname">Apellido</label>
-        <input type="text" formControlName="UserLastname" placeholder="Apellidos" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.UserLastname.errors }" />
-        <div *ngIf="submitted && f.UserLastname.errors" class="invalid-feedback">
-            <div *ngIf="f.UserLastname.errors.required">*Campo requerido</div>
-        </div>
-    </div>
-    <!-- UserDni -->
-    <div class="form-group">
-      <label for="dni">DNI</label>
-      <input type="text"  placeholder="Documento" formControlName="UserDni" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.UserDni.errors }" />
-      <div *ngIf="submitted && f.UserDni.errors" class="invalid-feedback">
-          <div *ngIf="f.UserDni.errors.required">*Campo requerido</div>
-      </div>
   </div>
 
-  <!-- CONTRASEÑA -->
-    <div class="form-group">
-        <label for="UserPassword">Contraseña</label>
-        <input type="password"  placeholder="Contraseña" formControlName="UserPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.UserPassword.errors }"/>
-        <div *ngIf="submitted && f.UserPassword.errors" class="invalid-feedback">
-            <div *ngIf="f.UserPassword.errors.required">Contraseña requerida</div>
-            <div *ngIf="f.UserPassword.errors.minlength">Debe tener minimo 8 caracteres</div>
-            <div *ngIf="f.UserPassword.errors.maxlength">Debe tener maximo 16 caracteres</div>
-
+    <!-- Apellido -->
+    <div class="User-LastName">
+        <input type="text" formControlName="userLastname" placeholder="Apellidos" [ngClass]="{ 'is-invalid': submitted && f.userLastname.errors }" />
+        <div *ngIf="submitted && f.userLastname.errors" class="invalid-feedback">
+            <div *ngIf="f.userLastname.errors.required">*Campo requerido</div>
         </div>
-    </div>
+</div>
+
     <!-- **************---------************* -->
     <!-- **************TELEFONO************* -->
     <!-- pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" -->
-  <div class="form-group">
-    <label for="phone">Telefono de Contacto</label>
-     <input type="tel" placeholder="(11)(594-4878)" formControlName="UserPhone" class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.UserPhone.errors }" />
-    <div *ngIf="submitted && f.UserPhone.errors" class="invalid-feedback">
-        <div *ngIf="f.UserPhone.errors.required">*Campo requerido</div>
+    <div class="User-Phone">
+     <input type="text" placeholder="Telefono" formControlName="userPhone" [ngClass]="{ 'is-invalid': submitted && f.userPhone.errors }" />
+    <div *ngIf="submitted && f.userPhone.errors" class="invalid-feedback">
+        <div *ngIf="f.userPhone.errors.required">*Campo requerido</div>
     </div>
-</div>
+    </div>
     <!-- **************Genero************* -->
-    <div class="form-group">
-      <label for="UserGender" >Genero</label><br>
-            <input type="radio" id="M" name="UserGender" value="M" formControlName="UserGender"/>
+    <div class="User-Gender">
+      <label for="userGender" >Genero</label><br>
+            <input type="radio" id="M"  value="M" formControlName="userGender"/>
 <label for="male">Masculino</label><br>
-<input type="radio" id="female" name="UserGender" value="F" formControlName="UserGender"/>
+<input type="radio" id="female" name="userGender" value="F" formControlName="userGender"/>
 <label for="female">Femenino</label><br>
-<input type="radio" id="other" name="UserGender" value="O"formControlName="UserGender" />
+<input type="radio" id="other" name="userGender" value="O"formControlName="userGender" />
 <label for="other">Otro</label>
-      <div *ngIf="submitted && f.UserGender.errors" class="invalid-feedback">
-          <div *ngIf="f.UserGender.errors.required">*Campo requerido</div>
+      <div *ngIf="submitted && f.userGender.errors" class="invalid-feedback">
+          <div *ngIf="f.userGender.errors.required">*Campo requerido</div>
       </div>
   </div>
 
-<!-- **************Domicilio************* -->
-  <div class="form-group">
-    <label for="UserAddress">Domicilio</label>
-    <input type="UserAddress" placeholder="Domicilio" formControlName="UserAddress" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.UserAddress.errors }" />
-    <div *ngIf="submitted && f.UserAddress.errors" class="invalid-feedback">
-        <div *ngIf="f.UserAddress.errors.required">*Campo requerido</div>
-    </div>
-</div>
-   <!-- **************Email************* -->
-   <div class="form-group">
-    <label for="UserEmail">Email</label>
-    <input type="email" placeholder="Correo electronico" formControlName="UserEmail" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.UserEmail.errors }" />
-    <div *ngIf="submitted && f.UserEmail.errors" class="invalid-feedback">
-        <div *ngIf="f.UserEmail.errors.required">*Campo requerido</div>
-    </div>
-</div>
-   <!-- **************FECHA NACIMIENTO************* -->
-   <div class="form-group">
-    <label for="UserBirthdate">Fecha de Nacimiento</label>
-    <input type="date" formControlName="UserBirthdate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.UserBirthdate.errors }" />
-    <div *ngIf="submitted && f.UserBirthdate.errors" class="invalid-feedback">
-        <div *ngIf="f.UserBirthdate.errors.required">*Campo requerido</div>
-    </div>
-</div>
-  <!-- **************ROLE************* -->
-  <div class="form-group">
-    <label for="idRole">Puesto / Oficina</label>
-        <select name="idRole" formControlName="idRole" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.idRole.errors }">
-        <option value="">Seleccione el puesto</option>
-        <option value="1">Administrador</option>
-        <option value="2">Coordinador General</option>
-        <option value="3">Coordinador de Emergencias y Desastres</option>
-        <option value="4" >Logistica</option>
-        <!-- <option value="4">Voluntario</option> -->
-      </select>
-      <div *ngIf="submitted && f.idRole.errors" class="invalid-feedback">
-        <div *ngIf="f.idRole.errors.required">*Campo requerido</div>
+ <!-- **************Email************* -->
+ <div class="User-Email">
+  <input type="text" placeholder="Correo electronico" formControlName="userEmail" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.userEmail.errors }" />
+  <div *ngIf="submitted && f.userEmail.errors" class="invalid-feedback">
+      <div *ngIf="f.userEmail.errors.required">*Campo requerido</div>
   </div>
 </div>
+
+ <!-- **************FECHA NACIMIENTO************* -->
+ <div class="User-Birthdate">
+  <label for="birthdate">Fecha de Nacimiento</label>
+  <input type="date" formControlName="userBirthdate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.userBirthdate.errors }" />
+  <div *ngIf="submitted && f.userBirthdate.errors" class="invalid-feedback">
+      <div *ngIf="f.userBirthdate.errors.required">*Campo requerido</div>
+  </div>
+</div>
+<!-- **************ROLE************* -->
+<div class="Role-Name">
+      <select name="idRole" formControlName="roleID" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.roleID.errors }">
+      <option value="">Seleccione el puesto</option>
+      <option value="0">Administrador</option>
+      <option value="1">Coordinador General</option>
+      <option value="2">Coordinador de Emergencias y Desastres</option>
+      <option value="3" >Logistica</option>
+      <!-- <option value="4">Voluntario</option> -->
+    </select>
+    <div *ngIf="submitted && f.idRole.errors" class="invalid-feedback">
+      <div *ngIf="f.idRole.errors.required">*Campo requerido</div>
+</div>
+</div>
+
+  <!--Detalles de la Cuenta-->
+    <!-- Dni -->
+    <div class="User-Dni">
+      <input type="text"  placeholder="Documento" name="userDni" [ngClass]="{ 'is-invalid': submitted && f.userDni.errors }" />
+      <div *ngIf="submitted && f.userDni.errors" class="invalid-feedback">
+          <div *ngIf="f.userDni.errors.required">*Campo requerido</div>
+      </div>
+</div>
+  <!-- Contraseña -->
+  <div class= "User-Password">
+        <input type="password"  placeholder="Contraseña" formControlName="userPassword"  [ngClass]="{ 'is-invalid': submitted && f.userPassword.errors }"/>
+        <div *ngIf="submitted && f.userPassword.errors" class="invalid-feedback">
+            <div *ngIf="f.userPassword.errors.required">Contraseña requerida</div>
+            <div *ngIf="f.userPassword.errors.minlength">Debe tener minimo 8 caracteres</div>
+            <div *ngIf="f.userPassword.errors.maxlength">Debe tener maximo 16 caracteres</div>
+</div>
+        </div>
 
 
 
     <!-- BOTONES REGISTRAR Y CANCELAR -->
 
-    <div class="form-group">
-        <button [disabled]="loading" class="btn btn-primary">
-            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-            Registrar
-        </button>
-        <a routerLink="/home" class="btn btn-link">Cancelar</a>
+    <div class="form-submit">
+        <input class='animated' type='submit' value='Register'>
     </div>
+
+    <div class= "submit">
+            <a routerLink="/home" style="color: black; font-size: 13px; ">Cancelar</a>
+    </div>
+
     <!-- **************---------************* -->
 </form>
+
+
+  </body>
+
+</html>

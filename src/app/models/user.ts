@@ -1,18 +1,19 @@
-
+import {Role} from './role';
 export class User {
-  UserID: number;
-  UserDni: number;
-  UserPhone: string;
-  UserGender: string;
+  userID: number;
+  userDni: number;
+  userPhone: string;
+  userGender: string;
   // avalible: boolean;
-  UserEmail: string;
-  UserPassword: string;
-  UserFirstname: string;
-  UserLastname: string;
-  UserAddress: string;
+  userEmail: string;
+  userPassword: string;
+  userFirstname: string;
+  userLastname: string;
+  userAddress: string;
   token: string;
-  UserCreationDate: Date;
-  UserAvatar: any;
-  UserBirthdate: Date;
-
+  userCreationDate: Date;
+  userAvatar: any;
+  userBirthdate: Date;
+  roleID: number;
+  roleName: Role;
 }
