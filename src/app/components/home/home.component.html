@@ -1,29 +1,4 @@
-<!-- <div class="jumbotron">
-  <div class="main-container">
-    <div class="row">
-     <div class="col-sm-8 offset-sm-2">
-*********Hay que agregar boton  de Usuarios con su route e informacion*********
-<h1>Hola {{currentUser.userFistname}} {{currentUser.userLastname}}!</h1>
-<p>Bienvenido a SICREYD</p>
-<h3>Todos los usuarios registrados:</h3>
-<ul>
-    <li *ngFor="let user of users">
-    <div>  <strong> {{user.fullName}} </strong> - <a (click)="deleteUser(user.userID)" class="text-danger">Borrar</a>
-      <br>
-      <p>UserID: {{user.userID}} </p>
-      <p>DNI: {{user.userDni}} </p>
-     <p>Role: {{user.roleName}}</p>
 
-      </div>
-    </li>
-</ul>
-<div class="form-group">
-  <button  class="btn btn-primary" routerLink="/register">Registrar Usuario</button>
-</div>
-     </div>
-    </div>
-  </div>
-</div> -->
 
 <div class="p-4">
   <div class="container">
@@ -32,3 +7,65 @@
       <p><a routerLink="/users">Administracion de usuarios</a></p>
   </div>
 </div>
+
+
+<!-- *********************************************************YOEL ****************************************-->
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="home.component.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Questrial&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header>
+     Cabecera de la Pagina  con el Logo de la Cruz Roja y con un Menu Principal-->
+      <!-- <nav>
+        <div class="navbar">
+          <a class="navbar-brand" routerLink="/">
+            <img
+              id="logo"
+              src="https://1.bp.blogspot.com/-BXNpxg99i3A/XvJ6dt66e1I/AAAAAAAABUo/s8CeXvXS9tsH3F3MTXBb5QLvE7G4fCKLACK4BGAsYHg/Logo_ISCRAFC.png"
+          /></a>
+
+          <input type="checkbox" id="check" />
+          <label for="check">
+            <i class="fas fa-user-circle" id="menu"></i>
+          </label> -->
+
+          <!--Menu Desplegable-->
+          <!-- <div class="sidebar">
+            <div class="header">
+              <img src="https://www.w3schools.com/howto/img_avatar.png" />
+              <h1 class="user">
+                {{ currentUser.userFistname }} {{ currentUser.userLastname }}
+              </h1>
+            </div>
+            <ul>
+              <li>
+                <a href="#"><i class="fas fa-user"></i>Perfil</a>
+              </li>
+              <li>
+                <a (click)="logout()"
+                  ><i class="fas fa-sign-out-alt"></i>Cerrar Sesión</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="fondo"></div>
+
+    <button class="registrer" routerLink="/register"><i>Registrar</i></button>
+    <button class="list" routerLink="/list"><i>listar</i></button>
+    <button class="registrer2" routerLink="/register2">
+      <i>Registrar2</i>
+    </button>
+  </body>
+</html> -->

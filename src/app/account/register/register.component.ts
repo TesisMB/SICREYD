@@ -17,9 +17,6 @@ export class RegisterComponent implements OnInit {
     url: any;
 
 
-
-
-
     constructor(
         private formBuilder: FormBuilder,
         private router: Router,
@@ -35,18 +32,29 @@ export class RegisterComponent implements OnInit {
       console.log(date.toLocaleString());
 
         this.registerForm = this.formBuilder.group({
-            userFirstName: ['', Validators.required, Validators.name],
-            userLastname: ['', Validators.required, Validators.name],
-            userDni:      ['', Validators.required, Validators.maxLength(7)],
-            userPhone:    ['', Validators.required, Validators.maxLength(8)],
+            // userFirstName: ['', Validators.required, Validators.name],
+            // userLastname: ['', Validators.required, Validators.name],
+            // userDni:      ['', Validators.required, Validators.maxLength(7)],
+            // userPhone:    ['', Validators.required, Validators.maxLength(8)],
+            // userGender:    ['', Validators.required],
+            // userEmail:    ['', Validators.required, Validators.email],
+            // userAddress: ['', Validators.required],
+            // userPassword: ['', [Validators.required, Validators.minLength(7), Validators.maxLength(17)]],
+            // userBirthdate: ['', Validators.required],
+            // roleID:    ['', Validators.required],
+            // userAvatar:    [''],
+            // ********************************YOEL FORM **************************************
+            userFirstName: ['', [Validators.required,Validators.pattern("[a-zA-Z ]{2,254}")]],
+            userLastname: ['', [Validators.required,Validators.pattern("[a-zA-Z ]{2,254}")]],
+            userDni:      ['', [Validators.required,Validators.maxLength(8),Validators.pattern("[0-9]{7,15}")]],
+            userPhone:    ['', [Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
             userGender:    ['', Validators.required],
-            userEmail:    ['', Validators.required, Validators.email],
+            userEmail:    ['',[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
             userAddress: ['', Validators.required],
-            userPassword: ['', [Validators.required, Validators.minLength(7), Validators.maxLength(17)]],
-            userBirthdate: ['', Validators.required],
+            userPassword: ['', [Validators.required,Validators.minLength(8), Validators.maxLength(16)]],
+            userBirthdate: ['', [Validators.required,Validators.pattern("[0-9]{4}-[0-9]{2}-[0-9]{2}")]],
             roleID:    ['', Validators.required],
-            userAvatar:    [''],
-            // UserCreationdate: date.toLocaleString(),
+            userAvatar:    ['', Validators.required],
         });
     }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 import { User } from './../../models/user';
 import { UserService ,AuthenticationService } from './../../services';
@@ -18,6 +19,7 @@ export class HomeComponent implements OnInit {
 
   constructor(
       private authenticationService: AuthenticationService,
+      private router: Router,
       private userService: UserService
   ) {
     //Autentifica que el usuario este conectado y registrado, para acceder a la pantalla Home
@@ -44,4 +46,9 @@ export class HomeComponent implements OnInit {
           .pipe(first())
           .subscribe(users => this.users = users);
   }
+
+  logout() {
+    this.authenticationService.logout();
+    this.router.navigate(['/login']);
+}
 }
