@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Router } from '@angular/router';
+
+import { AuthenticationService } from './../../services/_authentication/authentication.service';
 
 @Component({
   selector: 'app-client-home',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientHomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
+    if (!this.authenticationService.currentUser){
+      this.router.navigate(['']);
+    }
   }
 
 }

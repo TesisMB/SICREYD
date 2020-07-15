@@ -1,7 +1,6 @@
 import { LoginService } from './services/login/login.service';
 import { AuthenticationService } from './services/_authentication/authentication.service';
 import { UserService } from './services/_user/user.service';
-import { DataService } from './services/data.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -10,38 +9,34 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //---- Importaciones internas ----
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HomeComponent } from './components';
-// import { LoginComponent } from './account';
-// import { RegisterComponent } from './account';
 import { ErrorInterceptor, JwtInterceptor} from './_helpers';
-import { AlertComponent } from './components/_alert/alert.component';
-// import { Register2Component } from './components/register2/register2.component';
-import { NavbarComponent } from './components/index';
-import { FooterComponent } from './components/index';
-import { CarouselComponent } from './components/index';
-import { ClientHomeComponent } from './client/client-home/client-home.component';
-import { NotFoundComponent } from './components/not-found/not-found.component';
-// import { AddEditComponent } from './users/add-edit/add-edit.component';
-// import { LayoutComponent } from './users/layout/layout.component';
-// import { ListComponent } from './users/list/list.component';
+import { AppComponent } from './app.component';
+//*****************Components************ */
+import { HomeComponent } from './components';
+import { LoginComponent } from './components';
+import { AlertComponent } from './components';
+import { NotFoundComponent } from './components';
+import { NavbarComponent} from './components';
+//**************CLIENT************* */
+import { ClientNavbarComponent } from './client';
+import { FooterComponent } from './client';
+import { CarouselComponent } from './client';
+import { ClientHomeComponent } from './client';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    // LoginComponent,
-    // RegisterComponent,
+    LoginComponent,
     AlertComponent,
-    // Register2Component,
-    NavbarComponent,
+    ClientNavbarComponent,
     FooterComponent,
     CarouselComponent,
     ClientHomeComponent,
     NotFoundComponent,
-    // AddEditComponent,
-    // LayoutComponent,
-    // ListComponent
+    NavbarComponent
+
   ],
   imports: [
     BrowserModule,

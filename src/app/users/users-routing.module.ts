@@ -1,10 +1,11 @@
-import { RegisterComponent } from './../account/register/register.component';
+
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { LayoutComponent } from './layout/layout.component';
-import { ListComponent } from './list/list.component';
-import { AddEditComponent } from './add-edit/add-edit.component';
+import { LayoutComponent } from './index';
+import { ListComponent } from './index';
+import { AddEditComponent } from './index';
+import { RegisterComponent } from './index';
 
 const routes: Routes = [
     {

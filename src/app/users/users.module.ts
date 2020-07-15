@@ -1,12 +1,13 @@
-import { RegisterComponent } from './../account/register/register.component';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 import { UsersRoutingModule } from './users-routing.module';
-import { LayoutComponent } from './layout/layout.component';
-import { ListComponent } from './list/list.component';
-import { AddEditComponent } from './add-edit/add-edit.component';
+import { LayoutComponent } from './';
+import { ListComponent } from './';
+import { AddEditComponent } from './';
+import { NavbarComponent } from './';
+import { RegisterComponent } from './';
 
 @NgModule({
     imports: [
@@ -18,7 +19,8 @@ import { AddEditComponent } from './add-edit/add-edit.component';
         LayoutComponent,
         ListComponent,
         AddEditComponent,
-        RegisterComponent
+        RegisterComponent,
+        NavbarComponent
     ]
 })
 export class UsersModule { }
