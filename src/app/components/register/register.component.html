@@ -1,0 +1,131 @@
+
+   <body>
+
+    <!-- Menu con Logo de Cruz Roja-->
+     <div class="container">
+
+
+         <form id="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+           <div class="form-left">
+
+             <h2>Perfil</h2>
+
+             <label class="hoverable" for="fileInput">
+              <img class="avatar" [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'">
+              <input id="fileInput" type='file' (change)="onSelectFile($event)" formControlName="userAvatar"  [ngClass]="{ 'is-invalid': submitted && f.userAvatar.errors }" />
+           <div *ngIf="submitted && f.userAvatar.errors" class="invalid-feedback">
+              <div *ngIf="f.userAvatar.errors.required">*Campo requerido</div>
+          </div>
+              <div class="background"></div>
+            </label>
+
+              <div class="dni">
+               <input class="dniInput" type="text"  placeholder="Documento"  formControlName="userDni" name="userDni" [ngClass]="{ 'is-invalid': submitted && f.userDni.errors }" />
+               <div  *ngIf="submitted && f.userDni.errors" class="invalid-feedback">
+                <div *ngIf="f.userDni.errors.required">*Campo requerido</div>
+                <div *ngIf="f.userDni.errors.maxlength">Debe tener máximo 8 carácteres</div>
+                <div *ngIf="f.userDni.errors.pattern">Número Dni inválido</div>
+
+
+                            </div>
+
+            </div>
+                <div class="password">
+               <input class="dniInput" type="password"  placeholder="Contraseña" formControlName="userPassword" [ngClass]="{ 'is-invalid': submitted && f.userPassword.errors }"/>
+               <div *ngIf="submitted && f.userPassword.errors" class="invalid-feedback">
+                   <div *ngIf="f.userPassword.errors.required">*Campo requerido</div>
+                   <div *ngIf="f.userPassword.errors.minlength">Debe tener mínimo 8 carácteres</div>
+                   <div *ngIf="f.userPassword.errors.maxlength">Debe tener máximo 16 carácteres</div>
+
+                </div>
+               </div>
+               </div>
+
+
+
+           <div class="form-center">
+             <h2>Datos del Usuario</h2>
+
+
+             <input class="nombreInput" type="text" formControlName="userFirstName" placeholder="Nombres" [ngClass]="{ 'is-invalid': submitted && f.userFirstName.errors }"/>
+             <div *ngIf="submitted && f.userFirstName.errors" class="invalid-feedback">
+
+              <div *ngIf="f.userFirstName.errors.required">*Campo requerido</div>
+              <div *ngIf="f.userFirstName.errors.pattern">*Nombre inválido</div>
+
+          </div>
+
+             <input class="apellidoInput" type="text" formControlName="userLastname" placeholder="Apellidos" [ngClass]="{ 'is-invalid': submitted && f.userLastname.errors }" />
+             <div *ngIf="submitted && f.userLastname.errors" class="invalid-feedback">
+              <div *ngIf="f.userLastname.errors.required">*Campo requerido</div>
+              <div *ngIf="f.userLastname.errors.pattern">Apellido inválido</div>
+
+          </div>
+
+             <input class="telefonoInput" type="text" placeholder="Telefono" formControlName="userPhone" [ngClass]="{ 'is-invalid': submitted && f.userPhone.errors }" />
+             <div *ngIf="submitted && f.userPhone.errors" class="invalid-feedback">
+              <div *ngIf="f.userPhone.errors.required">*Campo requerido</div>
+              <div *ngIf="f.userPhone.errors.pattern">Número de teléfono inválido - Ingrese tu número de teléfono completo.</div>
+
+
+          </div>
+
+             <input class="direccionInput" type="text" placeholder="Domicilio" formControlName="userAddress" [ngClass]="{ 'is-invalid': submitted && f.userAddress.errors }" />
+             <div *ngIf="submitted && f.userAddress.errors" class="invalid-feedback">
+              <div *ngIf="f.userAddress.errors.required">Campo requerido</div>
+          </div>
+
+
+             <label for="userGender" >Genero: </label>
+             <div class="Gender">
+             <input class="Gender-Gender" type="radio" id="male" name="userGender" value="M" formControlName="userGender"/>
+             <label class="Gender-Gender-text" for="male">Masculino</label><br>
+             <input class="Gender-Gender" type="radio" id="female" name="userGender" value="F" formControlName="userGender"/>
+             <label class="Gender-Gender-text" for="female">Femenino</label><br>
+             <input class="Gender-Gender" type="radio" id="other" name="userGender" value="O"formControlName="userGender" />
+             <label class="Gender-Gender-text" for="female">Otro</label>
+           </div>
+           <div *ngIf="submitted && f.userGender.errors" class="invalid-feedback">
+            <div *ngIf="f.userGender.errors.required">*Campo requerido</div>
+          </div>
+
+             <input class="correoInput" type="text" placeholder="Correo electronico" formControlName="userEmail"  [ngClass]="{ 'is-invalid': submitted && f.userEmail.errors }" />
+             <div *ngIf="submitted && f.userEmail.errors" class="invalid-feedback">
+              <div *ngIf="f.userEmail.errors.required">*Campo requerido</div>
+             <div *ngIf="f.userEmail.errors.pattern">*Correo electrónico inválido</div>
+
+        </div>
+
+             <input class="fechaInput" type="date" formControlName="userBirthdate"  [ngClass]="{ 'is-invalid': submitted && f.userBirthdate.errors }" />
+             <div *ngIf="submitted && f.userBirthdate.errors" class="invalid-feedback">
+              <div *ngIf="f.userBirthdate.errors.required">*Campo requerido</div>
+                            <div *ngIf="f.userBirthdate.errors.pattern">Fecha inválido</div>
+
+          </div>
+
+        <div class="role">
+             <select class="select" name="idRole" formControlName="roleID"  [ngClass]="{ 'is-invalid': submitted && f.roleID.errors }">
+               <option value="">Seleccione el puesto</option>
+               <option value="0">Administrador</option>
+               <option value="1">Coordinador General</option>
+               <option value="2">Coordinador de Emergencias y Desastres</option>
+               <option value="3" >Logistica</option>
+               <!-- <option value="4">Voluntario</option> -->
+             </select>
+             <div *ngIf="submitted && f.roleID.errors" class="invalid-feedback">
+              <div *ngIf="f.roleID.errors.required">*Campo requerido</div>
+             </div>
+             </div>
+
+             <input class='enviar' type='submit' value='Register'>
+
+             <a routerLink="/home" >Cancelar</a>
+           </div>
+         </form>
+
+
+      </div>
+
+ </body>
+
+

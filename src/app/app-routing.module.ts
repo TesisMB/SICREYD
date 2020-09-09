@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'users', loadChildren: usersModule, canActivate: [AuthGuard] },
   // { path: 'account', loadChildren: accountModule, canActivate:[AuthGuard] },
-  // Si se ingresa a una direccion inexistente, redirecciona a Home
+  // Si se ingresa a una direccion inexistente, redirecciona a 404 not found.-
   {path:'**', component: NotFoundComponent}
 ];
 
