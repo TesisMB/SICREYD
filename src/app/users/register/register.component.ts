@@ -32,6 +32,7 @@ export class RegisterComponent implements OnInit {
       console.log(date.toLocaleString());
 
         this.registerForm = this.formBuilder.group({
+<<<<<<< HEAD:src/app/users/register/register.component.ts
             // userFirstName: ['', Validators.required, Validators.name],
             // userLastname: ['', Validators.required, Validators.name],
             // userDni:      ['', Validators.required, Validators.maxLength(7)],
@@ -44,16 +45,26 @@ export class RegisterComponent implements OnInit {
             // roleID:    ['', Validators.required],
             // userAvatar:    [''],
             // ********************************YOEL FORM **************************************
+=======
+>>>>>>> Yoel-Front:src/app/components/register/register.component.ts
             userFirstName: ['', [Validators.required,Validators.pattern("[a-zA-Z ]{2,254}")]],
             userLastname: ['', [Validators.required,Validators.pattern("[a-zA-Z ]{2,254}")]],
             userDni:      ['', [Validators.required,Validators.maxLength(8),Validators.pattern("[0-9]{7,15}")]],
             userPhone:    ['', [Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
             userGender:    ['', Validators.required],
+<<<<<<< HEAD:src/app/users/register/register.component.ts
+=======
+            // avalible:    ['', Validators.required],
+>>>>>>> Yoel-Front:src/app/components/register/register.component.ts
             userEmail:    ['',[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
             userAddress: ['', Validators.required],
             userPassword: ['', [Validators.required,Validators.minLength(8), Validators.maxLength(16)]],
             userBirthdate: ['', [Validators.required,Validators.pattern("[0-9]{4}-[0-9]{2}-[0-9]{2}")]],
+<<<<<<< HEAD:src/app/users/register/register.component.ts
             roleID:    ['', Validators.required],
+=======
+            roleID:    ['', Validators.required], 
+>>>>>>> Yoel-Front:src/app/components/register/register.component.ts
             userAvatar:    ['', Validators.required],
         });
     }

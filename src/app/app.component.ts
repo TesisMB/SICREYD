@@ -10,11 +10,13 @@ templateUrl: 'app.component.html',
 styleUrls: ['app.component.css']
  })
 export class AppComponent {
-  // isOnline : boolean;
+currentUser;
     constructor(private router: Router, private authenticationService: AuthenticationService) {
 
-      // let currentUser = authenticationService.currentUserValue;
-      // this.isOnline = !currentUser;
-
+     {
+        this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
     }
+
+
+}
 }

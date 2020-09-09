@@ -1,6 +1,3 @@
-import { LoginService } from './services/login/login.service';
-import { AuthenticationService } from './services/_authentication/authentication.service';
-import { UserService } from './services/_user/user.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -21,8 +18,11 @@ import { NavbarComponent} from './components';
 import { ClientNavbarComponent } from './client';
 import { FooterComponent } from './client';
 import { CarouselComponent } from './client';
-import { ClientHomeComponent } from './client';
-
+import {ClientHomeComponent} from './client';
+//***************SERVICES*********** */
+import { LoginService } from './services';
+import { AuthenticationService } from './services';
+import { UserService } from './services';
 
 @NgModule({
   declarations: [
