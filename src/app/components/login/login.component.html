@@ -1,0 +1,52 @@
+
+<div class="Container">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+    <div class="head">
+    <h1 class= "Title-1">Acceder</h1>
+    <img class="img" src="https://1.bp.blogspot.com/-XnYaCR8Oah4/XwzTOABWn3I/AAAAAAAABaY/-EyDoHPCIIQ6EAloBqlxoLnmyXWUu2DmwCLcBGAsYHQ/s320/cruzar.png">
+</div>
+<!------------------------------------DNI------------------------------------>
+
+  <div class="dni">
+
+    <input  type="text" formControlName="userDni" autocomplete="off" required [ngClass]="{ 'is-invalid': submitted && f.userDni.errors }">
+    <label for="userDni" class="labelDni">
+     <span class="contentDni">Documento</span></label>
+
+
+      <div *ngIf="submitted && f.userDni.errors" class="invalid-feedback">
+        <div *ngIf="f.userDni.errors.required">*Campo obligatorio</div>
+      </div>
+    </div>
+
+    <div class="icons">
+         <!-- Añadir un icono de un ojo que permita poder visualizar la contraseña-->
+         <div class="eye" style="position: relative; top:50px ;left: 250px;">
+          <span class="material-icons"matsuffix (click)="hide = !hide" >
+          {{hide ? 'visibility':'visibility_off'}}</span></div>
+
+
+      <!------------------------------------Password------------------------------------>
+
+      <!-- Añadir un icono de un ojo que permita poder visualizar la contraseña-->
+      <input   type="password" [type]="hide ? 'password':'text'" formControlName="userPassword" required  [ngClass]="{ 'is-invalid': submitted && f.userPassword.errors }">
+
+      <label for="userPassword" class="labelPassword">
+        <span class="contentPassword">Contraseña</span></label>
+
+
+        <div *ngIf="submitted && f.userPassword.errors" class="invalid-feedback">
+        <div *ngIf="f.userPassword.errors.required">*Campo obligatorio</div>
+      </div>
+    </div>
+
+
+        <button [disabled]="loading" class="btn">
+          <span *ngIf="loading" ></span> Ingresar
+        </button>
+
+        <a class="btn" routerLink = "">Cancelar</a>
+
+</form>
+</div>

@@ -1,176 +1,292 @@
-*{
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-
-body{
-    user-select: none;
-    background: #e9ecef ;
-    font-family: sans-serif;
-    position: fixed;
-    height: 100vh;
-    width: 100vw;
-
+body {
+  font-family: 'Open Sans', sans-serif;
 }
 
-.navbar {
+/* --------------------------------------Nav-------------------------------------- */
+
+/* Nav */
+
+.contenedor {
+  width: 96%;
+  max-width: 1366px;
+  margin: auto;
   overflow: hidden;
-  background-color:white;
-  position: fixed;
-  padding-bottom:0px ;
+  padding-bottom: 5px;
+}
+
+nav {
   width: 100%;
-  height: 57px;
-  padding-left: 2px;
-  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.50);
-
+  height: 64px;
+  border-bottom: 1px solid transparent;
+  background: #fff;
+  box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, .2);
+  position: fixed;
+  top: 0;
 }
 
-.fondo{
-  background: white;
-  height: 100vh;
-  width: 100vw;
-  margin: 58px 0px;
-  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.50);
-
+.nav {
+  display: flex;
+  justify-content: space-between;
+  height: 64px;
+  width: 96%;
+  align-items: center;
 }
 
-.user{
-  color:white;
-  position: relative;
-  top:50px;
-  left:55px;
-  font-size: 30px;
+/* --------------------------------------Nav sidebar + logo juntos -------------------------------------- */
+
+.sidelogo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.sidebar{
-    position: fixed;
-    top:59px;
-    height: 59%;
-    width: 23%;
-    left: 885px;
-    background: #b71c1c; ;
-    transition: all .6s;
-    margin-left: 120px;
-    margin-top: 0px;
-    overflow: hidden;
-    box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 10);
+/* --------------------------------------Nav Logo-------------------------------------- */
 
+/* logo */
+.nav .logo {
+  height: 64px;
+  width: 200px;
+  padding-bottom: 5px;
+  padding-left: 16px;
 }
 
-.sidebar .header {
-  background: #b71c1c; ;
-  padding: 17.5px 17.5px;
-  text-align: left;
-  height: 38%;
-  color:white;
-  border-radius: 10px;
-  padding-bottom: 2px;
-
+.nav .logo img {
+  height: 100%;
+  width: 90%;
 }
 
-.sidebar img{
-  border-radius: 50%;
-  height: 155px;
-  width: 155px;
-  border:white;
-  position: relative;
-  justify-content: center;
-  left:60px;
-  top:20px;
-  box-shadow: 0px 0px 15px 8px rgba(0, 0, 0, 0.50);
+/* --------------------------------------Nav Sidebar + User-------------------------------------- */
 
+input {
+  display: none;
 }
 
-
-.sidebar ul{
-    line-height: 65px;
-    font-size: 16px;
-    padding-top: 120px;
+.Enlaces {
+  position: fixed;
+  width: 240px;
+  top: 60px;
+  left: -240px;
+  height: 100%;
+  background: #fff;
+  transition: .5s;
 }
 
-.sidebar ul li:hover a{
-    color: #b71c1c; ;
-}
-
-.sidebar ul li{
-    border-top: 1px solid rgba(255,255,255,0.1);
-    border-bottom: 1px solid #C62828 ;
-}
-
-.sidebar ul li:hover{
-    background:white;
-}
-
-ul{
-    list-style-type:none;
-}
-.sidebar ul li a{
-    color: white ;
-    position: relative;
-    left: 130px;
-    transition: all .6s ease;
-
-}
-
-.sidebar ul li a i{
-    margin-right: 2px;
-}
-
-input{
-    display: none;
-}
-
-label #menu, label #close{
-    font-size: 20px;
-    position: fixed;
-    padding: 5px 10px 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 1s;
-}
 
 label #menu{
-    margin: 0px 30px;
-    padding: 0px 0px 10px 15px;
-    background: transparent;
-    color:black;
-    transition: all 1s ease;
-    position: absolute;
-    top:18px;
-    left:1200px;
+  cursor: pointer;
+  font-size: 20px;
+  transition: .5s;
+}
+
+
+#check:checked ~ .Enlaces {
+  left: 0px;
 }
 
 
 
-#check:checked ~ .sidebar{
-    left: 100%;
-}
-
-#check:checked ~ label #close{
-  left: 1050px;
-  top:70px;
-
+.Enlaces ul, .enlaces-user ul{
+  line-height: 40px;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 
-button{
-  position: absolute;
-  top:200px;
-  left:200px;
 
+.Enlaces ul li{
+  list-style: none;
+  border-bottom: 1px solid  rgb(188, 188, 188);
 }
 
-.list{
-  position: absolute;
-  top:100px;
-  left:300px;
+.Enlaces ul li:hover, .enlaces-user ul li:hover{
+  background: rgba(188, 188, 188, 0.337);
 }
 
-.registrer{
-  position: absolute;
-  top:100px;
-  left:100px;
+
+.Enlaces ul li i, .enlaces-user ul li i{
+  padding-right: 20px;
+  margin-left: 10px;
 }
+
+.Enlaces ul li a, .enlaces-user ul li a{
+  color: #000;
+  margin-left: 20px;
+  transition: all .3s ease;
+  text-decoration: none;
+}
+
+/* --------------------------------------Nav user-------------------------------------- */
+
+/* user */
+.enlaces-user{
+  position: fixed;
+  width: 240px;
+  top: 60px;
+  right: -240px;
+  background: #fff;
+  transition: .5s;
+}
+
+#check-user:checked~.enlaces-user {
+  right: 0px;
+}
+
+.enlaces-user ul li{
+  list-style: none;
+  border-bottom: 1px solid  rgb(188, 188, 188);
+}
+
+label #user{
+cursor: pointer;
+}
+
+/* --------------------------------------header-------------------------------------- */
+
+header::before {
+  content: "";
+  display: flex;
+  margin-bottom: 60px;
+}
+
+.contenedor1 {
+  width: 100%;
+  max-width: 1366px;
+  background: rgb(250, 231, 223);
+  overflow: hidden;
+}
+
+.contenido-header {
+  width: 100%;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  border-bottom: 1px solid transparent;
+}
+
+.textos-header {
+  color: #38A9F9;
+  font-size: 35px;
+}
+
+
+
+.contenido-header a {
+  margin: 30px 0 0 0;
+  width: 130px;
+  display: inline-block;
+  background: #b71c1c;
+  text-align: center;
+  color: #fff;
+  padding: 12px 0;
+  text-decoration: none;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+
+.contenido-header a:hover {
+  background: #b71c1ccd;
+}
+
+/* --------------------------------------Section Cards-------------------------------------- */
+
+
+
+/* Card min */
+
+.card-min {
+  background: rgba(188, 188, 188, 0.248);
+}
+
+.contenedor-articulo {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  justify-content: space-around;
+}
+
+.articulo{
+  width: 20%;
+  background: #fff;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  transition: .5s;
+}
+
+.articulo:hover {
+  box-shadow: 0 4px 10px rgba(17, 29, 48, 0.563);
+}
+
+
+.articulo h3{
+      font-size: 24px;
+      margin-top: 10px;
+      text-align: center;
+}
+
+.articulo p{
+  font-weight: 100;
+  color: #5d6678;
+  margin-top: 10px;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.articulo a, .articulo-max a{
+  text-decoration: none;
+  color: #5d6678;
+  font-weight: 400;
+}
+
+/* card-max */
+.card-max {
+  background: rgba(188, 188, 188, 0.248);
+}
+
+
+.contenedor-articulo-max{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.articulo-max{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 300px;
+  width: 20%;
+  background: #fff;
+  margin-bottom: 50px;
+  border-radius: 10px;
+  transition: .5s;
+  padding-bottom: 30px;
+}
+
+.articulo-max:hover{
+  box-shadow: 0 4px 10px rgba(17, 29, 48, 0.563);
+}
+
+.articulo-max h3{
+  font-size: 24px;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.articulo-max p{
+  font-weight: 100;
+  color: #5d6678;
+  text-align: center;
+}
+

@@ -1,46 +1,31 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-.img{
-  height: 50px;
-  width: 50px;
-  margin: 0 auto;
-  position: relative;
-  top:-70px;
-}
-
-.invalid-feedback{
-  color: #fff;
-}
-
-nav {
-  background: white;
-  width: 100vw;
-  height: 57px;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.51);
-}
-
-h1 {
+.head {
+  justify-content: center;
   align-self: center;
-  color: white;
   position: relative;
-  top:30px;
+  top: 30px;
   margin-bottom: 10px;
 }
 
-body {
-  height: 100vh;
-  font-family: sans-serif;
-  background-color: #e9ecef;
+.img {
+  height: 50px;
+  width: 50px;
+  position: relative;
+  top: -50px;
+  left: 20px;
+}
+
+h1 {
+  color: #fff;
+  position: relative;
+  top: 50px;
+}
+
+.Container {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+  top: 100px;
 }
 
 form {
@@ -48,20 +33,31 @@ form {
   width: 300px;
   height: 400px;
   position: relative;
-  background-color: #b71c1c;
+  background-color: #bd2d2d;
   display: flex;
   flex-direction: column;
   justify-content: center;
   border-radius: 15px;
   padding: 0px 15px 0px 15px;
   box-shadow: 0px 25px 36px 12px rgba(0, 0, 0, 0.51); /*sombra del login */
+  overflow: hidden;
+}
+
+.invalid-feedback {
+  color: #fff;
+}
+
+.text .invalid-feedback {
+  color: #fff;
+}
+
+.icons{
+  margin: 0;
+  padding: 0;
 }
 
 .material-icons {
   /* Icono usado para poder visualizar la contraseña */
-  position: absolute;
-  top: 235px;
-  right: 14px;
   color: white;
 }
 
@@ -72,9 +68,14 @@ form input {
   padding-top: 20px;
   color: white;
   border: none;
-  background-color: #b71c1c;
+  background-color: #bd2d2d;
   border-bottom: 2px solid white;
   outline: none;
+}
+
+.dni {
+  position: relative;
+  top: 20px;
 }
 
 form label {
@@ -82,10 +83,18 @@ form label {
   pointer-events: none;
 }
 
-.contentDni,
+.contentDni {
+  position: absolute;
+  top: 45px;
+  right: 195px;
+  color: white;
+  transition: all 0.3s ease;
+}
+
 .contentPassword {
   position: absolute;
-  top: 25px;
+  top: 45px;
+  right: 195px;
   color: white;
   transition: all 0.3s ease;
 }
@@ -103,8 +112,6 @@ form input:valid + .labelPassword .contentPassword {
   font-size: 14px;
   color: rgb(20, 20, 20);
 }
-
-
 
 button {
   background-color: white;
@@ -127,4 +134,8 @@ button {
 
 button:hover {
   transform: translateY(10px);
+}
+
+a:hover {
+  color: #fff;
 }

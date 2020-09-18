@@ -1,71 +1,143 @@
 <navbar></navbar>
 
-<div class="p-4">
+<!-- <div class="p-4">
   <div class="container">
       <h1>Hola {{currentUser.userFistname}} {{currentUser.userLastname}}!</h1>
       <p>Bienvenido a SICREYD</p>
       <p><a routerLink="/users">Administracion de usuarios</a></p>
   </div>
-</div>
+</div> -->
 
 
-<!-- *********************************************************YOEL ****************************************-->
-<!-- <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="home.component.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Questrial&display=swap"
-      rel="stylesheet"
-    />
-  </head>
+<html lang="en">
 
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <script src="https://kit.fontawesome.com/dcfddf5262.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+
+<body>
+
     <header>
-     Cabecera de la Pagina  con el Logo de la Cruz Roja y con un Menu Principal-->
-      <!-- <nav>
-        <div class="navbar">
-          <a class="navbar-brand" routerLink="/">
-            <img
-              id="logo"
-              src="https://1.bp.blogspot.com/-BXNpxg99i3A/XvJ6dt66e1I/AAAAAAAABUo/s8CeXvXS9tsH3F3MTXBb5QLvE7G4fCKLACK4BGAsYHg/Logo_ISCRAFC.png"
-          /></a>
+        <!-- Nav 1- Sidebar 2- Logo  3-User -->
+        <nav>
+            <section class="contenedor nav">
+                <!-- Enlaces -->
+                <div class="sidelogo">
+                    <input type="checkbox" id="check">
+                        <label for="check">
+                            <i class="fas fa-bars" id="menu"></i>
+                        </label>
 
-          <input type="checkbox" id="check" />
-          <label for="check">
-            <i class="fas fa-user-circle" id="menu"></i>
-          </label> -->
+                    <!-- Sidebar -->
+                    <div class="Enlaces">
+                        <ul>
+                            <li><a href="#" ><i class="fas fa-home"></i>Home</a></li>
+                            <li><a href="#"><i class="fas fa-address-book"></i>Address</a></li>
+                            <li><a href="#"><i class="fas fa-bell"></i>News</a></li>
+                        </ul>
+                    </div>
 
-          <!--Menu Desplegable-->
-          <!-- <div class="sidebar">
-            <div class="header">
-              <img src="https://www.w3schools.com/howto/img_avatar.png" />
-              <h1 class="user">
-                {{ currentUser.userFistname }} {{ currentUser.userLastname }}
-              </h1>
-            </div>
-            <ul>
-              <li>
-                <a href="#"><i class="fas fa-user"></i>Perfil</a>
-              </li>
-              <li>
-                <a (click)="logout()"
-                  ><i class="fas fa-sign-out-alt"></i>Cerrar Sesión</a
-                >
-              </li>
-            </ul>
-          </div>
+                    <!-- Logo -->
+                    <div class="logo">
+                        <img src="./../../../assets/img/Logo.png" alt="">
+                    </div>
+                </div>
+
+                <!-- user -->
+                <input type="checkbox" id="check-user">
+                    <label for="check-user">
+                        <i class="fas fa-user-circle" id="user"></i>
+                    </label>
+
+                <!-- User-Enlaces -->
+                <div class="enlaces-user">
+                    <ul>
+                        <li><a href="#" ><i class="fas fa-id-card"></i>Profile</a></li>
+                        <li><a href="#"><i class="fas fa-sign-out-alt"></i>Sing out</a></li>
+                    </ul>
+                </div>
+            </section>
+        </nav>
+<!--******************************* BODY *******************************-->
+        <div class="contenedor1">
+            <section class="contenido-header">
+                <div class="textos-header">
+                    <h1>#ArgentinaNosNecesita</h1>
+                </div>
+                <img src="./../../../assets/img/img-header.png" alt="">
+                <a href="https://www.cruzroja.org.ar/wp-content/uploads/2020/04/covid-19arg-pda-arg.pdf">Ver más</a>
+            </section>
         </div>
-      </nav>
     </header>
 
-    <div class="fondo"></div>
+    <section class="card-min">
+        <div class="contenedor">
+            <div class="contenedor-articulo">
+                <div class="articulo">
+                    <h3>Lorem.</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing<p>
+                            <a href="#">Ver más</a>
+                </div>
+                <div class="articulo">
+                    <h3>Lorem.</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing<p>
+                            <a href="#">Ver más</a>
+                </div>
+                <div class="articulo">
+                    <h3>Lorem.</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing<p>
+                            <a href="#">Ver más</a>
+                </div>
+                <div class="articulo">
+                    <h3>Lorem.</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing<p>
+                            <a href="#">Ver más</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <button class="registrer" routerLink="/register"><i>Registrar</i></button>
-    <button class="list" routerLink="/list"><i>listar</i></button>
-    <button class="registrer2" routerLink="/register2">
-      <i>Registrar2</i>
-    </button>
-  </body>
-</html> -->
+    <section class="card-max">
+        <div class="contenedor">
+            <div class="contenedor-articulo-max">
+                <div class="articulo-max">
+                    <h3>Lorem.</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium expedita maxime aut quia
+                        minima distinctio sequi cumque modi magni dolores asperiores, dignissimos blanditiis dolor.
+                        Officia laborum quod itaque libero quis.<p>
+                            <a href="#">Ver mas</a>
+                </div>
+                <div class="articulo-max">
+                    <h3>Lorem.</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium expedita maxime aut quia
+                        minima distinctio sequi cumque modi magni dolores asperiores, dignissimos blanditiis dolor.
+                        Officia laborum quod itaque libero quis.<p>
+                            <a href="#">Ver mas</a>
+                </div>
+                <div class="articulo-max">
+                    <h3>Lorem.</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium expedita maxime aut quia
+                        minima distinctio sequi cumque modi magni dolores asperiores, dignissimos blanditiis dolor.
+                        Officia laborum quod itaque libero quis.<p>
+                            <a href="#">Ver mas</a>
+                </div>
+                <div class="articulo-max">
+                    <h3>Lorem.</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium expedita maxime aut quia
+                        minima distinctio sequi cumque modi magni dolores asperiores, dignissimos blanditiis dolor.
+                        Officia laborum quod itaque libero quis.<p>
+                            <a href="#">Ver mas</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+</body>
+
