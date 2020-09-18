@@ -13,7 +13,7 @@ import { UserService ,AuthenticationService } from './../../services';
 export class HomeComponent implements OnInit {
   currentUser: any = [];
   users: any = [];
-
+  pages: {page:string, name:string}[];
   // a modo de prueba...
   user: User;
 
@@ -28,11 +28,13 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    //Carga el SideBar
+    this.pages=[{page:'home',name:'Inicio'},{page:'users/register',name:'Agregar Usuario'},{page:'users',name:'Lista de Usuarios'}];
+
     //Carga todos los usuarios registrados.
       this.loadAllUsers();
       console.log(this.currentUser);
       console.log(this.user);
-
   }
 // Metodo que borra el usuario.
   deleteUser(id: number) {

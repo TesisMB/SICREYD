@@ -34,11 +34,11 @@
 
                     <!-- Sidebar -->
                     <div class="Enlaces">
-                        <ul>
-                            <li><a href="#" ><i class="fas fa-home"></i>Home</a></li>
-                            <li><a href="#"><i class="fas fa-address-book"></i>Address</a></li>
-                            <li><a href="#"><i class="fas fa-bell"></i>News</a></li>
-                        </ul>
+                      <ul class="navbar-nav mr-auto" >
+                        <li class="nav-item" routerLinkActive="active" *ngFor="let page of pages">
+                          <a class="nav-link" routerLink="/{{page.page}}">{{page.name}}</a>
+                        </li>
+                      </ul>
                     </div>
 
                     <!-- Logo -->
@@ -56,8 +56,8 @@
                 <!-- User-Enlaces -->
                 <div class="enlaces-user">
                     <ul>
-                        <li><a href="#" ><i class="fas fa-id-card"></i>Profile</a></li>
-                        <li><a href="#"><i class="fas fa-sign-out-alt"></i>Sing out</a></li>
+                        <li><a routerLink="/users/edit/:id" ><i class="fas fa-id-card"></i>Perfil</a></li>
+                        <li><a (click)="logout()"><i class="fas fa-sign-out-alt"></i>Cerrar Sesion</a></li>
                     </ul>
                 </div>
             </section>
