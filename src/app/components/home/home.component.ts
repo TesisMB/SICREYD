@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
-import { User } from './../../models/user';
 import { UserService ,AuthenticationService } from './../../services';
 
 @Component({
@@ -14,8 +13,7 @@ export class HomeComponent implements OnInit {
   currentUser: any = [];
   users: any = [];
   pages: {page:string, name:string}[];
-  // a modo de prueba...
-  user: User;
+
 
   constructor(
       private authenticationService: AuthenticationService,
@@ -24,7 +22,6 @@ export class HomeComponent implements OnInit {
   ) {
     //Autentifica que el usuario este conectado y registrado, para acceder a la pantalla Home
       this.currentUser = this.authenticationService.currentUserValue;
-      this.user = this.currentUser;
   }
 
   ngOnInit() {
@@ -34,7 +31,6 @@ export class HomeComponent implements OnInit {
     //Carga todos los usuarios registrados.
       this.loadAllUsers();
       console.log(this.currentUser);
-      console.log(this.user);
   }
 // Metodo que borra el usuario.
   deleteUser(id: number) {

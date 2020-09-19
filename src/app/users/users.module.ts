@@ -6,7 +6,7 @@ import { UsersRoutingModule } from './users-routing.module';
 import { LayoutComponent } from './';
 import { ListComponent } from './';
 import { AddEditComponent } from './';
-import { NavbarComponent } from './';
+ import { NavbarComponent } from './';
 import { RegisterComponent } from './';
 
 @NgModule({
@@ -20,7 +20,7 @@ import { RegisterComponent } from './';
         ListComponent,
         AddEditComponent,
         RegisterComponent,
-        NavbarComponent
+       NavbarComponent
     ]
 })
 export class UsersModule { }

@@ -21,11 +21,13 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(){
-    this.pages=[{page:'home',name:'Inicio'},{page:'users/register',name:'Agregar Usuario'},{page:'users',name:'Lista de Usuarios'}];
+
+    this.pages=[{page:'home',name:'Inicio'},{page:'users',name:'Usuarios'}];
   }
 
   logout() {
       this.authenticationService.logout();
-      this.router.navigate(['/']);
+      this.router.navigate(['']);
   }
 }
+

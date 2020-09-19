@@ -21,6 +21,7 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(){
+
     this.pages=[{page:'home',name:'Inicio'},{page:'users',name:'Usuarios'}];
   }
 

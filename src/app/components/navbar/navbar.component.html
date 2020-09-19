@@ -1,4 +1,4 @@
-<nav  class="navbar navbar-dark bg-dark navbar-expand-lg justify-content-between">
+<!-- <nav  class="navbar navbar-dark bg-dark navbar-expand-lg justify-content-between">
   <button class="navbar-toggler order-2" type="button" data-toggle="collapse" data-target="#navbar-list-9" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -17,4 +17,45 @@
             <a class="nav-link" (click)="logout()">Cerrar Sesion</a>
           </div>
   </div>
+</nav> -->
+
+
+<nav>
+  <section class="contenedor nav" >
+      <!-- Enlaces -->
+      <div class="sidelogo">
+          <input type="checkbox" id="check">
+              <label for="check">
+                  <i class="fas fa-bars" id="menu"></i>
+              </label>
+
+          <!-- Sidebar -->
+          <div class="Enlaces">
+            <ul class="navbar-nav mr-auto" >
+              <li class="nav-item" routerLinkActive="active" *ngFor="let page of pages">
+                <a class="nav-link" routerLink="/{{page.page}}">{{page.name}}</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Logo -->
+          <div class="logo">
+              <img src="./../../../assets/img/Logo.png" alt="">
+          </div>
+      </div>
+
+      <!-- user -->
+      <input type="checkbox" id="check-user">
+          <label for="check-user">
+              <i class="fas fa-user-circle" id="user"></i>
+          </label>
+
+      <!-- User-Enlaces -->
+      <div class="enlaces-user">
+          <ul >
+              <li ><a routerLink="/users/edit/{{currentUser.userID}}" ><i class="fas fa-id-card"></i>Perfil</a></li>
+              <li><a (click)="logout()"><i class="fas fa-sign-out-alt"></i>Cerrar Sesion</a></li>
+          </ul>
+      </div>
+  </section>
 </nav>
