@@ -69,7 +69,7 @@ logout() {
     return  this.http.put(environment.URL+this.url, JSON.stringify(resource), this.options);
   }
   userUpdate(id, params) {
-    return this.http.put(`${environment.URL}/users/${id}`, params)
+    return this.http.patch(`${environment.URL}/users/${id}`, params)
         .pipe(map(x => {
             // update stored user if the logged in user updated their own record
             if (id == this.currentUserValue.userID) {

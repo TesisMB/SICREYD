@@ -29,32 +29,29 @@ export class AddEditComponent implements OnInit {
       this.isAddMode = !this.id;
 
       // La contraseña no es requerida en el modo Editar
-      const passwordValidators = [Validators.minLength(6)];
+      const passwordValidators = [Validators.minLength(8), Validators.maxLength(16)];
       if (this.isAddMode) {
           passwordValidators.push(Validators.required);
       }
 
       this.form = this.formBuilder.group({
-          firstName: ['', Validators.required],
-          lastName: ['', Validators.required],
-          dni: ['', Validators.required],
-          password: ['', passwordValidators]
-          // userPhone:    ['', Validators.required],
-          // userGender:    ['', Validators.required],
-          //  userEmail:    ['', Validators.required],
-          //   userAddress: ['', Validators.required],
-          //   userBirthdate: ['', Validators.required],
-          //   roleID:    ['', Validators.required],
-          //   userAvatar:    ['', Validators.required],
+      UserPhone:    ['', [Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
+      UserEmail:    ['',[Validators.email]],
+      UserAddress: [''],
+      UserPassword: ['', passwordValidators],
+      RoleID:    ['', Validators.required],
+     // userAvatar:    ['', Validators.required],
       });
 
       if (!this.isAddMode) {
           this.UserService.getById(this.id)
               .pipe(first())
               .subscribe(x => {
-                  this.f.firstName.setValue(x.userFirstname);
-                  this.f.lastName.setValue(x.userLastname);
-                  this.f.dni.setValue(x.userDni);
+                  this.f.UserPhone.setValue(x.userPhone);
+                  this.f.UserEmail.setValue(x.userEmail);
+                  this.f.UserAddress.setValue(x.userAddress);
+                  this.f.RoleID.setValue(x.roleID);
+                 // this.f.userAvatar.setValue(x.userAvatar);
               });
       }
   }

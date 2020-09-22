@@ -1,6 +1,8 @@
+import { User } from './../../models';
 import { Component, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
 import { Router } from '@angular/router';
+
 
 import { UserService ,AuthenticationService } from './../../services';
 
@@ -10,8 +12,8 @@ import { UserService ,AuthenticationService } from './../../services';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  currentUser: any = [];
-  users: any = [];
+  currentUser: User;
+  users: any;
   pages: {page:string, name:string}[];
 
 
@@ -29,17 +31,17 @@ export class HomeComponent implements OnInit {
     this.pages=[{page:'home',name:'Inicio'},{page:'users/register',name:'Agregar Usuario'},{page:'users',name:'Lista de Usuarios'}];
 
     //Carga todos los usuarios registrados.
-      this.loadAllUsers();
+  //    this.loadAllUsers();
       console.log(this.currentUser);
   }
 // Metodo que borra el usuario.
-  deleteUser(id: number) {
+ /* deleteUser(id: number) {
       this.userService.delete(id)
           .pipe(first())
           .subscribe(() => this.loadAllUsers());
   }
 //Metodo que carga todos los usuarios.
-  private loadAllUsers() {
+ /* private loadAllUsers() {
       this.userService.getAll()
           .pipe(first())
           .subscribe(users => this.users = users);
@@ -49,4 +51,5 @@ export class HomeComponent implements OnInit {
     this.authenticationService.logout();
     this.router.navigate(['/login']);
 }
+*/
 }

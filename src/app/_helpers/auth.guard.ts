@@ -12,7 +12,7 @@ export class AuthGuard implements CanActivate {
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         const currentUser = this.authenticationService.currentUserValue;
-        if (currentUser.isAuthenticated) {
+        if (currentUser) {
             // chequea que las rutas estan restringidas por roles
             if ( route.data.roles && route.data.roles.indexOf(currentUser.roleName) === -1) {
               //Si el rol no esta autorizado redirecciona al Home Page

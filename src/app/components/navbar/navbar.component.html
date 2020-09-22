@@ -35,7 +35,7 @@
               <li class="nav-item" routerLinkActive="active" >
                 <a class="nav-link" routerLink="/home">Inicio</a>
               </li>
-              <li *ngIf="currentUser.roleName === 'Admin'|| 'Coordinador General'" class="nav-item" routerLinkActive="active" >
+              <li *ngIf="roleUser ==='Coordinador General' || roleUser==='Admin'" class="nav-item" routerLinkActive="active" >
                 <a class="nav-link" routerLink="/{{page.page}}">{{page.name}}</a>
               </li>
             </ul>

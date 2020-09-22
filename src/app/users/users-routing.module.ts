@@ -13,7 +13,8 @@ const routes: Routes = [
         children: [
             {
               path: '',
-              component: ListComponent
+              component: ListComponent,
+              data: {roles: [Role.Admin, Role.CoordinadorGeneral]}
             },
             // {
            //   path: 'add',

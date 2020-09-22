@@ -3,37 +3,62 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="form-row">
         <div class="form-group col">
-            <label for="firstName">Nombre</label>
-            <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
-            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-                <div *ngIf="f.firstName.errors.required">El nombre es requerido</div>
+          <div class="role">
+            <select class="select" name="RoleID" formControlName="RoleID"  [ngClass]="{ 'is-invalid': submitted && f.RoleID.errors }">
+              <option value="">Seleccione el puesto</option>
+              <option value="1">Administrador</option>
+              <option value="2">Coordinador General</option>
+              <option value="3">Coordinador de Emergencias y Desastres</option>
+              <option value="4" >Logistica</option>
+              <!-- <option value="5">Voluntario</option> -->
+            </select>
+            <div *ngIf="submitted && f.RoleID.errors" class="invalid-feedback">
+             <div *ngIf="f.RoleID.errors.required">*Campo requerido</div>
+            </div>
             </div>
         </div>
         <div class="form-group col">
-            <label for="lastName">Apellido</label>
-            <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
-            <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
-                <div *ngIf="f.lastName.errors.required">El apellido es requerido</div>
-            </div>
-        </div>
+            <label for="UserEmail">Correo Electronico</label>
+            <input class="correoInput" type="email" placeholder="Correo electronico" formControlName="UserEmail"  [ngClass]="{ 'is-invalid': submitted && f.UserEmail.errors }" />
+            <div *ngIf="submitted && f.UserEmail.errors" class="invalid-feedback">
+             <div *ngIf="f.UserEmail.errors.required">*Campo requerido</div>
+            <div *ngIf="f.UserEmail.errors.email">*Correo electrónico inválido</div>
+
+       </div>
     </div>
     <div class="form-row">
         <div class="form-group col">
-            <label for="dni">Documento</label>
-            <input type="text" formControlName="dni" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dni.errors }" />
-            <div *ngIf="submitted && f.dni.errors" class="invalid-feedback">
-                <div *ngIf="f.dni.errors.required">Documento es requerido</div>
-            </div>
+            <label for="UserAddress">Direccion</label>
+            <input class="direccionInput" type="text" placeholder="Domicilio" formControlName="UserAddress" [ngClass]="{ 'is-invalid': submitted && f.UserAddress.errors }" />
+            <div *ngIf="submitted && f.UserAddress.errors" class="invalid-feedback">
+             <div *ngIf="f.UserAddress.errors.required">Campo requerido</div>
+         </div>
         </div>
+      </div>
+
+      <div class="form-row">
         <div class="form-group col">
-            <label for="password">
+            <label for="UserPhone">Telefono de contacto</label>
+      <input class="telefonoInput" type="tel" placeholder="Telefono" formControlName="UserPhone" [ngClass]="{ 'is-invalid': submitted && f.UserPhone.errors }" />
+      <div *ngIf="submitted && f.UserPhone.errors" class="invalid-feedback">
+       <div *ngIf="f.UserPhone.errors.required">*Campo requerido</div>
+       <div *ngIf="f.UserPhone.errors.pattern">Número de teléfono inválido - Ingrese tu número de teléfono completo.</div>
+      </div>
+    </div>
+   </div>
+
+
+        <div class="form-group col">
+            <label for="UserPassword">
                 Contraseña
                 <em *ngIf="!isAddMode">(Dejar en blanco para no cambiar contraseña)</em>
             </label>
-            <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+            <input type="password" formControlName="UserPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.UserPassword.errors }" />
             <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                <div *ngIf="f.password.errors.required">Contraseña requerida</div>
-                <div *ngIf="f.password.errors.minlength">Debe tener minimo 6 caracteres</div>
+                <div *ngIf="f.UserPassword.errors.required">Contraseña requerida</div>
+                <div *ngIf="f.UserPassword.errors.minlength">Debe tener minimo 8 caracteres</div>
+                <div *ngIf="f.UserPassword.errors.maxlength">Debe tener maximo 16 caracteres</div>
+
             </div>
         </div>
     </div>
