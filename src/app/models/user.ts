@@ -4,7 +4,7 @@ export class User {
   userDni: string;
   userPhone: string;
   userGender: string;
-  // avalible: boolean;
+  isAuthenticated: boolean;
   userEmail: string;
   userPassword: string;
   userFirstname: string;
@@ -15,5 +15,5 @@ export class User {
   userAvatar: any;
   userBirthdate: Date;
   roleID: number;
-  roleName?: Role;
+  roleName: Role;
 }

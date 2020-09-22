@@ -25,9 +25,7 @@
                 <div *ngIf="f.userDni.errors.required">*Campo requerido</div>
                 <div *ngIf="f.userDni.errors.maxlength">Debe tener máximo 8 carácteres</div>
                 <div *ngIf="f.userDni.errors.pattern">Número Dni inválido</div>
-
-
-                            </div>
+              </div>
 
             </div>
                 <div class="password">
@@ -92,7 +90,7 @@
              <input class="correoInput" type="text" placeholder="Correo electronico" formControlName="userEmail"  [ngClass]="{ 'is-invalid': submitted && f.userEmail.errors }" />
              <div *ngIf="submitted && f.userEmail.errors" class="invalid-feedback">
               <div *ngIf="f.userEmail.errors.required">*Campo requerido</div>
-             <div *ngIf="f.userEmail.errors.pattern">*Correo electrónico inválido</div>
+             <div *ngIf="f.userEmail.errors.email">*Correo electrónico inválido</div>
 
         </div>
 
@@ -106,11 +104,11 @@
         <div class="role">
              <select class="select" name="idRole" formControlName="roleID"  [ngClass]="{ 'is-invalid': submitted && f.roleID.errors }">
                <option value="">Seleccione el puesto</option>
-               <option value="0">Administrador</option>
-               <option value="1">Coordinador General</option>
-               <option value="2">Coordinador de Emergencias y Desastres</option>
-               <option value="3" >Logistica</option>
-               <!-- <option value="4">Voluntario</option> -->
+               <option value="1">Administrador</option>
+               <option value="2">Coordinador General</option>
+               <option value="3">Coordinador de Emergencias y Desastres</option>
+               <option value="4" >Logistica</option>
+               <!-- <option value="5">Voluntario</option> -->
              </select>
              <div *ngIf="submitted && f.roleID.errors" class="invalid-feedback">
               <div *ngIf="f.roleID.errors.required">*Campo requerido</div>

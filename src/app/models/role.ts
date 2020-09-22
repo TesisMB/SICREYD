@@ -1,6 +1,7 @@
 export enum Role {
-  CGeneral = 'Coordinadora General',
+  CoordinadorGeneral = 'Coordinador General',
   Admin = 'Admin',
   CEyD = 'Coordinador de Emergencias y Desastres',
-  Logistica = 'Encargado de Logistica'
+  Logistica = 'Encargado de Logistica',
+  Voluntario = 'Voluntario'
 }

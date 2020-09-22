@@ -1,10 +1,10 @@
+import { Role, User } from './../../models';
 import { AlertService, UserService, AuthenticationService } from '../../services';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { DatePipe } from '@angular/common';
-
 @Component({
 selector: 'register',
 templateUrl: './register.component.html',
@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
     loading = false;
     submitted = false;
     url: any;
-
+    roleUser: Role;
 
     constructor(
         private formBuilder: FormBuilder,
@@ -27,9 +27,8 @@ export class RegisterComponent implements OnInit {
     ) {}
 
     ngOnInit() {
-      let date:Date  = new Date();
-      console.log(date);
-      console.log(date.toLocaleString());
+      //Trae el role del usuario logueado.
+        this.roleUser = this.authenticationService.currentUserValue.roleName;
 
         this.registerForm = this.formBuilder.group({
 
@@ -38,8 +37,8 @@ export class RegisterComponent implements OnInit {
             userDni:      ['', [Validators.required,Validators.maxLength(8),Validators.pattern("[0-9]{7,15}")]],
             userPhone:    ['', [Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
             userGender:    ['', Validators.required],
-          //  userEmail:    ['',[Validators.required,Validators.email]],
-            userEmail:    ['',[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
+            userEmail:    ['',[Validators.required,Validators.email]],
+         //   userEmail:    ['',[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
             userAddress: ['', Validators.required],
             userPassword: ['', [Validators.required,Validators.minLength(8), Validators.maxLength(16)]],
             userBirthdate: ['', [Validators.required,Validators.pattern("[0-9]{4}-[0-9]{2}-[0-9]{2}")]],
@@ -48,16 +47,16 @@ export class RegisterComponent implements OnInit {
         });
     }
 
-    // convenience getter for easy access to form fields
+    // Es un getter conveniente para facilitar el acceso a los campos del formulario
     get f() { return this.registerForm.controls; }
 
     onSelectFile(event) {
       if (event.target.files && event.target.files[0]) {
         let reader = new FileReader();
 
-        reader.readAsDataURL(event.target.files[0]); // read file as data url
+        reader.readAsDataURL(event.target.files[0]); // Lee el archivo como DATA URL
 
-        reader.onload = (event) => { // called once readAsDataURL is completed
+        reader.onload = (event) => { // Es llamado cuando el metodo readAsDataURL es completado
           this.url = event.target.result;
 
         }
@@ -83,7 +82,7 @@ export class RegisterComponent implements OnInit {
             .subscribe(
                 data => {
                     this.alertService.success('Registro exitoso', { keepAfterRouteChange: true });
-                    this.router.navigate(['../login'], { relativeTo: this.route });
+                    this.router.navigate(['/home'], { relativeTo: this.route });
                 },
                 error => {
                     this.alertService.error('Registro fallido, intente nuevamente');

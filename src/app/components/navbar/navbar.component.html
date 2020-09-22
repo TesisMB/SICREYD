@@ -31,8 +31,11 @@
 
           <!-- Sidebar -->
           <div class="Enlaces">
-            <ul class="navbar-nav mr-auto" >
-              <li class="nav-item" routerLinkActive="active" *ngFor="let page of pages">
+            <ul class="navbar-nav mr-auto" *ngFor="let page of pages">
+              <li class="nav-item" routerLinkActive="active" >
+                <a class="nav-link" routerLink="/home">Inicio</a>
+              </li>
+              <li *ngIf="currentUser.roleName === 'Admin'|| 'Coordinador General'" class="nav-item" routerLinkActive="active" >
                 <a class="nav-link" routerLink="/{{page.page}}">{{page.name}}</a>
               </li>
             </ul>

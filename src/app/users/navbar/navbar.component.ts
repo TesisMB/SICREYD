@@ -1,4 +1,4 @@
-import { User } from '../../models/user';
+import { User, Role } from '../../models';
 import { AuthenticationService } from '../../services/_authentication/authentication.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -9,7 +9,8 @@ import { nextTick } from 'process';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  currentUser: any;
+  currentUser: User;
+  roleUser: Role;
   pages:{page:string,name:string}[];
 
 
@@ -18,11 +19,16 @@ export class NavbarComponent implements OnInit {
       private authenticationService: AuthenticationService
   ) {
       this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+      this.roleUser = this.currentUser.roleName;
   }
 
   ngOnInit(){
 
-    this.pages=[{page:'home',name:'Inicio'},{page:'users',name:'Usuarios'}];
+    this.pages =
+    [
+      //{page:'home',name:'Inicio'},
+      {page:'users',name:'Usuarios'}
+    ];
   }
 
   logout() {
