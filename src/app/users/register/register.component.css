@@ -1,44 +1,30 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body{
-  background: #e9ecef;
-  height: 100vh;
-  width: 100vw;
-
-}
-
 .container {
   display: flex;
-  flex-flow: column nowrap;
-
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0 30px 0;
 }
 
 
 #form {
   display: flex;
-  position: absolute;
- justify-content: center;
- top:50%;
- left: 50%;
- transform: translate(-50%,-50%);
- box-shadow: 0px 25px 36px 12px rgba(0, 0, 0, 0.51); /*sombra del login */
-
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 25px 36px 12px rgba(0, 0, 0, 0.51);
+  /*sombra del login */
 
 }
+
 
 .form-left {
-  background: #b71c1c;
-  margin: 0 20px 0 0;
+  background: #bd2d2d;
+  ;
   padding: 0;
-  height: 520px;
+  height: 540px;
 }
 
-.form-left .invalid-feedback{
-  color:#fff;
+.form-left .invalid-feedback {
+  color: #fff;
 }
 
 .avatar {
@@ -47,32 +33,33 @@ body{
   border-radius: 50%;
 }
 
-.hoverable{
+.hoverable {
   position: relative;
   display: block;
   cursor: pointer;
   height: 200px;
   width: 200px;
   border-radius: 50%;
-  top:0px;
+  top: 10px;
   left: 30px;
 
 }
-form input{
-  color:black;
+
+form input {
+  color: black;
   height: 30px;
 }
 
 
 
-.hoverable .background{
+.hoverable .background {
   position: absolute;
   display: none;
-  top: 0px;
-  left:  0px;
+  top: 0;
+  left: 0;
   bottom: 0;
-  right: 0px;
-  background-color:rgba(255, 255, 255, 0.5);
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.5);
   pointer-events: none;
   border-radius: 50%;
   z-index: 1;
@@ -81,44 +68,47 @@ form input{
 
 }
 
-.hoverable:hover .background{
+.hoverable:hover .background {
   display: block;
 }
 
-#fileInput{
+#fileInput {
   display: none;
 }
 
 .form-left .dniInput {
   color: #fff;
-  width:90%;
-  padding-left :5px;
-    background: #b71c1c;
-     border: none;
-  border-bottom: 1px solid black;
+  width: 90%;
+  padding-left: 5px;
+  background: #bd2d2d;
+  ;
+  border: none;
+  border-bottom: 1px solid #fff;
   outline: none;
 
 }
 
-.dni{
-  position:relative;
-  top:-30px;
-  padding-left:15px;
+.dni {
+  position: relative;
+  top: -30px;
+  padding-left: 15px;
 }
 
-.password{
-  position:relative;
-  top:-20px;
-  padding-left:15px;
+.password {
+  position: relative;
+  top: -20px;
+  padding-left: 15px;
 }
 
-.role{
-  width:100%;
+.role {
+  width: 100%;
 }
 
-.form-center .select{
-  width:100%;
-  height:85%;
+.form-center .select {
+  width: 100%;
+  height: 85%;
+  outline: none;
+  border: none;
 }
 
 
@@ -126,25 +116,30 @@ form input{
 
 .form-left .passwordInput {
   color: #fff;
-    width:100%;
-  padding-left :5px;
-  margin-left:15px;
-    background: #b71c1c;
-     border: none;
-  border-bottom: 1px solid black;
+  width: 100%;
+  padding-left: 5px;
+  margin-left: 15px;
+  background: #bd2d2d;
+  ;
+  border: none;
+  border-bottom: 1px solid #fff;
   outline: none;
 
-  }
+}
 
 
+.form-left ::placeholder {
+  color: #fff;
+}
 
 
 .form-left h2 {
   margin: 0px 0;
-  text-align:center;
+  text-align: center;
   position: relative;
-  top:0px;
+  top: 5px;
   width: 100%;
+  color: #fff;
 }
 
 .form-center {
@@ -152,8 +147,9 @@ form input{
   flex: 1 1 auto;
   display: flex;
   flex-flow: row wrap;
-  margin: 0 20px 0 0;
-  padding: 0;
+  padding: 0 20px 0 20px;
+  position: relative;
+  height: 540px;
 
 }
 
@@ -166,63 +162,69 @@ form input{
 .correoInput {
   background: #e9ecef;
   flex: 1 1 100%;
-   border: none;
+  border: none;
   border-bottom: 1px solid black;
   outline: none;
 }
 
-.enviar{
+.enviar {
   flex: 1 1 100%;
-    background: #9ea0a3;
-    margin-top: 20px;
-      transition: 0.3s ease-in-out;
-      border:none;
-      outline:none;
+  background: #9ea0a3;
+  margin-top: 20px;
+  transition: 0.3s ease-in-out;
+  border: none;
+  outline: none;
   box-shadow: 0px 0px 30px -7px rgba(0, 0, 0, 0.75);
 
 
 
 }
 
-a{
-  outline:none;
-  border:none;
-}
 
-.enviar:hover{
+.enviar:hover {
   background: #b71c1c;
-    transform: translateY(5px);
+  transform: translateY(5px);
 }
 
 
 
 .form-center .radio {
   margin: 0px;
+  position: relative;
+  top: -20px;
+}
+
+
+.form-center ::placeholder {
+  color: #000;
 }
 
 .form-center h2 {
   flex: 1 1 100%;
   margin: 0px 0;
-  text-align:center;
+  text-align: center;
 }
 
+a {
+  color: #000;
+}
 
 .Gender {
-display: flex;
-margin-bottom: 0px;
-padding-left: 10px;
-display: flex;
+  display: flex;
+  margin-bottom: 0px;
+  padding-left: 10px;
+  display: flex;
 }
 
-.Gender input{
-   position: relative;
-  top:-3px;
+.Gender input {
+  position: relative;
+  top: -3px;
   left: 10px;
 }
 
 .Gender-Gender-text {
   padding-right: 10px;
-  padding-top:0px ;
+  padding-top: 0px;
   margin-left: 15px;
 }
 
@@ -258,18 +260,14 @@ display: flex;
   .hoverable {
     margin: 0 auto;
     position: relative;
-    top:100px;
+    top: 100px;
   }
 
 
 
-  body{
+  body {
     background: #e9ecef;
     height: 700px;
 
   }
-
-
-
-
 }

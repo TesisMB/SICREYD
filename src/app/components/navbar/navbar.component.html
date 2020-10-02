@@ -33,8 +33,8 @@
           <div class="Enlaces">
             <ul class="navbar-nav mr-auto" *ngFor="let page of pages">
               <li class="nav-item" routerLinkActive="active" >
-                <a class="nav-link" routerLink="/home">Inicio</a>
-              </li>
+<!--                 <a class="nav-link" routerLink="/home"><i class="fas fa-home"></i>Inicio</a>
+ -->              </li>
               <li *ngIf="roleUser ==='Coordinador General' || roleUser==='Admin'" class="nav-item" routerLinkActive="active" >
                 <a class="nav-link" routerLink="/{{page.page}}">{{page.name}}</a>
               </li>

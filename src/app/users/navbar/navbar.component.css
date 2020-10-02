@@ -60,7 +60,7 @@ input {
 .Enlaces {
   position: fixed;
   width: 240px;
-  top: 60px;
+  top: 64px;
   left: -240px;
   height: 100%;
   background: #fff;
@@ -68,20 +68,21 @@ input {
 }
 
 
-label #menu{
+label #menu {
   cursor: pointer;
   font-size: 20px;
   transition: .5s;
 }
 
 
-#check:checked ~ .Enlaces {
+#check:checked~.Enlaces {
   left: 0px;
 }
 
 
 
-.Enlaces ul, .enlaces-user ul{
+.Enlaces ul,
+.enlaces-user ul {
   line-height: 40px;
   font-size: 16px;
   font-weight: 600;
@@ -89,22 +90,25 @@ label #menu{
 
 
 
-.Enlaces ul li{
+.Enlaces ul li {
   list-style: none;
-  border-bottom: 1px solid  rgb(188, 188, 188);
+  border-bottom: 1px solid rgb(188, 188, 188);
 }
 
-.Enlaces ul li:hover, .enlaces-user ul li:hover{
+.Enlaces ul li:hover,
+.enlaces-user ul li:hover {
   background: rgba(188, 188, 188, 0.337);
 }
 
 
-.Enlaces ul li i, .enlaces-user ul li i{
+.Enlaces ul li i,
+.enlaces-user ul li i {
   padding-right: 20px;
   margin-left: 10px;
 }
 
-.Enlaces ul li a, .enlaces-user ul li a{
+.Enlaces ul li a,
+.enlaces-user ul li a {
   color: #000;
   margin-left: 20px;
   transition: all .3s ease;
@@ -114,10 +118,12 @@ label #menu{
 /* --------------------------------------Nav user-------------------------------------- */
 
 /* user */
-.enlaces-user{
+.enlaces-user {
   position: fixed;
   width: 240px;
-  top: 60px;
+  top: 64px;
+  height: 64px;
+
   right: -240px;
   background: #fff;
   transition: .5s;
@@ -127,11 +133,11 @@ label #menu{
   right: 0px;
 }
 
-.enlaces-user ul li{
+.enlaces-user ul li {
   list-style: none;
-  border-bottom: 1px solid  rgb(188, 188, 188);
+  border-bottom: 1px solid rgb(188, 188, 188);
 }
 
-label #user{
-cursor: pointer;
+label #user {
+  cursor: pointer;
 }

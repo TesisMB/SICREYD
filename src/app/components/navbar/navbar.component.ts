@@ -25,8 +25,8 @@ export class NavbarComponent implements OnInit {
   ngOnInit(){
 
     this.pages=[
-      //{page:'home',name:'Inicio'},
-      {page:'users',name:'Usuarios'}
+      {page:'home',name:'Inicio'},
+      {page:'users',name:'Usuarios'}, {page:'resources',name:'Recursos'}, {page:'emergency-disaster',name:'Emergencias - Desastres'}
     ];
   }
 

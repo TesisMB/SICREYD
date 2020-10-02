@@ -14,6 +14,9 @@ import { LoginComponent } from './components';
 import { AlertComponent } from './components';
 import { NotFoundComponent } from './components';
 import { NavbarComponent} from './components';
+import { ResourcesComponent } from './components';
+import { EmergencyDisasterComponent } from './components';
+
 //**************CLIENT************* */
 import { ClientNavbarComponent } from './client';
 import { FooterComponent } from './client';
@@ -35,7 +38,9 @@ import { UserService } from './services';
     CarouselComponent,
     ClientHomeComponent,
     NotFoundComponent,
-    NavbarComponent
+    NavbarComponent,
+    ResourcesComponent,
+    EmergencyDisasterComponent,
 
   ],
   imports: [

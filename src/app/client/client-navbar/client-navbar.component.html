@@ -31,8 +31,8 @@
       <a class="nav-item nav-link" (click)="logout()">Logout</a>
   </div>
 </nav> -->
-
-<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<!--
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <img id="logo" src="./../../../../assets/logo.png" class="d-inline-block align-top" >
   <li><h2>SICREYD</h2></li>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,11 +55,13 @@
   </div>
 </nav> -->
 
-
+<!--
 <nav  class="navbar navbar-dark bg-dark navbar-expand-lg justify-content-between">
   <button class="navbar-toggler order-2" type="button" data-toggle="collapse" data-target="#navbar-list-9" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+
+
   <div  class="collapse navbar-collapse w-100 order-3 order-lg-1" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto" >
       <li class="nav-item" routerLinkActive="active" *ngFor="let page of pages">
@@ -75,4 +77,33 @@
             <a class="nav-link" (click)="login()">SICREYD</a>
           </div>
   </div>
+</nav> -->
+
+<nav>
+
+  <section class="contenedor nav">
+    <div class="logo">
+      <img src="./../../../../assets/logo.png">
+    </div>
+
+    <div class="links">
+      <ul class="nav-list">
+        <li routerLinkActive="active">
+          <a href="https://www.cruzroja.org.ar/cruz-roja-argentina/" class="link-principal">Cruz Roja Argentina</a>
+          <a href="https://www.cruzroja.org.ar/filiales/" class="link-principal">Filiales</a>
+          <a href="https://www.cruzroja.org.ar/voluntariado/" class="link-principal">Sumate</a>
+          <a href="https://www.cruzroja.org.ar/dona/" class="link-principal">Colabora</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="link-sicreyd">
+      <ul>
+      <li>
+        <a class="link" (click)="login()">Sicreyd</a>
+      </li>
+    </ul>
+    </div>
+  </section>
+
 </nav>

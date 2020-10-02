@@ -1,3 +1,5 @@
+import { EmergencyDisasterComponent } from './components/emergency-disaster/emergency-disaster.component';
+import { ResourcesComponent } from './components/resources/resources.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 //  --- Componentes importados a routear ---
@@ -33,6 +35,21 @@ const routes: Routes = [
     canActivate: [AuthGuard]
 
   },
+
+  {
+    path: 'resources',
+    component: ResourcesComponent,
+    canActivate: [AuthGuard]
+
+   },
+
+  {
+    path: 'emergency-disaster',
+    component: EmergencyDisasterComponent,
+    canActivate: [AuthGuard]
+
+   },
+
   // { path: 'account', loadChildren: accountModule, canActivate:[AuthGuard] },
   // Si se ingresa a una direccion inexistente, redirecciona a 404 not found.-
   {path:'**',

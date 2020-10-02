@@ -8,9 +8,9 @@ import { nextTick } from 'process';
   templateUrl: './client-navbar.component.html',
   styleUrls: ['./client-navbar.component.css']
 })
-export class ClientNavbarComponent implements OnInit {
+export class ClientNavbarComponent/*  implements OnInit */ {
   currentUser: any;
-  pages:{page:string,name:string}[];
+/*   pages:{page:string,name:string}[]; */
 
 
   constructor(
@@ -20,10 +20,10 @@ export class ClientNavbarComponent implements OnInit {
       this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
   }
 
-  ngOnInit(){
+/*   ngOnInit(){
     this.pages=[{page:'',name:'Inicio'},{page:'**',name:'Noticias'},{page:'**',name:'Voluntariado'}];
   }
-
+ */
   login() {
       this.router.navigate(['login']);
 
