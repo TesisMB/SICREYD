@@ -1,5 +1,6 @@
+import { UserService } from './../index';
 import { Role, User } from './../../models';
-import { AlertService, UserService, AuthenticationService } from '../../services';
+import { AlertService, AuthenticationService } from '../../services';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';

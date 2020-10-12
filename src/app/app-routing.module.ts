@@ -1,60 +1,51 @@
-import { EmergencyDisasterComponent } from './components/emergency-disaster/emergency-disaster.component';
-import { ResourcesComponent } from './components/resources/resources.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 //  --- Componentes importados a routear ---
-// import { RegisterComponent } from './account';
-import { LoginComponent } from './components/index';
-import { HomeComponent } from './components/index';
-import { AuthGuard } from './_helpers';
-// import { Register2Component } from './components/register2/register2.component';
-import { ClientHomeComponent } from './client/client-home/client-home.component';
-import { NotFoundComponent } from './components/not-found/not-found.component';
-import { Role} from './models/role';
-// const accountModule = () => import('./account/account.module').then(x => x.AccountModule);
-const usersModule = () => import('./users/users.module').then(x => x.UsersModule);
 
-const routes: Routes = [
+import { AuthGuard } from './_helpers';
+import { NotFoundComponent } from './shared';
+import { Role } from './models/role';
+
+export const routes: Routes = [
   {
-    path: '',
-    component: ClientHomeComponent
+    path: '' ,
+    loadChildren: () => import ('./client/client.module').then(x => x.ClientModule)
   },
-  {
-    path: 'login',
-    component: LoginComponent
-  },
+
   {
      path: 'home',
-     component: HomeComponent,
+     loadChildren: () => import ('./account/account.module').then(x => x.AccountModule),
      canActivate: [AuthGuard]
 
     },
   {
     path: 'users',
-    loadChildren: usersModule,
-    canActivate: [AuthGuard]
-
+    loadChildren: () => import ('./users/users.module').then(x => x.UsersModule) ,
+    canActivate: [AuthGuard],
+    data:{ roles: [Role.Admin, Role.CoordinadorGeneral]}
   },
 
-  {
-    path: 'resources',
-    component: ResourcesComponent,
-    canActivate: [AuthGuard]
+
+    { path: 'resources',
+     loadChildren: () => import('./resources/resources.module').then(m => m.ResourcesModule),
+    canActivate: [AuthGuard],
+    data:{ roles: [Role.Admin, Role.CoordinadorGeneral, Role.Logistica]}
+
 
    },
 
-  {
-    path: 'emergency-disaster',
-    component: EmergencyDisasterComponent,
-    canActivate: [AuthGuard]
+  {path: 'emergency',
+   loadChildren: () => import('./emergency-disaster/emergency-disaster.module').then(m => m.EmergencyDisasterModule),
+    canActivate: [AuthGuard],
+    data:{ roles: [Role.Admin, Role.CoordinadorGeneral, Role.CEyD]}
+
 
    },
 
-  // { path: 'account', loadChildren: accountModule, canActivate:[AuthGuard] },
+
+
   // Si se ingresa a una direccion inexistente, redirecciona a 404 not found.-
-  {path:'**',
-  component: NotFoundComponent
-}
+  {path:'**', component: NotFoundComponent}
 ];
 
 @NgModule({

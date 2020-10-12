@@ -1,11 +1,9 @@
-import { Role } from './../models/role';
-import { AuthGuard } from './../_helpers/auth.guard';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { LayoutComponent } from './index';
 import { ListComponent } from './index';
-import { AddEditComponent } from './index';
-import { RegisterComponent } from './index';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
     {
@@ -14,7 +12,6 @@ const routes: Routes = [
             {
               path: '',
               component: ListComponent,
-              data: {roles: [Role.Admin, Role.CoordinadorGeneral]}
             },
             // {
            //   path: 'add',
@@ -23,15 +20,9 @@ const routes: Routes = [
             {
               path: 'register',
               component: RegisterComponent,
-              data: { roles:[Role.Admin, Role.CoordinadorGeneral] }
-            },
+            }]
 
-            {
-              path: 'edit/:id',
-              component: AddEditComponent
-            },
-          ]
-        }
+          }
     ];
 
 @NgModule({
