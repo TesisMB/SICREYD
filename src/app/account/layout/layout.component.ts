@@ -13,7 +13,7 @@ export class LayoutComponent {
   constructor(  private router: Router,
     private AuthenticationService: AuthenticationService
 ) {
-    // redirect to home if already logged in
+    // redirecciona a "home" si ya esta logeado.
     if (this.AuthenticationService.currentUserValue) {
         this.router.navigate(['home']);
     }
