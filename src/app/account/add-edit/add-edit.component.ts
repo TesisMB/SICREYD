@@ -2,9 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
+import { User } from './../../models';
+
 
 import { UserService } from './../../users/index';
 import {AlertService } from './../../services/index';
+import { AuthenticationService } from './../../services';
+
 @Component({
   selector: 'add-edit',
   templateUrl: './add-edit.component.html',
@@ -16,14 +20,21 @@ export class AddEditComponent implements OnInit {
   isAddMode: boolean;
   loading = false;
   submitted = false;
+  currentUser: User;
+
 
   constructor(
       private formBuilder: FormBuilder,
       private route: ActivatedRoute,
       private router: Router,
       private UserService: UserService,
-      private alertService: AlertService
-  ) {}
+      private alertService: AlertService,
+      private authenticationService: AuthenticationService,
+
+  ) {
+    this.currentUser = this.authenticationService.currentUserValue;
+
+  }
 
   ngOnInit() {
       this.id = this.route.snapshot.params['id'];

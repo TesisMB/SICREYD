@@ -31,7 +31,9 @@
 
           <!-- Sidebar -->
           <div class="Enlaces">
+            <a class="nav-link" routerLink="/home">Inicio</a>
             <ul class="navbar-nav mr-auto" *ngFor="let page of pages">
+
               <li class="nav-item" routerLinkActive="active" >
 <!--                 <a class="nav-link" routerLink="/home"><i class="fas fa-home"></i>Inicio</a>
  -->              </li>
@@ -56,10 +58,10 @@
                   <div class="first-title">
                   <p class="title">{{currentUser.userFirstname}} {{currentUser.userLastname}}</p>
                     <p class="title dos">{{currentUser.userEmail}}</p></div>
-                    <ul>
-                      <li class="list"><a routerLink="/users/edit/{{currentUser.userID}}" ><i class="fas fa-id-card"></i>Perfil</a></li>
-                      <li class="list"><a (click)="logout()"><i class="fas fa-sign-out-alt"></i>Cerrar Sesion</a></li>
-                    </ul>
+                    <ul >
+                      <li ><a routerLink="/home/edit/{{currentUser.userID}}" ><i class="fas fa-id-card"></i>Perfil</a></li>
+                      <li><a (click)="logout()"><i class="fas fa-sign-out-alt"></i>Cerrar Sesion</a></li>
+                  </ul>
             </div>
 </section>
 </nav>
