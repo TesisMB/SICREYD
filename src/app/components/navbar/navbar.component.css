@@ -82,10 +82,11 @@ label #menu{
 
 
 
-.Enlaces ul, .enlaces-user ul{
+.Enlaces ul, .dropdown-menu  ul{
   line-height: 40px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
+  margin-bottom: 0;
 }
 
 
@@ -95,17 +96,17 @@ label #menu{
   border-bottom: 1px solid  rgb(188, 188, 188);
 }
 
-.Enlaces ul li:hover, .enlaces-user ul li:hover{
+.Enlaces ul li:hover, .dropdown-menu  ul .list:hover{
   background: rgba(188, 188, 188, 0.337);
 }
 
 
-.Enlaces ul li i, .enlaces-user ul li i{
+.Enlaces ul li i, .dropdown-menu  ul li i{
   padding-right: 20px;
   margin-left: 10px;
 }
 
-.Enlaces ul li a, .enlaces-user ul li a{
+.Enlaces ul li a, .dropdown-menu  ul li a{
   color: #000;
   margin-left: 20px;
   transition: all .3s ease;
@@ -115,27 +116,45 @@ label #menu{
 /* --------------------------------------Nav user-------------------------------------- */
 
 /* user */
-.enlaces-user{
-  position: fixed;
-  width: 240px;
-  top: 64px;
-  height: 81px;
-  right: -240px;
-  background: #fff;
-  transition: .5s;
+.dropdown-menu {
+  width: 200px;
+  margin: 0;
+  padding: 0;
+  border-radius: 5px;
+  position: absolute;
+  top: 5px !important;
+  left: -15px !important;
 }
 
-#check-user:checked~.enlaces-user {
-  right: 0px;
-}
 
-.enlaces-user ul li{
+.dropdown-menu  ul li{
   list-style: none;
   border-bottom: 1px solid  rgb(188, 188, 188);
 }
 
-label #user{
-cursor: pointer;
+#user{
+  color: #000;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.first-title{
+  color: #fff;
+  text-align: center;
+  background: #b71c1c;;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+}
+
+.title{
+  margin: 0;
+}
+
+.dos{
+  font-size: 12px;
 }
 
 /* --------------------------------------header-------------------------------------- */
@@ -148,7 +167,6 @@ header::before {
 
 .contenedor1 {
   width: 100%;
-  max-width: 1366px;
   background: rgb(250, 231, 223);
   overflow: hidden;
 }

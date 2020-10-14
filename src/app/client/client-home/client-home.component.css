@@ -121,7 +121,7 @@
 /************************** Parallax Seccion 3 - Emergencias **************************/
 
 .Emergencias {
-  background-image: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)), url(../../../assets/emergencias.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)), url(../../../assets/img-client/emergencias.jpg);
   height: 80vh;
   background-position: center;
   background-size: cover;

@@ -43,22 +43,23 @@
 
           <!-- Logo -->
           <div class="logo">
-              <img src="./../../../assets/img/Logo.png" alt="">
+              <img src="./../../../assets/img-home-users/Logo.png" alt="">
           </div>
       </div>
 
-      <!-- user -->
-      <input type="checkbox" id="check-user">
-          <label for="check-user">
-              <i class="fas fa-user-circle" id="user"></i>
-          </label>
 
-      <!-- User-Enlaces -->
-      <div class="enlaces-user">
-          <ul >
-              <li ><a routerLink="/users/edit/{{currentUser.userID}}" ><i class="fas fa-id-card"></i>Perfil</a></li>
-              <li><a (click)="logout()"><i class="fas fa-sign-out-alt"></i>Cerrar Sesion</a></li>
-          </ul>
-      </div>
-  </section>
+
+        <!-- user -->
+
+            <a class="fas fa-user-circle" id="user" data-toggle="dropdown"></a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <div class="first-title">
+                  <p class="title">{{currentUser.userFirstname}} {{currentUser.userLastname}}</p>
+                    <p class="title dos">{{currentUser.userEmail}}</p></div>
+                    <ul>
+                      <li class="list"><a routerLink="/users/edit/{{currentUser.userID}}" ><i class="fas fa-id-card"></i>Perfil</a></li>
+                      <li class="list"><a (click)="logout()"><i class="fas fa-sign-out-alt"></i>Cerrar Sesion</a></li>
+                    </ul>
+            </div>
+</section>
 </nav>

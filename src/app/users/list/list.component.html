@@ -1,7 +1,9 @@
 <body>
+
   <div class="title">
     <h1>Lista de Usuarios</h1>
   </div>
+
   <div class="container">
     <a routerLink="register" class="btn btn-sm btn-success mb-2">Agregar usuario</a>
     <a routerLink="add" class="btn btn-sm btn-danger">Agregar recurso</a>
@@ -23,11 +25,16 @@
           <td>{{user.userDni}}</td>
           <td style="white-space: nowrap">
             <a routerLink="edit/{{user.userID}}" class="btn btn-sm btn-primary mr-1">Actualizar</a>
-            <button (click)="deleteUser(user.userID)" class="btn btn-sm btn-danger btn-delete-user"
+
+  <!-- Button trigger modal -->
+  <button type="button"  class="btn btn-sm btn-primary mr-1" data-toggle="modal" data-target="#exampleModalCenter">
+    Eliminar
+  </button>
+           <!-- <button (click)="deleteUser(user.userID)" class="btn btn-sm btn-danger btn-delete-user"
               [disabled]="user.isDeleting">
               <span *ngIf="user.isDeleting" class="spinner-border spinner-border-sm"></span>
               <span *ngIf="!user.isDeleting">Eliminar</span>
-            </button>
+            </button> -->
           </td>
         </tr>
         <tr *ngIf="!users">
@@ -37,5 +44,37 @@
         </tr>
       </tbody>
     </table>
+  </div>
+
+
+
+
+
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header"  style="background: #b71c1c; padding: 15px;">
+          <h5 class="modal-title" id="exampleModalLongTitle" style="color: #fff;">Eliminación de Usuario</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" style="color: #fff;">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ¿Esta seguro que quiere Eliminar al Usuario?
+          <br><br>
+          Toda la información asociada a este perfil de usuario se eliminará de forma permanente. Esta operación no se puede deshacer.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <tr>
+            <button type="button" class="btn btn-primary" >Eliminar</button>
+          </tr>
+        </div>
+      </div>
+    </div>
   </div>
 </body>

@@ -2,27 +2,39 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
+import { User } from './../../models';
+
 
 import { UserService ,AlertService } from './../../services/index';
+import { AuthenticationService } from './../../services';
+
 @Component({
   selector: 'add-edit',
   templateUrl: './add-edit.component.html',
   styleUrls: ['./add-edit.component.css']
 })
 export class AddEditComponent implements OnInit {
+  currentUser: User;
   form: FormGroup;
   id: string;
   isAddMode: boolean;
   loading = false;
   submitted = false;
+  url: any;
+
+
 
   constructor(
+    private authenticationService: AuthenticationService,
       private formBuilder: FormBuilder,
       private route: ActivatedRoute,
       private router: Router,
       private UserService: UserService,
       private alertService: AlertService
-  ) {}
+  ) {
+    this.currentUser = this.authenticationService.currentUserValue;
+
+  }
 
   ngOnInit() {
       this.id = this.route.snapshot.params['id'];
@@ -54,6 +66,8 @@ export class AddEditComponent implements OnInit {
                  // this.f.userAvatar.setValue(x.userAvatar);
               });
       }
+      console.log(this.currentUser);
+
   }
 
   // convenience getter for easy access to form fields

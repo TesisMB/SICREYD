@@ -26,6 +26,7 @@ import {ClientHomeComponent} from './client';
 import { LoginService } from './services';
 import { AuthenticationService } from './services';
 import { UserService } from './services';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { UserService } from './services';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgbModule,
   ],
   providers: [
     UserService,

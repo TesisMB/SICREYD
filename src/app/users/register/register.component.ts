@@ -16,6 +16,8 @@ export class RegisterComponent implements OnInit {
     submitted = false;
     url: any;
     roleUser: Role;
+    category:any;
+
 
     constructor(
         private formBuilder: FormBuilder,
@@ -49,7 +51,6 @@ export class RegisterComponent implements OnInit {
 
     // Es un getter conveniente para facilitar el acceso a los campos del formulario
     get f() { return this.registerForm.controls; }
-
     onSelectFile(event) {
       if (event.target.files && event.target.files[0]) {
         let reader = new FileReader();

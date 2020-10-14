@@ -3,14 +3,12 @@
 
     <!-- Menu con Logo de Cruz Roja-->
      <div class="container">
-
-
          <form id="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
            <div class="form-left">
 
              <h2>Perfil</h2>
 
-             <label class="hoverable" for="fileInput">
+              <label class="hoverable" for="fileInput">
               <img class="avatar" [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'">
               <input id="fileInput" type='file' (change)="onSelectFile($event)" formControlName="userAvatar"  [ngClass]="{ 'is-invalid': submitted && f.userAvatar.errors }" />
            <div *ngIf="submitted && f.userAvatar.errors" class="invalid-feedback">

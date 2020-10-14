@@ -1,18 +1,16 @@
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 30px 0 30px 0;
+  width: 100%;
+  margin: auto;
 }
 
 
 #form {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
   align-items: center;
+  margin-top: 10%;
   box-shadow: 0px 25px 36px 12px rgba(0, 0, 0, 0.51);
-  /*sombra del login */
-
 }
 
 
@@ -33,16 +31,21 @@
   border-radius: 50%;
 }
 
+.hoverable img{
+  width: 160px;
+  height: 160px;
+}
+
 .hoverable {
+  margin: 10px 0 35px 0;
   position: relative;
   display: block;
   cursor: pointer;
-  height: 200px;
-  width: 200px;
+  width: 220px;
   border-radius: 50%;
-  top: 10px;
-  left: 30px;
-
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 form input {
@@ -55,16 +58,12 @@ form input {
 .hoverable .background {
   position: absolute;
   display: none;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
   background-color: rgba(255, 255, 255, 0.5);
   pointer-events: none;
   border-radius: 50%;
   z-index: 1;
-  height: 140px;
-  width: 140px;
+  height: 160px;
+  width: 160px;
 
 }
 
@@ -150,6 +149,7 @@ form input {
   padding: 0 20px 0 20px;
   position: relative;
   height: 540px;
+  width: 250px;
 
 }
 
@@ -228,46 +228,36 @@ a {
   margin-left: 15px;
 }
 
-/*de 0 a 900 */
-@media all and (max-width: 900px) {
-  #form {
-    flex-direction: column;
-  }
+@media screen and (max-width: 1190px) {
 
-  #menu {
-    flex-direction: column;
+  .form-left{
+    width: 100%;
     height: auto;
   }
 
-  .form-left .fileInput {
-    width: 70px;
-  }
-
-  .Gender {
-    margin-top: 0px;
-    padding: 0px;
-  }
-
-  .Gender-Gender-text {
-    padding: 0px;
-    margin: 6px;
-  }
-
-  .enviar {
+  .form-left .dniInput, .form-left .passwordInput{
     width: 100%;
   }
 
-  .hoverable {
-    margin: 0 auto;
-    position: relative;
-    top: 100px;
+  .dni, .password{
+    padding: 0 20px;
   }
 
-
-
-  body {
-    background: #e9ecef;
-    height: 700px;
-
+  .hoverable img , .hoverable .background{
+    width: 100%;
+    object-fit: cover;
+    border-radius: 0%;
   }
+
+  .hoverable{
+    width: 100%;
+  }
+
+}
+
+  @media screen and (max-width: 993px) {
+    #form  {
+      margin-top: 15%;
+     }
+
 }

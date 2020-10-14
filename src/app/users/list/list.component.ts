@@ -15,9 +15,12 @@ export class ListComponent implements OnInit {
   constructor(private accountService: UserService) {}
 
   ngOnInit() {
+
       this.accountService.getAll()
           .pipe(first())
           .subscribe(users => this.users = users);
+          console.log(this.users);
+          console.log(this.accountService);
           }
 
   deleteUser(id: number) {
