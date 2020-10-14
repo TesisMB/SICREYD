@@ -1,6 +1,7 @@
+import { Observable, Subscription, Subject } from 'rxjs';
 import { User, Role } from '../../models';
 import { AuthenticationService } from '../../services/_authentication/authentication.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { nextTick } from 'process';
 @Component({
@@ -24,10 +25,8 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(){
 
-    this.pages =
-    [
-      //{page:'home',name:'Inicio'},
-      {page:'users',name:'Usuarios'}
+    this.pages=[
+      {page:'/users',name:'Usuarios'}, {page:'/resources',name:'Recursos'}, {page:'/emergency',name:'Emergencias - Desastres'}
     ];
   }
 
@@ -36,4 +35,3 @@ export class NavbarComponent implements OnInit {
       this.router.navigate(['']);
   }
 }
-

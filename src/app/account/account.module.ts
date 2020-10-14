@@ -1,23 +1,25 @@
-// import { NgModule } from '@angular/core';
-// import { ReactiveFormsModule } from '@angular/forms';
-// import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from './../shared/shared.module';
 
-// import { AccountRoutingModule } from './account-routing.module';
-// import { LayoutComponent } from './index';
-// import { LoginComponent } from './index';
-// import { RegisterComponent } from './index';
+import { AccountRoutingModule } from './account-routing.module';
+import { AddEditComponent } from './index';
+import { HomeComponent } from './index';
 
-// @NgModule({
-//     imports: [
-//         CommonModule,
-//         ReactiveFormsModule,
-//         AccountRoutingModule
-//     ],
-//     declarations: [
-//         LayoutComponent,
-//         LoginComponent
+import { AuthenticationService } from '../services';
 
-//     ],
-//     providers:[  ]
-// })
-// export class AccountModule { }
+
+@NgModule({
+    imports: [
+        SharedModule,
+        ReactiveFormsModule,
+        AccountRoutingModule
+    ],
+    declarations: [
+        HomeComponent,
+        AddEditComponent,
+
+    ],
+    providers:[AuthenticationService ]
+})
+export class AccountModule { }

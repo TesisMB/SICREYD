@@ -1,61 +1,50 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AppRoutingModule } from './app-routing.module';
 
 //---- Importaciones internas ----
-import { AppRoutingModule } from './app-routing.module';
-import { ErrorInterceptor, JwtInterceptor} from './_helpers';
-import { AppComponent } from './app.component';
+//******************Modulos ********************** */
+import { AccountModule } from './account/account.module';
+import { ClientModule } from './client/client.module';
+import { UsersModule } from './users/users.module';
+import { ResourcesModule } from './resources/resources.module';
+import { EmergencyDisasterModule } from './emergency-disaster/emergency-disaster.module';
+import { SharedModule } from './shared/shared.module';
 //*****************Components************ */
-import { HomeComponent } from './components';
-import { LoginComponent } from './components';
-import { AlertComponent } from './components';
-import { NotFoundComponent } from './components';
-import { NavbarComponent} from './components';
-import { ResourcesComponent } from './components';
-import { EmergencyDisasterComponent } from './components';
+import { AppComponent } from './app.component';
+//import { AlertComponent } from './components';
+
 
 //**************CLIENT************* */
-import { ClientNavbarComponent } from './client';
-import { FooterComponent } from './client';
-import { CarouselComponent } from './client';
-import {ClientHomeComponent} from './client';
-//***************SERVICES*********** */
-import { LoginService } from './services';
-import { AuthenticationService } from './services';
-import { UserService } from './services';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+//***************SERVICES*********** */
+import { AuthenticationService } from './services';
+import { ErrorInterceptor, JwtInterceptor} from './_helpers';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    LoginComponent,
-    AlertComponent,
-    ClientNavbarComponent,
-    FooterComponent,
-    CarouselComponent,
-    ClientHomeComponent,
-    NotFoundComponent,
-    NavbarComponent,
-    ResourcesComponent,
-    EmergencyDisasterComponent,
+
+   // AlertComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule,
     HttpClientModule,
     NgbModule,
+    AccountModule,
+    SharedModule,
+    ClientModule,
+    UsersModule,
+    EmergencyDisasterModule,
+    ResourcesModule,
   ],
   providers: [
-    UserService,
     AuthenticationService,
-    LoginService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 

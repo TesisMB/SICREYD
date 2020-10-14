@@ -1,5 +1,4 @@
-import { DataService } from './../data.service';
-import { User } from '../../models/user';
+import { DataService } from '../services/data.service';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 

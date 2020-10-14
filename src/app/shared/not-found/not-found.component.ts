@@ -11,12 +11,8 @@ import { ThrowStmt } from '@angular/compiler';
 })
 export class NotFoundComponent implements OnInit {
 currentUser: any;
-user: User;
-
   constructor(private router:Router, private authenticationService: AuthenticationService) {
 this.currentUser = this.authenticationService.currentUserValue;
-this.user = this.currentUser;
-
   }
   click()
   {

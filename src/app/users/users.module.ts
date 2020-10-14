@@ -1,26 +1,27 @@
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-
 import { UsersRoutingModule } from './users-routing.module';
+import { SharedModule } from './../shared/shared.module';
+
 import { LayoutComponent } from './';
 import { ListComponent } from './';
-import { AddEditComponent } from './';
- import { NavbarComponent } from './';
-import { RegisterComponent } from './';
+import { RegisterComponent } from './register/register.component';
+
+import { UserService } from './';
 
 @NgModule({
     imports: [
-        CommonModule,
+        SharedModule,
         ReactiveFormsModule,
         UsersRoutingModule
     ],
     declarations: [
         LayoutComponent,
         ListComponent,
-        AddEditComponent,
         RegisterComponent,
-       NavbarComponent
+    ],
+    providers: [
+        UserService,
     ]
 })
 export class UsersModule { }

@@ -1,10 +1,10 @@
-import { User } from './../../models';
 import { Component, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
+import { User } from './../../models';
 
-import { UserService ,AuthenticationService } from './../../services';
+import {AuthenticationService } from './../../services';
 
 @Component({
   selector: 'home',
@@ -13,14 +13,12 @@ import { UserService ,AuthenticationService } from './../../services';
 })
 export class HomeComponent implements OnInit {
   currentUser: User;
-  users: any;
   pages: {page:string, name:string}[];
 
 
   constructor(
       private authenticationService: AuthenticationService,
       private router: Router,
-      private userService: UserService
   ) {
     //Autentifica que el usuario este conectado y registrado, para acceder a la pantalla Home
       this.currentUser = this.authenticationService.currentUserValue;

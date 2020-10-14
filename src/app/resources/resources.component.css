@@ -1,3 +1,4 @@
+
 .container1 {
   width: 100%;
   max-width: 1200px;
@@ -13,9 +14,8 @@ body {
 .title {
   text-align: center;
   background: #fff;
-  padding: 5% 0 2% 0;
-  margin-bottom: 2%;
-}
+  padding:  5% 0 2% 0;
+  margin-bottom: 2%;}
 
 .title h1 {
   font-size: 30px;
@@ -25,7 +25,6 @@ body {
 
 .card-general {
   margin-top: 2.5%;
-  margin-bottom: 2%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -68,12 +67,9 @@ body {
   align-items: center;
 }
 
-.card-image-resoursec img {
-  width: 75px;
-}
-
-.card-image-resoursec .First-img {
-  width: 100px;
+.card-image-resoursec i {
+  font-size: 50px;
+  color: #fff;
 }
 
 .card-content {
@@ -87,10 +83,6 @@ body {
   border-radius: 5px 0 0 5px;
   position: relative;
   left: 85%;
-}
-
-.arrow img{
-  cursor: pointer;
 }
 
 .card-content img {
@@ -116,19 +108,19 @@ body {
 @media screen and (max-width: 1150px) {
 
   .card {
-    width: 45%;
+      width: 45%;
   }
 }
 
-@media screen and (max-width: 636px) {
-  .card {
-    width: 100%;
-    margin-bottom: 25px;
-  }
+  @media screen and (max-width: 636px) {
+      .card {
+          width: 100%;
+          margin-bottom: 25px;
+      }
 
-  .title {
-    margin-top: 5%;
-  }
+      .title {
+          margin-top: 5%;
+      }
 
 }
 
@@ -136,6 +128,6 @@ body {
 @media screen and (max-width: 526px) {
 
   .title h1 {
-    font-size: 33px;
+      font-size: 33px;
   }
 }

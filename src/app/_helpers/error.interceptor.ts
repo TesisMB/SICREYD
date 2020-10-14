@@ -17,12 +17,12 @@ export class ErrorInterceptor implements HttpInterceptor {
             if ([401].indexOf(err.status) !== -1) {
                 // auto logout if 401 or 403 response returned from api
                 this.authenticationService.logout();
-                location.reload(true);
+                //location.reload(true);
             }
             if ([403].indexOf(err.status) !== -1) {
               // redirecciona a la ruta para el 401 error.
               this.route.navigate(['/home']);
-
+             // location.reload(true);
           }
             if (err.status === 404) {
               // redirecciona a la ruta para el 404 error.
