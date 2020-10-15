@@ -8,6 +8,8 @@
   margin: auto;
   overflow: hidden;
   padding-bottom: 5px;
+  position: relative;
+  z-index: 100;
 }
 
 nav {

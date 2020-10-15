@@ -2,7 +2,9 @@
   display: flex;
   margin-top: 100px;
   justify-content: space-around;
-
+  position: absolute;
+  z-index: -1;
+  left: 6%;
 }
 
 .Name-Lastname
