@@ -1,7 +1,7 @@
+import { User } from './../../models/user';
 import { UserService } from '../user.service';
 import { Component, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
-
 
 @Component({
   selector: 'list',
@@ -10,7 +10,8 @@ import { first } from 'rxjs/operators';
 })
 export class ListComponent implements OnInit {
 
-  users = null;
+  users: any;
+  userID: number;
 
   constructor(private accountService: UserService) {}
 
@@ -19,8 +20,6 @@ export class ListComponent implements OnInit {
       this.accountService.getAll()
           .pipe(first())
           .subscribe(users => this.users = users);
-          console.log(this.users);
-          console.log(this.accountService);
           }
 
   deleteUser(id: number) {
@@ -31,5 +30,9 @@ export class ListComponent implements OnInit {
           .subscribe(() => {
               this.users = this.users.filter(x => x.userID!== id)
           });
+  }
+
+  GetID (id:number) {
+    this.userID = id;
   }
 }

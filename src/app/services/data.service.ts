@@ -46,7 +46,6 @@ logout() {
     // remove user from local storage and set current user to null
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
-    // this.router.navigate(['']);
 }
 
 
@@ -54,7 +53,7 @@ logout() {
   getAll(){
     return this.http.get(environment.URL+this.url);
   }
-    get(url:string){
+  get(url:string){
     return this.http.get(environment.URL+url);
   }
   getById(id: string) {
@@ -68,7 +67,7 @@ logout() {
     return  this.http.put(environment.URL+this.url, JSON.stringify(resource), this.options);
   }
   userUpdate(id, params) {
-    return this.http.patch(`${environment.URL}/users/${id}`, params)
+    return this.http.patch(environment.URL+this.url+'/'+id, params)
         .pipe(map(x => {
             // update stored user if the logged in user updated their own record
             if (id == this.currentUserValue.userID) {

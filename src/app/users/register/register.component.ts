@@ -1,5 +1,4 @@
 import { UserService } from './../index';
-import { Role, User } from './../../models';
 import { AlertService, AuthenticationService } from '../../services';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -16,9 +15,6 @@ export class RegisterComponent implements OnInit {
     loading = false;
     submitted = false;
     url: any;
-    roleUser: Role;
-    category:any;
-
 
     constructor(
         private formBuilder: FormBuilder,
@@ -30,8 +26,6 @@ export class RegisterComponent implements OnInit {
     ) {}
 
     ngOnInit() {
-      //Trae el role del usuario logueado.
-        this.roleUser = this.authenticationService.currentUserValue.roleName;
 
         this.registerForm = this.formBuilder.group({
 
@@ -87,6 +81,7 @@ export class RegisterComponent implements OnInit {
                     this.router.navigate(['/home'], { relativeTo: this.route });
                 },
                 error => {
+
                     this.alertService.error('Registro fallido, intente nuevamente');
                     this.loading = false;
 

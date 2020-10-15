@@ -1,4 +1,4 @@
-<body>
+<body >
 
   <div class="title">
     <h1>Lista de Usuarios</h1>
@@ -27,14 +27,10 @@
             <a routerLink="edit/{{user.userID}}" class="btn btn-sm btn-primary mr-1">Actualizar</a>
 
   <!-- Button trigger modal -->
-  <button type="button"  class="btn btn-sm btn-primary mr-1" data-toggle="modal" data-target="#exampleModalCenter">
+  <button type="button" (click)="GetID(user.userID)" class="btn btn-sm btn-danger mr-1" data-toggle="modal" data-target="#exampleModalCenter">
     Eliminar
   </button>
-           <!-- <button (click)="deleteUser(user.userID)" class="btn btn-sm btn-danger btn-delete-user"
-              [disabled]="user.isDeleting">
-              <span *ngIf="user.isDeleting" class="spinner-border spinner-border-sm"></span>
-              <span *ngIf="!user.isDeleting">Eliminar</span>
-            </button> -->
+           
           </td>
         </tr>
         <tr *ngIf="!users">
@@ -54,7 +50,7 @@
 
 
   <!-- Modal -->
-  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div *ngFor="let user of users" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header"  style="background: #b71c1c; padding: 15px;">
@@ -64,14 +60,18 @@
           </button>
         </div>
         <div class="modal-body">
-          ¿Esta seguro que quiere Eliminar al Usuario?
+          ¿Esta seguro que quiere eliminar al usuario?
           <br><br>
-          Toda la información asociada a este perfil de usuario se eliminará de forma permanente. Esta operación no se puede deshacer.
+          Toda la información asociada a este perfil se eliminará de forma permanente.
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
           <tr>
-            <button type="button" class="btn btn-primary" >Eliminar</button>
+             <button type="button" (click)="deleteUser(userID)" class="btn btn-danger btn-delete-user"
+              [disabled]="user.isDeleting">
+              <span *ngIf="user.isDeleting" class="spinner-border spinner-border-sm"></span>
+              <span *ngIf="!user.isDeleting">Eliminar</span>
+            </button>
           </tr>
         </div>
       </div>
