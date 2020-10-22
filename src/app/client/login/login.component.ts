@@ -41,13 +41,15 @@ export class LoginComponent implements OnInit {
       }
     // convenience getter for easy access to form fields
     get f() { return this.loginForm.controls; }
+
+
     onSubmit() {
         this.submitted = true;
 
-        // reset alerts on submit
+        // Resetea alertas
         this.alertService.clear();
 
-        // stop here if form is invalid
+        // Para aca si el form es invalido
         if (this.loginForm.invalid) {
             console.log("No ingreso");
             return;

@@ -1,4 +1,3 @@
-//import { Alert } from './../models';
 import { Injectable } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
 import { Router} from '@angular/router';
@@ -8,7 +7,7 @@ import { catchError } from 'rxjs/operators';
 import { AlertService } from './../services/_alert.service/alert.service';
 import { AuthenticationService } from '../services';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class ErrorInterceptor implements HttpInterceptor {
     constructor(
       private authenticationService: AuthenticationService, private route: Router, private alertService: AlertService) {}
@@ -23,6 +22,12 @@ export class ErrorInterceptor implements HttpInterceptor {
                 this.alertService.error('No posee los permisos necesarios para efectuar esta acción');
               }
             }
+            else
+            {
+            this.authenticationService.logout();
+            
+            }
+
             if ([403].indexOf(err.status) !== -1) {
               // redirecciona a la ruta para el 403 error.
               this.route.navigate(['/home']);

@@ -7,9 +7,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 
-// @Injectable({
-//   providedIn: 'root'
-// })
+
 export class DataService {
   private options = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
   private currentUserSubject: BehaviorSubject<any>;
@@ -29,7 +27,7 @@ export class DataService {
 
 
   login(userDni:string, userPassword:string) {
-    return this.http.post<User>(`${environment.URL}/login`, { userDni, userPassword })
+    return this.http.post<User>(environment.URL+this.url , { userDni, userPassword })
         .pipe(map(user => {
           // login successful if there's a jwt token in the response
           if (user && user.token) {
@@ -57,7 +55,7 @@ logout() {
     return this.http.get(environment.URL+url);
   }
   getById(id: string) {
-    return this.http.get<User>(`${environment.URL}/users/${id}`);
+    return this.http.get<User>(environment.URL+this.url+'/'+id);
 }
   register(resource){
     return  this.http.post(environment.URL+this.url, JSON.stringify(resource), this.options);
