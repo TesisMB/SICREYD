@@ -11,14 +11,11 @@ styleUrls: ['app.component.css']
  })
 export class AppComponent {
 currentUser: User;
-role: Role;
+// role: Role;
     constructor(private authenticationService: AuthenticationService) {
 
 
-        this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+        // this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
     }
-
-  
-
 
 }

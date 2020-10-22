@@ -29,9 +29,9 @@ export class DataService {
   login(userDni:string, userPassword:string) {
     return this.http.post<User>(environment.URL+this.url , { userDni, userPassword })
         .pipe(map(user => {
-          // login successful if there's a jwt token in the response
+          // Logea correctamente si existe un token.
           if (user && user.token) {
-            // store user details and jwt token in local storage to keep user logged in between page refreshes
+            // Almacena los datos del usuario y el token en el local Storage para poder navegar entre paginas.
             localStorage.setItem('currentUser', JSON.stringify(user));
             this.currentUserSubject.next(user);
         }
@@ -41,9 +41,11 @@ export class DataService {
 }
 
 logout() {
-    // remove user from local storage and set current user to null
+    // Elimina el usuario del local Storage y lo declara null.
     localStorage.removeItem('currentUser');
-    this.currentUserSubject.next(null);
+    localStorage.clear();
+    //this.currentUserSubject.next(null);
+    console.clear();
 }
 
 
