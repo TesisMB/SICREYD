@@ -16,17 +16,17 @@ export class ErrorInterceptor implements HttpInterceptor {
         return next.handle(request).pipe(catchError(err => {
           if ([401].indexOf(err.status) !== -1) {
                 // auto logout si devuelve un error 401 desde la API
-                this.authenticationService.logout();
+                //this.authenticationService.logout();
 
             if (this.authenticationService.currentUserValue){
                 this.alertService.error('No posee los permisos necesarios para efectuar esta acción');
               }
-            }
+            
             else
             {
             this.authenticationService.logout();
             
-            }
+            }}
 
             if ([403].indexOf(err.status) !== -1) {
               // redirecciona a la ruta para el 403 error.

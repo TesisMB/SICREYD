@@ -10,12 +10,7 @@ templateUrl: 'app.component.html',
 styleUrls: ['app.component.css']
  })
 export class AppComponent {
-currentUser: User;
-// role: Role;
-    constructor(private authenticationService: AuthenticationService) {
 
-
-        // this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
-    }
+    constructor() {   }
 
 }

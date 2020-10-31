@@ -14,6 +14,7 @@ export class ClientHomeComponent implements OnInit {
 
   ngOnInit(): void {
     if (!this.authenticationService.currentUser){
+      console.log(this.authenticationService.currentUser);
       this.router.navigate(['']);
     }
   }

@@ -24,13 +24,15 @@ export class LoginComponent implements OnInit {
         private authenticationService: AuthenticationService,
         private alertService: AlertService
     ) {
-        // // redirect to home if already logged in
+        
+        // //redirect to home if already logged in
         // if (this.authenticationService.currentUserValue) {
         //     this.router.navigate(['/']);
         // }
     }
 
     ngOnInit() {
+     
         this.loginForm = this.formBuilder.group({
             userDni: ['', Validators.required],
             userPassword: ['', Validators.required]
@@ -51,7 +53,6 @@ export class LoginComponent implements OnInit {
 
         // Para aca si el form es invalido
         if (this.loginForm.invalid) {
-            console.log("No ingreso");
             return;
         }
 
@@ -63,7 +64,6 @@ export class LoginComponent implements OnInit {
                     this.router.navigate([this.returnUrl]);
                 },
                 error => {
-                  console.log(error);
                   this.alertService.error('Datos incorrectos');
                   this.loading = false;
                 });

@@ -43,9 +43,10 @@ export class DataService {
 logout() {
     // Elimina el usuario del local Storage y lo declara null.
     localStorage.removeItem('currentUser');
-    localStorage.clear();
-    //this.currentUserSubject.next(null);
-    console.clear();
+   //this.router.navigate(['']);
+    this.currentUserSubject.next(null);
+    //location.reload();
+   // console.clear();
 }
 
 
