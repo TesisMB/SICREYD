@@ -12,6 +12,7 @@ export class ListComponent implements OnInit {
 
   users: any;
   userID: number;
+  userName:string;
 
   constructor(private accountService: UserService) {}
 
@@ -35,4 +36,6 @@ export class ListComponent implements OnInit {
   GetID (id:number) {
     this.userID = id;
   }
+
+
 }

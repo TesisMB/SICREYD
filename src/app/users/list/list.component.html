@@ -30,7 +30,7 @@
   <button type="button" (click)="GetID(user.userID)" class="btn btn-sm btn-danger mr-1" data-toggle="modal" data-target="#exampleModalCenter">
     Eliminar
   </button>
-           
+
           </td>
         </tr>
         <tr *ngIf="!users">
@@ -66,13 +66,11 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <tr>
              <button type="button" (click)="deleteUser(userID)" class="btn btn-danger btn-delete-user"
               [disabled]="user.isDeleting">
               <span *ngIf="user.isDeleting" class="spinner-border spinner-border-sm"></span>
               <span *ngIf="!user.isDeleting">Eliminar</span>
             </button>
-          </tr>
         </div>
       </div>
     </div>

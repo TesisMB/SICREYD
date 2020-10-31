@@ -1,6 +1,9 @@
 .container {
   width: 100%;
   margin: auto;
+  position: absolute;
+  z-index: -1;
+  left: 6%;
 }
 
 
