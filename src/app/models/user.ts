@@ -1,19 +1,29 @@
-import {Role} from './role';
-export class User {
-  userID: number;
+import {RoleName} from './role';
+
+/*export class User {
+  id: number;
   userDni: string;
-  userPhone: string;
-  userGender: string;
-  isAuthenticated: boolean;
-  userEmail: string;
-  userPassword: string;
-  userFirstname: string;
-  userLastname: string;
-  userAddress: string;
+  roleName: RoleName;
   token: string;
-  userCreationDate: Date;
-  userAvatar: any;
-  userBirthdate: Date;
-  roleID: number;
-  roleName: Role;
+  isAuthenticated: boolean;
+  available: boolean;
 }
+*/
+export class User {
+  available: boolean;
+  birthdate: Date;
+  email: string;
+  firstName: string;
+  gender: string;
+  id: number;
+  isAuthenticated: boolean;
+  lastName: string;
+  phone:string;
+  roleName: RoleName;
+  token: string;
+  userDni: string;
+  
+
+ 
+}
+

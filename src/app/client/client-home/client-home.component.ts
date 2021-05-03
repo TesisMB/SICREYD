@@ -10,13 +10,18 @@ import { AuthenticationService } from './../../services/_authentication/authenti
 })
 export class ClientHomeComponent implements OnInit {
 
-  constructor(private router: Router, private authenticationService: AuthenticationService) { }
+  constructor(private router: Router, private authenticationService: AuthenticationService) {
+    
+    // const isLoggin = this.authenticationService.currentUserValue;
+    // if (!isLoggin)
+    // {
+    //   console.log(isLoggin);
+    //   this.router.navigate(['**']);
+      
+    // } 
+  }
 
   ngOnInit(): void {
-    if (!this.authenticationService.currentUser){
-      console.log(this.authenticationService.currentUser);
-      this.router.navigate(['']);
-    }
   }
 
 }

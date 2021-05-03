@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AuthGuard } from './_helpers';
 import { NotFoundComponent } from './shared';
-import { Role } from './models/role';
+import { RoleName } from './models/role';
 
 export const routes: Routes = [
   {
@@ -22,14 +22,14 @@ export const routes: Routes = [
     path: 'users',
     loadChildren: () => import ('./users/users.module').then(x => x.UsersModule) ,
     canActivate: [AuthGuard],
-    data:{ roles: [Role.Admin, Role.CoordinadorGeneral]}
+    data:{ roles: [RoleName.Admin, RoleName.CoordinadorGeneral]}
   },
 
 
     { path: 'resources',
      loadChildren: () => import('./resources/resources.module').then(m => m.ResourcesModule),
     canActivate: [AuthGuard],
-    data:{ roles: [Role.Admin, Role.CoordinadorGeneral, Role.Logistica]}
+    data:{ roles: [RoleName.Admin, RoleName.CoordinadorGeneral, RoleName.Logistica]}
 
 
    },
@@ -37,7 +37,7 @@ export const routes: Routes = [
   {path: 'emergency',
    loadChildren: () => import('./emergency-disaster/emergency-disaster.module').then(m => m.EmergencyDisasterModule),
     canActivate: [AuthGuard],
-    data:{ roles: [Role.Admin, Role.CoordinadorGeneral, Role.CEyD]}
+    data:{ roles: [RoleName.Admin, RoleName.CoordinadorGeneral, RoleName.CEyD]}
 
 
    },

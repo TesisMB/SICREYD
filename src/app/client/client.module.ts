@@ -3,8 +3,7 @@ import { NgModule } from '@angular/core';
 import { ClientRoutingModule } from './client-routing.module';
 
 import { SharedModule } from './../shared/shared.module';
-
-import { LoginService } from './';
+import { AuthenticationService } from '../services';
 
 import { ClientNavbarComponent } from '.';
 import { FooterComponent } from './';
@@ -18,6 +17,6 @@ import {LoginComponent} from './';
     ClientRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [LoginService]
+  providers: [AuthenticationService]
 })
 export class ClientModule { }
