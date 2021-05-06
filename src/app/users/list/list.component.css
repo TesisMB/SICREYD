@@ -26,3 +26,6 @@ tr:nth-child(even) {
   font-size: 30px;
   margin-top: 2%;
 }
+th {
+  width: 30%;
+}

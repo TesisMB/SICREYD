@@ -1,7 +1,6 @@
-import { DataService } from './../data.service';
 import { environment } from './../../../environments/environment';
 import { User } from '../../models/user';
-import {Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -11,38 +10,46 @@ import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthenticationService extends DataService  {
-  // private currentUserSubject: BehaviorSubject<any>;
-  // public currentUser: Observable<any>;
+export class AuthenticationService   {
+  private patch = '/login';
+  private currentUserSubject: BehaviorSubject<any>;
+  public currentUser: Observable<any>;
 
-  constructor(http: HttpClient) {
-    super(http, '/login');
-      // this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
-      // this.currentUser = this.currentUserSubject.asObservable();
+  constructor(private http: HttpClient, private router: Router) {
+    
+    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+    this.currentUser = this.currentUserSubject.asObservable();
   }
 
-  // public get currentUserValue(): User {
-  //     return this.currentUserSubject.value;
-  // }
+   public get currentUserValue(): User {
 
-//   login(userDni:string, userPassword:string) {
-//       return this.http.post<any>(environment.URL+'/login', { userDni, userPassword })
-//           .pipe(map(user => {
-//             // login successful if there's a jwt token in the response
-//             if (user && user.token) {
-//               // store user details and jwt token in local storage to keep user logged in between page refreshes
-//               localStorage.setItem('currentUser', JSON.stringify(user));
-//               this.currentUserSubject.next(user);
-//           }
+        return this.currentUserSubject.value;
+   }
 
-//           return user;
-//       }));
-// }
-
-//   logout() {
-//       // remove user from local storage and set current user to null
-//       localStorage.removeItem('currentUser');
-//       this.currentUserSubject.next(null);
-//       this.router.navigate(['/account/login']);
-//   }
+   login(userDni:string, userPassword:string) {
+       return this.http.post<any>(environment.URL+this.patch, { userDni, userPassword })
+           .pipe(map(user => {
+                // Logea correctamente si existe un token.
+          if (user && user.token) {
+            // Almacena los datos del usuario y el token en el local Storage para poder navegar entre paginas.
+              localStorage.setItem('currentUser', JSON.stringify(user));
+               this.currentUserSubject.next(user);
+           
+           
+            }
+            return user;
+          }
+         )
+       );
+    }
+ 
+   logout() {
+    // Elimina el usuario del local Storage y lo declara null.
+    localStorage.removeItem('currentUser');
+       this.currentUserSubject.next(null);
+       this.currentUserSubject.unsubscribe;
+       this.router.navigate(['']);
+      
+    }
  }
+   

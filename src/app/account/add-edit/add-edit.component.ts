@@ -59,10 +59,10 @@ export class AddEditComponent implements OnInit {
           this.UserService.getById(this.id)
               .pipe(first())
               .subscribe(x => {
-                  this.f.UserPhone.setValue(x.userPhone);
-                  this.f.UserEmail.setValue(x.userEmail);
-                  this.f.UserAddress.setValue(x.userAddress);
-                  this.f.RoleID.setValue(x.roleID);
+                  this.f.UserPhone.setValue(x.phone);
+                  this.f.UserEmail.setValue(x.email);
+                  //this.f.UserAddress.setValue(x.person.personAddress);
+                  this.f.RoleID.setValue(x.roleName);
                  // this.f.userAvatar.setValue(x.userAvatar);
               });
       }
@@ -105,16 +105,16 @@ export class AddEditComponent implements OnInit {
   }
 
   private updateUser() {
-      this.UserService.userUpdate(this.id, this.form.value)
-          .pipe(first())
-          .subscribe(
-              data => {
-                  this.alertService.success('Datos actualizado correctamente', { keepAfterRouteChange: true });
-                  this.router.navigate(['..', { relativeTo: this.route }]);
-              },
-              error => {
-                  this.alertService.error(error);
-                  this.loading = false;
-              });
+    //   this.UserService.userUpdate(this.id, this.form.value)
+    //       .pipe(first())
+    //       .subscribe(
+    //           data => {
+    //               this.alertService.success('Datos actualizado correctamente', { keepAfterRouteChange: true });
+    //               this.router.navigate(['..', { relativeTo: this.route }]);
+    //           },
+    //           error => {
+    //               this.alertService.error(error);
+    //               this.loading = false;
+    //           });
   }
 }

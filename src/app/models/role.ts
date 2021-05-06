@@ -1,4 +1,4 @@
-export enum Role {
+export enum RoleName {
   CoordinadorGeneral = 'Coordinador General',
   Admin = 'Admin',
   CEyD = 'Coordinador de Emergencias y Desastres',

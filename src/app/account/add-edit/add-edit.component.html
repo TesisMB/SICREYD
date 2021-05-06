@@ -4,8 +4,8 @@
 <body>
   <section class="container">
     <div class="col" style="background-color: #fff; padding: 0;">
-      <h2 class="Name-Lastname">{{currentUser.userFirstname}} {{currentUser.userLastname}}</h2>
-      <p class="Email">{{currentUser.userEmail}}</p>
+      <h2 class="Name-Lastname">{{currentUser.firstName}} {{currentUser.lastName}}</h2>
+      <p class="Email">{{currentUser.email}}</p>
       <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 
         <div class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
@@ -28,15 +28,15 @@
         <h2 class="title" style="background-color: #F7F7F7; font-weight: 300;">Información General</h2>
         <div class="general">
         <label class="first">Nombres y Apellido</label>
-          <p class="info">{{currentUser.userFirstname}} {{currentUser.userLastname}}</p>
+          <p class="info">{{currentUser.firstName}} {{currentUser.lastName}}</p>
           <label>Dni</label>
           <p class="info">{{currentUser.userDni}}</p>
           <label>Correo electrónico</label>
-          <p class="info">{{currentUser.userEmail}}</p>
+          <p class="info">{{currentUser.email}}</p>
           <label>Telefono de contacto</label>
-          <p class="info">{{currentUser.userPhone}}</p>
-          <label>Direccion</label>
-          <p class="info">{{currentUser.userAddress}}</p>
+          <p class="info">{{currentUser.phone}}</p>
+          <!-- <label>Direccion</label>
+          <p class="info">{{currentUser.userAddress}}</p> -->
           <label>Rol</label>
           <p class="info">{{currentUser.roleName}}</p>
         </div>
