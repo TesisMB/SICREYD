@@ -1,7 +1,7 @@
 import { VehiclesComponent } from './vehicles/vehicles.component';
 import { MaterialsComponent } from './materials/materials.component';
 import { MedicineComponent } from './medicine/medicine.component';
-import { RoleName } from './../models/role';
+import { Role } from './../models/role';
 import { AuthGuard } from './../_helpers/auth.guard';
 import { VoluntariesComponent } from './voluntaries/voluntaries.component';
 import { NgModule } from '@angular/core';
@@ -16,7 +16,7 @@ const routes: Routes = [{
       { path: 'voluntarios',
      component: VoluntariesComponent,
        canActivate:[AuthGuard],
-       data: {roles: [RoleName.CoordinadorGeneral,RoleName.Admin]}},
+       data: {roles: [Role.CoordinadorGeneral,Role.Admin]}},
  { 
       path: 'medicamentos',
       component: MedicineComponent},

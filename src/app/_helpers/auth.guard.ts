@@ -16,16 +16,15 @@ export class AuthGuard implements CanActivate {
             // chequea que las rutas estan restringidas por roles
             if ( route.data.roles && route.data.roles.indexOf(currentUser.roleName) === -1) {
               //Si el rol no esta autorizado redirecciona al Home Page
-              this.router.navigate(['']);
+              this.router.navigate(['/home']);
               return false;
             }
             //Si esta autorizado retorna true.
             return true;
         }
-        else {
-            // not logged in so redirect to home page with the return url
-        this.router.navigate([' '], { queryParams: { returnUrl: state.url }});
+
+        // not logged in so redirect to login page with the return url
+        this.router.navigate(['/login'], { queryParams: { returnUrl: state.url }});
         return false;
-        } 
     }
 }

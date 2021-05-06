@@ -1,9 +1,8 @@
-import { AuthenticationService } from './_authentication/authentication.service';
 import { User } from './../models/user';
 import { environment } from '../../environments/environment';
-import { Person } from '../models/person';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -11,59 +10,87 @@ import { map } from 'rxjs/operators';
 
 export class DataService {
   private options = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
-  private personSubject: BehaviorSubject<any>;
-  public person: Observable<any>;
- 
+  private currentUserSubject: BehaviorSubject<any>;
+  public currentUser: Observable<any>;
+  private router: Router;
+  constructor(private http: HttpClient,private url:string) {
 
-  constructor(private http: HttpClient,private patch:string) {
-
+    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+      this.currentUser = this.currentUserSubject.asObservable();
   }
 
-  public get userValue(): Person
+  public get currentUserValue(): User
   {
-    return this.personSubject.value;
+    return this.currentUserSubject.value;
 }
+
+
+
+  login(userDni:string, userPassword:string) {
+    return this.http.post<User>(environment.URL+this.url , { userDni, userPassword })
+        .pipe(map(user => {
+          // Logea correctamente si existe un token.
+          if (user && user.token) {
+            // Almacena los datos del usuario y el token en el local Storage para poder navegar entre paginas.
+            localStorage.setItem('currentUser', JSON.stringify(user));
+            this.currentUserSubject.next(user);
+        }
+
+        return user;
+    }));
+}
+
+logout() {
+    // Elimina el usuario del local Storage y lo declara null.
+    localStorage.removeItem('currentUser');
+   //this.router.navigate(['']);
+    this.currentUserSubject.next(null);
+    //location.reload();
+   // console.clear();
+}
+
+
 
   getAll(){
-    return this.http.get(environment.URL+this.patch);
+    return this.http.get(environment.URL+this.url);
   }
   get(url:string){
-    return this.http.get(environment.URL+this.patch);
+    return this.http.get(environment.URL+url);
   }
   getById(id: string) {
-    return this.http.get<User>(environment.URL+this.patch+'/'+id);
+    return this.http.get<User>(environment.URL+this.url+'/'+id);
 }
   register(resource){
-    return  this.http.post(environment.URL+this.patch, JSON.stringify(resource), this.options);
+    return  this.http.post(environment.URL+this.url, JSON.stringify(resource), this.options);
   }
 
   update(resource){
-    return  this.http.put(environment.URL+this.patch, JSON.stringify(resource), this.options);
+    return  this.http.put(environment.URL+this.url, JSON.stringify(resource), this.options);
   }
-//   userUpdate(id, params) {
-//     return this.http.patch(environment.URL+this.patch+'/'+id, params)
-//         .pipe(map(x => {
-//             // update stored user if the logged in user updated their own record
-//             if (id == this.currentUserValue.userID) {
-//                 // update local storage
-//                 const user = { ...this.currentUserValue, ...params };
-//                 localStorage.setItem('currentUser', JSON.stringify(user));
+  userUpdate(id, params) {
+    return this.http.patch(environment.URL+this.url+'/'+id, params)
+        .pipe(map(x => {
+            // update stored user if the logged in user updated their own record
+            if (id == this.currentUserValue.userID) {
+                // update local storage
+                const user = { ...this.currentUserValue, ...params };
+                localStorage.setItem('currentUser', JSON.stringify(user));
 
-//                 // publish updated user to subscribers
-//                 this.currentUserSubject.next(user);
-//             }
-//             return x;
-//         }));   
-// }
+                // publish updated user to subscribers
+                this.currentUserSubject.next(user);
+            }
+            return x;
+        }));
+}
 
-//   delete(id){
-//     return this.http.delete(environment.URL+this.patch+'/'+id)
-//     .pipe(map(x => {
-//       // auto logout if the logged in user deleted their own record
-//       if (id == this.currentUserValue.userID) {
-//           this.logout();
-//       }
-//       return x;
-//   }));
-//   }
+  delete(id){
+    return this.http.delete(environment.URL+this.url+'/'+id)
+    .pipe(map(x => {
+      // auto logout if the logged in user deleted their own record
+      if (id == this.currentUserValue.userID) {
+          this.logout();
+      }
+      return x;
+  }));
+  }
 }
