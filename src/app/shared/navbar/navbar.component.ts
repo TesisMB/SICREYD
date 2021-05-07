@@ -1,5 +1,5 @@
 import { Observable, Subscription, Subject } from 'rxjs';
-import { User, RoleName} from '../../models';
+import { User, RoleName} from '../../models/index';
 import { AuthenticationService } from '../../services/_authentication/authentication.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -11,32 +11,32 @@ import { nextTick } from 'process';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  currentUser: any;
-  roleSubscription: Subscription;
-  roleUser: any = 'Admin';
+  currentUser: User;
+  roleUser: any;
   pages:{page:string,name:string, img?:string}[];
 
 
   constructor(
-      private router: Router,
       private authenticationService: AuthenticationService
       
   ) {
-     this.roleSubscription = this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
-    // this.roleUser = this.currentUser.roleName;
-     this.mostrarPages();
+     this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+     this.roleUser = this.currentUser.roleName;
 
   }
 
-  ngOnInit(){
+  ngOnInit(){     
+    
+              this.mostrarPages(this.currentUser.roleName);
+
             //  console.log(this.currentUser);
-              //console.log(this.roleUser);
+            console.log("Role: "+this.currentUser.roleName);
   }
 
-  mostrarPages() {
-    switch (this.roleUser)
+  mostrarPages(role) {
+    switch (role)
     {
-    case 'Admin':
+    case RoleName.Admin:
       this.pages=[{page:'/home',name:'Inicio',img:'fas fa-home'},
                   {page:'/users',name:'Usuarios'},
                   {page:'/resources',name:'Recursos'}, 
@@ -65,7 +65,6 @@ export class NavbarComponent implements OnInit {
   }}
 
   logout() { 
-    this.roleSubscription.unsubscribe();
     this.authenticationService.logout(); 
   }
 

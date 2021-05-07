@@ -1,13 +1,13 @@
 
 export class Person {
-    personId : number;
-    personFirstname: string;
-    personLastname: string;
-    personPhone: string;
-    personEmail: string;
-    personGender: string;
-    personBirthdate: Date;
-    personStatus: boolean;
+    personID : number;
+    lastName: string;
+    firstName: string;
+    phone: string;
+    email: string;
+    gender: string;
+    birthdate: Date;
+    status: boolean;
 }
  //   userAddress: string;
   //  userCreationDate: Date;

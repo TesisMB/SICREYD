@@ -8,11 +8,11 @@
               </label>
 
           <!-- Sidebar -->
-          <div class="Enlaces" >
-            <ul class="navbar-nav mr-auto" *ngFor="let page of pages" >   
+          <div class="Enlaces"  >
+            <ul class="navbar-nav mr-auto"*ngFor="let page of pages">   
            <hr/>
                 <li  class="nav-item" >
-                    <a class="nav-link" routerLink="/{{page.page}}" routerLinkActive="active"><i [ngClass]='page.img'></i>{{page.name}}</a> 
+                    <a class="nav-link" routerLink="/{{page.page}}" routerLinkActive="active"><i [ngClass]="page.img"></i>{{page.name}}</a> 
                 </li>
              </ul>
           </div>
@@ -31,11 +31,12 @@
             <a class="fas fa-user-circle" id="user" data-toggle="dropdown"></a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <div class="first-title">
-                  <p class="title">{{currentUser.firstName}} {{currentUser.lastName}}</p>
-                    <p class="title dos">{{currentUser.email}}</p></div>
+                  <p class="title">{{currentUser.persons.firstName}} {{currentUser.persons.lastName}}</p>
+                    <p class="title dos">{{currentUser.persons.email}}</p></div>
                     <ul >
                       <li ><a routerLink="/home/edit/{{currentUser.id}}" ><i class="fas fa-id-card"></i>Perfil</a></li>
-                      <li><a (click)="logout()"><i class="fas fa-sign-out-alt"></i>Cerrar Sesion</a></li>
+                      <button (click)="logout()" type="button" class="btn btn-danger navbar-btn"><i class="fas fa-sign-out-alt"></i>Cerrar Sesion</button>
+                      
                   </ul>
             </div>
 </section>

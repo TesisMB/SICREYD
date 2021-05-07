@@ -59,8 +59,8 @@ export class AddEditComponent implements OnInit {
           this.UserService.getById(this.id)
               .pipe(first())
               .subscribe(x => {
-                  this.f.UserPhone.setValue(x.phone);
-                  this.f.UserEmail.setValue(x.email);
+                  this.f.UserPhone.setValue(x.persons.phone);
+                  this.f.UserEmail.setValue(x.persons.email);
                   //this.f.UserAddress.setValue(x.person.personAddress);
                   this.f.RoleID.setValue(x.roleName);
                  // this.f.userAvatar.setValue(x.userAvatar);
