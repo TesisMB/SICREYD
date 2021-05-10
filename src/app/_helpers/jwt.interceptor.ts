@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { AuthenticationService } from '../services';
 import { environment } from './../../environments/environment';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class JwtInterceptor implements HttpInterceptor {
     constructor(private authenticationService: AuthenticationService) {}
 

@@ -2,7 +2,7 @@ import { environment } from './../../../environments/environment';
 import { User } from '../../models/user';
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders  } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -11,6 +11,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthenticationService   {
+  private options = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
   private patch = '/login';
   private currentUserSubject: BehaviorSubject<any>;
   public currentUser: Observable<any>;
@@ -46,9 +47,10 @@ export class AuthenticationService   {
    logout() {
     // Elimina el usuario del local Storage y lo declara null.
     localStorage.removeItem('currentUser');
-       this.currentUserSubject.next(null);
        this.currentUserSubject.unsubscribe;
-       this.router.navigate(['']);
+
+       this.currentUserSubject.next(null);
+       this.router.navigate(['/login']);
       
     }
  }

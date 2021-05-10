@@ -1,15 +1,15 @@
-import {RoleName} from './role';
+import {RoleName, Person} from './index';
 
-/*export class User {
+export class User {
   id: number;
   userDni: string;
   roleName: RoleName;
   token: string;
   isAuthenticated: boolean;
-  available: boolean;
+  persons: Person;
 }
-*/
-export class User {
+
+/*export class User {
   available: boolean;
   birthdate: Date;
   email: string;
@@ -26,4 +26,4 @@ export class User {
 
  
 }
-
+*/
