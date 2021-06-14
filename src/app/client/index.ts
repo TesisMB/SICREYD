@@ -2,4 +2,5 @@ export * from './client-navbar/client-navbar.component';
 export * from './footer/footer.component';
 export * from './carousel/carousel.component';
 export * from './client-home/client-home.component';
-export * from './login';
+export * from './login/login.component';
+export * from './layout/layout.component';

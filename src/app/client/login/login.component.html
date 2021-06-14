@@ -24,7 +24,7 @@
          <!-- Añadir un icono de un ojo que permita poder visualizar la contraseña-->
          <div class="eye" style="position: relative; top:50px ;left: 250px;">
           <span class="material-icons"matsuffix (click)="hide = !hide" >
-          {{hide ? 'visibility':'visibility_off'}}</span></div>
+          {{hide ? 'visibility_off':'visibility'}}</span></div>
 
 
       <!------------------------------------Password------------------------------------>
@@ -46,7 +46,7 @@
           <span *ngIf="loading" ></span> Ingresar
         </button>
 
-        <a class="btn" routerLink = "">Cancelar</a>
+        <a class="btn" routerLink='/cliente'>Cancelar</a>
 
 </form>
 </div>

@@ -1,7 +1,7 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 import { AlertComponent } from './index';
@@ -15,7 +15,8 @@ import {NotFoundComponent} from './index';
   imports: [
     CommonModule,
     RouterModule,
+    ReactiveFormsModule
   ],
-  exports: [NavbarComponent, NotFoundComponent, CommonModule, FormsModule, AlertComponent],
+  exports: [NavbarComponent, NotFoundComponent, CommonModule, FormsModule, AlertComponent, ReactiveFormsModule],
 })
 export class SharedModule { }

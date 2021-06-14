@@ -16,11 +16,12 @@ export class ErrorInterceptor implements HttpInterceptor {
         return next.handle(request).pipe(catchError(err => {
           if ([401].indexOf(err.status) !== -1) {
                 // auto logout si devuelve un error 401 desde la API
-                //this.authenticationService.logout();
 
             if (this.authenticationService.currentUserValue){
                 this.alertService.error('No posee los permisos necesarios para efectuar esta acción');
+                console.log('401 Error');
               }
+
             
             else
             {
@@ -30,13 +31,13 @@ export class ErrorInterceptor implements HttpInterceptor {
 
             if ([403].indexOf(err.status) !== -1) {
               // redirecciona a la ruta para el 403 error.
-              this.route.navigate(['/home']);
-             // location.reload(true);
+              this.route.navigate(['/']);
+              console.log('403 Error');
           }
             if (err.status === 404) {
               // redirecciona a la ruta para el 404 error.
               this.route.navigate(['**']);
-              //location.reload(true);
+              console.log('404 Error');
           }
           if (err.status === 422) {
               this.alertService.warn('El DNI ingresado ya se encuentra registrado.');

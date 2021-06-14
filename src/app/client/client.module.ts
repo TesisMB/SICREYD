@@ -3,20 +3,19 @@ import { NgModule } from '@angular/core';
 import { ClientRoutingModule } from './client-routing.module';
 
 import { SharedModule } from './../shared/shared.module';
-import { AuthenticationService } from '../services';
 
 import { ClientNavbarComponent } from '.';
 import { FooterComponent } from './';
 import { CarouselComponent } from './';
 import {ClientHomeComponent} from './';
 import {LoginComponent} from './';
+import { LayoutComponent } from './index';
 @NgModule({
-  declarations: [ClientNavbarComponent,FooterComponent,CarouselComponent,ClientHomeComponent,LoginComponent],
+  declarations: [LayoutComponent, ClientNavbarComponent,FooterComponent,CarouselComponent,ClientHomeComponent,LoginComponent],
   imports: [
     SharedModule,
     ClientRoutingModule,
     ReactiveFormsModule
-  ],
-  providers: [AuthenticationService]
+  ]
 })
 export class ClientModule { }

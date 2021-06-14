@@ -17,10 +17,10 @@ this.currentUser = this.authenticationService.currentUserValue;
   click()
   {
      if (this.currentUser){
-      return this.router.navigate(['home'])
+      return this.router.navigate(['/'])
      }
 else
-    return this.router.navigate(['']);
+    return this.router.navigate(['/cliente']);
 
   }
 

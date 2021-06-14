@@ -1,8 +1,9 @@
 import { AlertService, AuthenticationService } from '../../services';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
+import { User } from 'src/app/models';
 
 
 @Component({
@@ -16,6 +17,8 @@ export class LoginComponent implements OnInit {
     submitted = false;
     returnUrl: string;
     hide=true;
+    currentUser: User;
+    handler: any;
 
     constructor(
         private formBuilder: FormBuilder,
@@ -24,8 +27,11 @@ export class LoginComponent implements OnInit {
         private authenticationService: AuthenticationService,
         private alertService: AlertService
     ) {
-         //redirect to home if already logged in
-    
+        this.currentUser = this.authenticationService.currentUserValue;
+         //Redirecciona si el usuario esta logeado
+         if (this.authenticationService.currentUserValue) {
+            this.router.navigate(['/']);
+        }
     }
 
     ngOnInit() {
@@ -36,7 +42,7 @@ export class LoginComponent implements OnInit {
         });
 
         // get return url from route parameters or default to '/'
-        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || 'home';
+        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
       }
     // convenience getter for easy access to form fields
     get f() { return this.loginForm.controls; }
@@ -54,16 +60,21 @@ export class LoginComponent implements OnInit {
         }
 
         this.loading = true;
-        this.authenticationService.login(this.f.userDni.value, this.f.userPassword.value)
+       this.handler = this.authenticationService
+            .login(this.f.userDni.value, this.f.userPassword.value)
             .pipe(first())
             .subscribe(
                 data => {
                     this.router.navigate([this.returnUrl]);
                 },
                 error => {
-                  this.alertService.error('Datos incorrectos');
+                  this.alertService.error('Ha ingresado el usuario o la contraseña incorrectamente');
                   this.loading = false;
                 });
+    }
+
+    OnDestroy() {
+        this.handler.unsubscribe();
     }
 
 }

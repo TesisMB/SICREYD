@@ -1,28 +1,23 @@
-<body >
-
   <div class="title">
     <h1>Lista de Usuarios</h1>
   </div>
 
   <div class="container">
     <a routerLink="register" class="btn btn-sm btn-success mb-2">Agregar usuario</a>
-    <a routerLink="add" class="btn btn-sm btn-danger">Agregar recurso</a>
     <table class="table table-striped" style="z-index: 50; box-shadow: 0px 25px 36px 12px rgba(0, 0, 0, 0.10);">
       <thead>
         <tr style="background: #fff;">
-          <th>ID</th>
-          <th>Role</th>
-          <th>Usuario</th>
           <th>DNI</th>
+          <th>Nombre</th>
+          <th>Role</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let user of users">
-          <td>{{user.userID}}</td>
-          <td>{{user.roleName}}</td>
-          <td>{{user.fullName}}</td>
           <td>{{user.userDni}}</td>
+          <td>{{user.persons.firstName | titlecase}} {{user.persons.lastName| titlecase}}</td>
+          <td>{{user.roles.roleName| titlecase}}</td>
           <td style="white-space: nowrap">
             <a routerLink="edit/{{user.userID}}" class="btn btn-sm btn-primary mr-1">Actualizar</a>
 
@@ -77,4 +72,3 @@
       </div>
     </div>
   </div>
-</body>
