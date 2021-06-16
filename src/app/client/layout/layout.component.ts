@@ -15,7 +15,7 @@ export class LayoutComponent {
 ) {
     // redirecciona a "home" si ya esta logeado.
     if (this.AuthenticationService.currentUserValue) {
-        this.router.navigate(['home']);
+        this.router.navigate(['/']);
     }
 }
 }

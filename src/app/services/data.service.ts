@@ -1,5 +1,4 @@
 import { AuthenticationService } from './_authentication/authentication.service';
-import { User } from './../models/user';
 import { environment } from '../../environments/environment';
 import { Person } from '../models/person';
 
@@ -19,10 +18,10 @@ export class DataService {
 
   }
 
-  public get userValue(): Person
-  {
-    return this.personSubject.value;
-}
+//   public get userValue(): Person
+//   {
+//     return this.personSubject.value;
+// }
 
   getAll(){
     return this.http.get(environment.URL+this.patch);
@@ -31,7 +30,7 @@ export class DataService {
     return this.http.get(environment.URL+this.patch);
   }
   getById(id: string) {
-    return this.http.get<User>(environment.URL+this.patch+'/'+id);
+    return this.http.get<any>(environment.URL+this.patch+'/'+id);
 }
   register(resource){
     return  this.http.post(environment.URL+this.patch, JSON.stringify(resource), this.options);

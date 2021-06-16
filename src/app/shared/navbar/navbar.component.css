@@ -65,8 +65,9 @@ input {
   top: 64px;
   left: -240px;
   height: 100%;
-  background: #fff;
+  background: rgb(255, 255, 255);
   transition: .5s;
+
 }
 
 
@@ -83,7 +84,7 @@ label #menu{
 
 
 
-.Enlaces ul, .dropdown-menu  ul{
+.Enlaces div, .dropdown-menu  div{
   line-height: 40px;
   font-size: 14px;
   font-weight: 600;
@@ -92,27 +93,30 @@ label #menu{
 
 
 
-.Enlaces ul li{
+.Enlaces div div{
   list-style: none;
   border-bottom: 1px solid  rgb(188, 188, 188);
 }
 
-.Enlaces ul li:hover, .dropdown-menu  ul .list:hover{
-  background: rgba(188, 188, 188, 0.337);
+.Enlaces div div:hover, .dropdown-menu  li:hover{
+  background: rgba(228, 70, 70, 0.337);
 }
 
 
-.Enlaces ul li i, .dropdown-menu  ul li i{
+.Enlaces div div i, .dropdown-menu  ul li i{
   padding-right: 20px;
   margin-left: 10px;
+
 }
 
-.Enlaces ul li a, .dropdown-menu  ul li a{
+.Enlaces div div a, .dropdown-menu  ul li a{
   color: #000;
   margin-left: 20px;
   transition: all .3s ease;
   text-decoration: none;
 }
+
+
 
 /* --------------------------------------Nav user-------------------------------------- */
 
@@ -131,6 +135,9 @@ label #menu{
 .dropdown-menu  ul li{
   list-style: none;
   border-bottom: 1px solid  rgb(188, 188, 188);
+  height: 40px;
+  text-align: justify;
+  padding-top: 3px;
 }
 
 #user{
@@ -142,11 +149,11 @@ label #menu{
 .first-title{
   color: #fff;
   text-align: center;
-  background: #b71c1c;;
+  background: rgb(207, 55, 55);
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 
 }
 
@@ -156,147 +163,4 @@ label #menu{
 
 .dos{
   font-size: 12px;
-}
-
-/* --------------------------------------header-------------------------------------- */
-
-header::before {
-  content: "";
-  display: flex;
-  margin-bottom: 60px;
-}
-
-.contenedor1 {
-  width: 100%;
-  background: rgb(250, 231, 223);
-  overflow: hidden;
-}
-
-.contenido-header {
-  width: 100%;
-  height: 320px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 30px;
-  border-bottom: 1px solid transparent;
-}
-
-.textos-header {
-  color: #38A9F9;
-  font-size: 35px;
-}
-
-
-
-.contenido-header a {
-  margin: 30px 0 0 0;
-  width: 130px;
-  display: inline-block;
-  background: #b71c1c;
-  text-align: center;
-  color: #fff;
-  padding: 12px 0;
-  text-decoration: none;
-  font-weight: 400;
-  text-transform: uppercase;
-  font-size: 14px;
-  border-radius: 5px;
-}
-
-
-.contenido-header a:hover {
-  background: #b71c1ccd;
-}
-
-/* --------------------------------------Section Cards-------------------------------------- */
-
-
-
-/* Card min */
-
-.card-min {
-  background: rgba(188, 188, 188, 0.248);
-}
-
-.contenedor-articulo {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 40px;
-  justify-content: space-around;
-}
-
-.articulo{
-  width: 20%;
-  background: #fff;
-  margin-bottom: 20px;
-  border-radius: 10px;
-  transition: .5s;
-}
-
-.articulo:hover {
-  box-shadow: 0 4px 10px rgba(17, 29, 48, 0.563);
-}
-
-
-.articulo h3{
-      font-size: 24px;
-      margin-top: 10px;
-      text-align: center;
-}
-
-.articulo p{
-  font-weight: 100;
-  color: #5d6678;
-  margin-top: 10px;
-  text-align: center;
-  padding-bottom: 10px;
-}
-
-.articulo a, .articulo-max a{
-  text-decoration: none;
-  color: #5d6678;
-  font-weight: 400;
-}
-
-/* card-max */
-.card-max {
-  background: rgba(188, 188, 188, 0.248);
-}
-
-
-.contenedor-articulo-max{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-.articulo-max{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 300px;
-  width: 20%;
-  background: #fff;
-  margin-bottom: 50px;
-  border-radius: 10px;
-  transition: .5s;
-  padding-bottom: 30px;
-}
-
-.articulo-max:hover{
-  box-shadow: 0 4px 10px rgba(17, 29, 48, 0.563);
-}
-
-.articulo-max h3{
-  font-size: 24px;
-  margin-top: 30px;
-  text-align: center;
-}
-
-.articulo-max p{
-  font-weight: 100;
-  color: #5d6678;
-  text-align: center;
 }

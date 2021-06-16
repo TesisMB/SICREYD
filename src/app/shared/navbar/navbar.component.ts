@@ -1,8 +1,7 @@
-import { Observable, Subscription, Subject } from 'rxjs';
 import { User, RoleName} from '../../models/index';
 import { AuthenticationService } from '../../services/_authentication/authentication.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { nextTick } from 'process';
 
 @Component({
@@ -12,62 +11,41 @@ import { nextTick } from 'process';
 })
 export class NavbarComponent implements OnInit {
   currentUser: User;
-  roleUser: any;
-  pages:{page:string,name:string, img?:string}[];
-
-
+handler : any;
   constructor(
-      private authenticationService: AuthenticationService
-      
+      private authenticationService: AuthenticationService,
+      private router: Router
   ) {
-     this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
-     this.roleUser = this.currentUser.roleName;
+   this.handler = this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+      
 
   }
 
-  ngOnInit(){     
+  ngOnInit(){}
+
+  get isAdmin() {
     
-              this.mostrarPages(this.currentUser.roleName);
-
-            //  console.log(this.currentUser);
-            console.log("Role: "+this.currentUser.roleName);
+      return this.currentUser && this.currentUser.roleName === RoleName.Admin || RoleName.CoordinadorGeneral;
   }
 
-  mostrarPages(role) {
-    switch (role)
-    {
-    case RoleName.Admin:
-      this.pages=[{page:'/home',name:'Inicio',img:'fas fa-home'},
-                  {page:'/users',name:'Usuarios'},
-                  {page:'/resources',name:'Recursos'}, 
-                  {page:'/emergency',name:'Emergencias - Desastres'}];
-        break;
+  get isCoordinadorGeneral() {
+    return this.currentUser && this.currentUser.roleName === RoleName.CoordinadorGeneral;
+  }
 
-    case RoleName.CoordinadorGeneral:        
-       this.pages=[{page:'/home',name:'Inicio'},
-                   {page:'/users',name:'Usuarios'},
-                   {page:'/resources',name:'Recursos'},
-                   {page:'/emergency',name:'Emergencias - Desastres'}];
-           break;
+  get isCoordEyD () {
+    return this.currentUser && this.currentUser.roleName === RoleName.CEyD;
+  }
 
-    case RoleName.CEyD:
-                 
-       this.pages=[ {page:'/home',name:'Inicio'},
-                    {page:'/emergency',name:'Emergencias - Desastres'}];
-            break;
-
-    case RoleName.Logistica:       
-       this.pages=[{page:'/home',name:'Inicio'},
-                    {page:'/resources',name:'Recursos'}];
-                 break;
-    default:
-      this.pages=[{page:'/home',name:'Inicio'}];
-  }}
+  get isLogistica () {
+    return this.currentUser && this.currentUser.roleName === RoleName.Logistica;
+  }
 
   logout() { 
-    this.authenticationService.logout(); 
+    this.authenticationService.logout();
   }
-
+OnDestroy(){
+  this.handler.unsubscribe();
+}
 
 
 }

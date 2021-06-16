@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
-import {AuthenticationService } from './../../services';
+import {AlertService, AuthenticationService } from './../../services';
 import { User } from 'src/app/models';
 
 @Component({
@@ -11,15 +11,13 @@ import { User } from 'src/app/models';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  currentUser : User;
   constructor(
       private authenticationService: AuthenticationService,
       private router: Router,
+      private alertService: AlertService
   ) {
-  this.currentUser = this.authenticationService.currentUserValue;
   }
 
   ngOnInit() {
-    console.log(this.currentUser);
   }
 }
